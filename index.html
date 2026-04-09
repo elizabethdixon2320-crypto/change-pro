@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Pro | Change Is A Habit</title>
+  <style>
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-35-Thin.ttf") format("truetype");
+      font-weight: 100;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-45-Light.otf") format("opentype");
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-55-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-65-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-75-SemiBold.ttf") format("truetype");
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-85-Bold.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-95-ExtraBold.otf") format("opentype");
+      font-weight: 800;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-105-Heavy.ttf") format("truetype");
+      font-weight: 850;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Alibaba PuHuiTi";
+      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-115-Black.otf") format("opentype");
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Balgin";
+      src: url("./change-pro-assets/fonts/Balgin Light.ttf") format("truetype");
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Balgin";
+      src: url("./change-pro-assets/fonts/Balgin Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Balgin";
+      src: url("./change-pro-assets/fonts/Balgin Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Balgin";
+      src: url("./change-pro-assets/fonts/Balgin Black.ttf") format("truetype");
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    :root {
+      --sand: #161311;
+      --paper: rgba(34, 28, 24, 0.84);
+      --ink: #f7efe5;
+      --muted: #d1c2b1;
+      --bronze: #9b6a44;
+      --bronze-soft: rgba(155, 106, 68, 0.14);
+      --headline: #fff4e8;
+      --headline-dark: #fff2e4;
+      --line: rgba(255, 243, 230, 0.10);
+      --dark: #1d1a17;
+      --dark-soft: #2d2824;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.24);
+      --radius-xl: 34px;
+      --radius-lg: 28px;
+      --radius-md: 22px;
+      --max: 1320px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.012em;
+      background:
+        radial-gradient(circle at top left, rgba(155, 106, 68, 0.18), transparent 24%),
+        radial-gradient(circle at 90% 14%, rgba(255, 235, 214, 0.05), transparent 18%),
+        linear-gradient(180deg, #161311 0%, #1d1815 48%, #151210 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(255, 244, 231, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 244, 231, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 88%);
+      animation: grainDrift 18s linear infinite;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -18vh -12vw;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 14%, rgba(244, 248, 255, 0.08), transparent 24%),
+        radial-gradient(circle at 72% 72%, rgba(255, 255, 255, 0.1), transparent 28%),
+        radial-gradient(circle at 28% 82%, rgba(240, 245, 255, 0.06), transparent 20%);
+      filter: blur(72px);
+      animation: auraFloat 10s ease-in-out infinite alternate;
+    }
+
+    .aurora {
+      position: fixed;
+      inset: -24vh -18vw;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      filter: blur(34px) saturate(1.08);
+      opacity: 1;
+    }
+
+    .aurora-layer {
+      position: absolute;
+      border-radius: 999px;
+      mix-blend-mode: screen;
+      opacity: 0.96;
+      will-change: transform;
+    }
+
+    .aurora-layer.one {
+      width: 56vw;
+      height: 46vh;
+      left: -6vw;
+      top: 6vh;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.5), rgba(248, 250, 255, 0.22) 34%, transparent 68%);
+      animation: auroraWaveA 7.5s ease-in-out infinite alternate;
+    }
+
+    .aurora-layer.two {
+      width: 52vw;
+      height: 42vh;
+      right: -10vw;
+      top: 2vh;
+      background:
+        radial-gradient(circle at 54% 48%, rgba(244, 248, 255, 0.42), rgba(230, 238, 255, 0.16) 32%, transparent 70%);
+      animation: auroraWaveB 8.5s ease-in-out infinite alternate;
+    }
+
+    .aurora-layer.three {
+      width: 62vw;
+      height: 48vh;
+      left: 18vw;
+      bottom: -6vh;
+      background:
+        radial-gradient(circle at 46% 52%, rgba(255, 255, 255, 0.34), rgba(236, 242, 255, 0.14) 30%, transparent 72%);
+      animation: auroraWaveC 8s ease-in-out infinite alternate;
+    }
+
+    .aurora-layer.four {
+      width: 42vw;
+      height: 34vh;
+      right: 12vw;
+      bottom: 12vh;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(247, 250, 255, 0.28), rgba(228, 236, 255, 0.08) 34%, transparent 72%);
+      animation: auroraWaveD 6.8s ease-in-out infinite alternate;
+    }
+
+    .aurora::before {
+      content: "";
+      position: absolute;
+      inset: 4vh 18vw auto 10vw;
+      height: 32vh;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 44% 46%, rgba(255, 255, 255, 0.28), rgba(240, 245, 255, 0.1) 36%, transparent 72%);
+      filter: blur(24px);
+      opacity: 1;
+      mix-blend-mode: screen;
+      animation: auroraSweep 5.8s ease-in-out infinite alternate;
+    }
+
+    .aurora::after {
+      content: "";
+      position: absolute;
+      inset: 12vh 14vw auto;
+      height: 38vh;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.24), rgba(242, 247, 255, 0.08) 34%, transparent 72%);
+      filter: blur(26px);
+      opacity: 1;
+      animation: auroraCenter 7.2s ease-in-out infinite alternate;
+    }
+
+    .section-glow {
+      position: absolute;
+      inset: -18%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.78;
+      background:
+        radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 242, 224, 0.24), rgba(181, 128, 84, 0.16) 30%, transparent 62%);
+      filter: blur(34px);
+      transition: opacity 240ms ease;
+    }
+
+    .hero-main:hover .section-glow,
+    .cta-card:hover .section-glow {
+      opacity: 1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(22, 18, 15, 0.72);
+      border-bottom: 1px solid rgba(255, 243, 230, 0.08);
+      transition: background 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
+    }
+
+    .topbar.scrolled {
+      background: rgba(20, 17, 14, 0.88);
+      border-bottom-color: rgba(255, 243, 230, 0.12);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 82px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-lockup img {
+      width: 144px;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.08));
+    }
+
+    .brand-sub {
+      color: rgba(255, 244, 231, 0.84);
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 11px;
+      line-height: 1.6;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      color: rgba(255, 244, 231, 0.88);
+      letter-spacing: 0.08em;
+      font-weight: 400;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--bronze);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 220ms ease;
+    }
+
+    .nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .hero {
+      padding: 28px 0 18px;
+    }
+
+    .hero-frame {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 24px;
+    }
+
+    .hero-main,
+    .hero-aside {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(23, 23, 23, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .motion-card {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .motion-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      background:
+        radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.22), rgba(255, 237, 214, 0.08) 28%, transparent 52%);
+      transition: opacity 260ms ease;
+      z-index: 0;
+    }
+
+    .motion-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      pointer-events: none;
+      opacity: 0;
+      background:
+        conic-gradient(from var(--ma, 180deg) at var(--mx, 50%) var(--my, 50%), transparent 0deg, rgba(255, 244, 229, 0.42) 22deg, rgba(181, 128, 84, 0.34) 54deg, transparent 96deg, transparent 360deg),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(155, 106, 68, 0.18), rgba(255, 255, 255, 0.08));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      transition: opacity 260ms ease, transform 260ms ease;
+      z-index: 1;
+    }
+
+    .motion-card:hover::before,
+    .motion-card:hover::after {
+      opacity: 1;
+    }
+
+    .motion-card:hover::after {
+      transform: scale(1.012);
+    }
+
+    .motion-card.dark-glow::before {
+      background:
+        radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 245, 232, 0.3), rgba(181, 128, 84, 0.18) 28%, transparent 60%);
+    }
+
+    .motion-card.dark-glow::after {
+      background:
+        conic-gradient(from var(--ma, 180deg) at var(--mx, 50%) var(--my, 50%), transparent 0deg, rgba(255, 244, 229, 0.48) 20deg, rgba(181, 128, 84, 0.42) 56deg, transparent 100deg, transparent 360deg),
+        linear-gradient(135deg, rgba(255, 244, 229, 0.32), rgba(181, 128, 84, 0.3), rgba(255, 255, 255, 0.08));
+    }
+
+    .hero-main {
+      position: relative;
+      min-height: 760px;
+      background:
+        linear-gradient(155deg, rgba(16, 15, 15, 0.82), rgba(34, 29, 26, 0.58)),
+        url("./change-pro-assets/moho.jpg") center center / cover no-repeat;
+      color: #f8f3ec;
+      transform: translate3d(0, 0, 0);
+      transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms ease;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15, 15, 15, 0.18) 0%, rgba(15, 15, 15, 0.28) 28%, rgba(15, 15, 15, 0.72) 100%);
+      transition: opacity 420ms ease;
+    }
+
+    .hero-main:hover::after {
+      opacity: 0.88;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 22px;
+      height: 100%;
+      padding: 52px;
+      transform: translate3d(0, calc(var(--hero-shift, 0px) * -0.18), 0);
+    }
+
+    .eyebrow {
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255, 244, 231, 0.82);
+      font-weight: 300;
+    }
+
+    .hero-logo {
+      width: min(56%, 420px);
+      margin-top: 10px;
+      align-self: center;
+      transform: translate3d(0, calc(var(--hero-shift, 0px) * -0.08), 0);
+      transition: transform 300ms ease;
+    }
+
+    .hero-title {
+      margin: 8px 0 0;
+      max-width: 960px;
+      font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      font-weight: 900;
+      font-size: clamp(30px, 3.8vw, 54px);
+      line-height: 1.44;
+      letter-spacing: 0.075em;
+      color: var(--headline-dark);
+      text-wrap: balance;
+      text-align: center;
+      align-self: center;
+      transform: translate3d(0, calc(var(--hero-shift, 0px) * -0.12), 0);
+    }
+
+    .hero-copy {
+      max-width: 600px;
+      color: rgba(255, 244, 231, 0.9);
+      font-size: 18px;
+      line-height: 2.18;
+      letter-spacing: 0.02em;
+      font-weight: 300;
+      transform: translate3d(0, calc(var(--hero-shift, 0px) * -0.06), 0);
+    }
+
+    .hero-copy p {
+      margin: 0 0 18px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 680px;
+      margin-top: 4px;
+      transform: translate3d(0, calc(var(--hero-shift, 0px) * -0.04), 0);
+    }
+
+    .hero-stat {
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 320ms ease, background 320ms ease, border-color 320ms ease;
+    }
+
+    .hero-stat:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 30px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .hero-stat span {
+      display: block;
+      color: rgba(255, 244, 231, 0.78);
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      font-size: 12px;
+    }
+
+    .hero-aside {
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      background:
+        radial-gradient(circle at top left, rgba(155, 106, 68, 0.18), transparent 32%),
+        linear-gradient(180deg, rgba(34, 28, 24, 0.92), rgba(27, 22, 19, 0.98));
+    }
+
+    .hero-slogan {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 34px 0;
+    }
+
+    .hero-slogan img {
+      width: min(46%, 210px);
+      margin: 0 auto;
+      transform: translate3d(0, calc(var(--hero-shift, 0px) * -0.08), 0);
+      transition: transform 320ms ease;
+    }
+
+    .hero-image-stack {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 14px;
+      padding: 18px 34px 0;
+    }
+
+    .hero-image-stack img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      min-height: 220px;
+      box-shadow: 0 14px 36px rgba(36, 28, 22, 0.10);
+      transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease, filter 320ms ease;
+    }
+
+    .hero-image-stack img:hover {
+      transform: scale(1.035);
+      box-shadow: 0 18px 42px rgba(36, 28, 22, 0.16);
+      filter: saturate(1.04);
+    }
+
+    .hero-panel {
+      padding: 28px 34px 24px;
+    }
+
+    .hero-panel h2 {
+      margin: 0;
+      font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      font-weight: 300;
+      font-size: clamp(20px, 2vw, 31px);
+      line-height: 1.34;
+      letter-spacing: 0.024em;
+      color: var(--headline);
+      text-wrap: balance;
+    }
+
+    .hero-panel p {
+      margin: 18px 0 0;
+      max-width: 520px;
+      color: rgba(255, 244, 231, 0.82);
+      font-size: 16px;
+      line-height: 2.16;
+      letter-spacing: 0.018em;
+      font-weight: 300;
+      text-wrap: pretty;
+    }
+
+    .hero-panel p + p {
+      margin-top: 14px;
+    }
+
+    .side-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 0 34px 34px;
+    }
+
+    .side-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 248, 241, 0.06);
+      border: 1px solid var(--line);
+      transition: transform 320ms ease, box-shadow 320ms ease, background 320ms ease;
+    }
+
+    .side-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 248, 241, 0.1);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .side-card small {
+      display: block;
+      color: rgba(255, 244, 231, 0.76);
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    .side-card strong {
+      display: block;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 28px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .side-card p {
+      margin: 0;
+      color: rgba(255, 244, 231, 0.8);
+      line-height: 1.95;
+      letter-spacing: 0.015em;
+      font-size: 14px;
+    }
+
+    .ticker {
+      margin-top: 22px;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 243, 230, 0.08);
+      border-bottom: 1px solid rgba(255, 243, 230, 0.08);
+      background: rgba(255, 248, 241, 0.03);
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 40px;
+      padding: 16px 0;
+      white-space: nowrap;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      animation: drift 20s linear infinite;
+    }
+
+    .section {
+      padding: 48px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(240px, 460px);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    .label {
+      color: #d8a57a;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-head h3 {
+      margin: 0;
+      font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      font-weight: 300;
+      font-size: clamp(18px, 1.95vw, 29px);
+      line-height: 1.4;
+      letter-spacing: 0.026em;
+      color: var(--headline);
+      max-width: none;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: rgba(255, 244, 231, 0.82);
+      font-size: 16px;
+      line-height: 2.22;
+      letter-spacing: 0.018em;
+      font-weight: 300;
+      text-wrap: pretty;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card,
+    .story-card,
+    .network-card,
+    .ecosystem-card,
+    .pricing-card,
+    .timeline-card,
+    .gallery-lead,
+    .cta-card {
+      border-radius: var(--radius-lg);
+      background: rgba(31, 25, 22, 0.86);
+      border: 1px solid rgba(255, 243, 230, 0.08);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
+    }
+
+    .feature-card {
+      padding: 28px;
+      min-height: 210px;
+      transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(36, 28, 22, 0.1);
+      border-color: rgba(155, 106, 68, 0.16);
+    }
+
+    .feature-card small {
+      display: block;
+      color: rgba(255, 244, 231, 0.74);
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+
+    .feature-card strong {
+      display: block;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: clamp(30px, 3.1vw, 52px);
+      line-height: 1.04;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: rgba(255, 244, 231, 0.82);
+      line-height: 2.08;
+      letter-spacing: 0.016em;
+      font-size: 15px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .story-card {
+      padding: 34px;
+      min-height: 460px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 360ms ease, box-shadow 360ms ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 52px rgba(36, 28, 22, 0.1);
+    }
+
+    .story-card.dark {
+      background:
+        radial-gradient(circle at top right, rgba(155, 106, 68, 0.22), transparent 28%),
+        linear-gradient(155deg, rgba(27, 24, 22, 0.98), rgba(38, 32, 29, 0.94));
+      color: #f7f2eb;
+    }
+
+    .story-card .cap {
+      display: inline-flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      color: #d8a57a;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+    }
+
+    .story-card.dark .cap {
+      color: rgba(250, 199, 150, 0.88);
+    }
+
+    .story-card h4 {
+      margin: 0 0 20px;
+      font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      font-weight: 300;
+      font-size: clamp(18px, 1.75vw, 26px);
+      line-height: 1.4;
+      letter-spacing: 0.026em;
+      color: var(--headline);
+      max-width: none;
+      text-wrap: balance;
+    }
+
+    .story-card.dark h4 {
+      color: var(--headline-dark);
+    }
+
+    .story-card p {
+      margin: 0 0 18px;
+      color: rgba(255, 244, 231, 0.82);
+      line-height: 2.22;
+      letter-spacing: 0.018em;
+      font-size: 16px;
+      max-width: none;
+      font-weight: 300;
+      text-wrap: pretty;
+    }
+
+    .story-card.dark p {
+      color: rgba(255, 244, 231, 0.86);
+    }
+
+    .quote {
+      margin-top: 28px;
+      padding: 18px 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      font-size: 18px;
+      line-height: 1.88;
+      letter-spacing: 0.014em;
+      color: #fff4e8;
+      font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      font-weight: 300;
+      text-wrap: balance;
+    }
+
+    .story-photo {
+      margin-top: 24px;
+      border-radius: 26px;
+      overflow: hidden;
+      min-height: 250px;
+      box-shadow: 0 18px 40px rgba(28, 22, 18, 0.14);
+    }
+
+    .story-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease;
+    }
+
+    .story-card:hover .story-photo img {
+      transform: scale(1.04);
+      filter: saturate(1.03);
+    }
+
+    .network-grid,
+    .ecosystem-grid,
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .network-card,
+    .ecosystem-card,
+    .pricing-card {
+      padding: 28px;
+      transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+    }
+
+    .network-card:hover,
+    .ecosystem-card:hover,
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(36, 28, 22, 0.1);
+      border-color: rgba(155, 106, 68, 0.16);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: var(--bronze-soft);
+      color: #d8a57a;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .network-card h4,
+    .ecosystem-card h4,
+    .pricing-card h4 {
+      margin: 0 0 14px;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.01em;
+      line-height: 1.34;
+      color: var(--headline);
+      font-weight: 400;
+    }
+
+    .network-card p,
+    .ecosystem-card p,
+    .pricing-card p {
+      margin: 0;
+      color: rgba(255, 244, 231, 0.82);
+      line-height: 2.14;
+      letter-spacing: 0.016em;
+      font-size: 15px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .gallery-lead {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      overflow: hidden;
+      min-height: 660px;
+      padding: 0;
+      transition: transform 360ms ease, box-shadow 360ms ease;
+    }
+
+    .gallery-lead:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 52px rgba(36, 28, 22, 0.1);
+    }
+
+    .gallery-lead img {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      object-fit: cover;
+      transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease;
+    }
+
+    .gallery-lead:hover img {
+      transform: scale(1.035);
+      filter: saturate(1.03);
+    }
+
+    .gallery-copy {
+      padding: 26px 28px 30px;
+    }
+
+    .gallery-copy h4 {
+      margin: 0 0 10px;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 21px;
+      line-height: 1.36;
+      letter-spacing: 0.02em;
+      color: var(--headline);
+      font-weight: 400;
+      text-wrap: balance;
+    }
+
+    .gallery-copy p {
+      margin: 0;
+      color: rgba(255, 244, 231, 0.82);
+      line-height: 2.14;
+      letter-spacing: 0.016em;
+      font-size: 15px;
+      text-wrap: balance;
+    }
+
+    .gallery-stack {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-shot {
+      border-radius: 26px;
+      overflow: hidden;
+      min-height: 250px;
+      border: 1px solid rgba(255, 243, 230, 0.08);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
+      background: rgba(31, 25, 22, 0.86);
+      transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+    }
+
+    .gallery-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease;
+    }
+
+    .gallery-shot:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(36, 28, 22, 0.1);
+      border-color: rgba(155, 106, 68, 0.16);
+    }
+
+    .gallery-shot:hover img {
+      transform: scale(1.04);
+      filter: saturate(1.04);
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .timeline-card {
+      padding: 28px;
+      transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(36, 28, 22, 0.1);
+      border-color: rgba(155, 106, 68, 0.16);
+    }
+
+    .timeline-card h4 {
+      margin: 0;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 21px;
+      line-height: 1.36;
+      letter-spacing: 0.02em;
+      color: var(--headline);
+      font-weight: 400;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item strong {
+      color: #e0ad82;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 14px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: rgba(255, 244, 231, 0.82);
+      line-height: 2.12;
+      letter-spacing: 0.016em;
+      font-size: 15px;
+    }
+
+    .cta-card {
+      margin: 14px 0 58px;
+      padding: 40px;
+      background:
+        linear-gradient(145deg, rgba(22, 20, 18, 0.98), rgba(40, 32, 28, 0.94)),
+        radial-gradient(circle at top left, rgba(155, 106, 68, 0.28), transparent 30%);
+      color: #f7f2eb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card:hover {
+      box-shadow: 0 26px 64px rgba(18, 14, 12, 0.24);
+    }
+
+    .cta-card::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .cta-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta-text h3 {
+      margin: 0 0 20px;
+      font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      font-weight: 300;
+      font-size: clamp(20px, 2vw, 31px);
+      line-height: 1.38;
+      letter-spacing: 0.026em;
+      color: var(--headline-dark);
+      max-width: none;
+      text-wrap: balance;
+    }
+
+    .cta-text p {
+      margin: 0 0 18px;
+      max-width: none;
+      color: rgba(255, 244, 231, 0.88);
+      line-height: 2.2;
+      letter-spacing: 0.018em;
+      font-size: 17px;
+      font-weight: 300;
+      text-wrap: pretty;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button,
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .button {
+      background: #f4ede4;
+      color: #161412;
+      transition: transform 240ms ease, box-shadow 240ms ease, background 240ms ease;
+    }
+
+    .ghost {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.04);
+      color: #f4ede4;
+      transition: transform 240ms ease, border-color 240ms ease, background 240ms ease;
+    }
+
+    .button:hover,
+    .ghost:hover {
+      transform: translateY(-3px);
+    }
+
+    .button:hover {
+      background: #fff5ea;
+      box-shadow: 0 12px 26px rgba(18, 16, 14, 0.16);
+    }
+
+    .ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.26);
+    }
+
+    .cta-visual {
+      display: grid;
+      gap: 16px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .cta-visual > img {
+      width: min(72%, 300px);
+      margin: 0 auto;
+    }
+
+    .cta-visual .cta-photo {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 42px rgba(12, 12, 12, 0.22);
+    }
+
+    .cta-visual .cta-photo img {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease;
+    }
+
+    .cta-visual .cta-photo:hover img {
+      transform: scale(1.04);
+      filter: saturate(1.04);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(8px);
+      transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .reveal[data-delay="1"] {
+      transition-delay: 90ms;
+    }
+
+    .reveal[data-delay="2"] {
+      transition-delay: 180ms;
+    }
+
+    .reveal[data-delay="3"] {
+      transition-delay: 270ms;
+    }
+
+    .reveal[data-delay="4"] {
+      transition-delay: 360ms;
+    }
+
+    @keyframes drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes auraFloat {
+      0% {
+        transform: translate3d(-8%, -4%, 0) scale(0.98);
+      }
+      50% {
+        transform: translate3d(6%, 8%, 0) scale(1.1);
+      }
+      100% {
+        transform: translate3d(14%, -8%, 0) scale(1.08);
+      }
+    }
+
+    @keyframes auroraWaveA {
+      0% {
+        transform: translate3d(-16%, -6%, 0) rotate(-16deg) scale(0.9);
+      }
+      100% {
+        transform: translate3d(26%, -14%, 0) rotate(18deg) scale(1.3);
+      }
+    }
+
+    @keyframes auroraWaveB {
+      0% {
+        transform: translate3d(12%, -8%, 0) rotate(12deg) scale(0.9);
+      }
+      100% {
+        transform: translate3d(-26%, 16%, 0) rotate(-18deg) scale(1.32);
+      }
+    }
+
+    @keyframes auroraWaveC {
+      0% {
+        transform: translate3d(-14%, 8%, 0) rotate(-14deg) scale(0.92);
+      }
+      100% {
+        transform: translate3d(22%, -18%, 0) rotate(16deg) scale(1.28);
+      }
+    }
+
+    @keyframes auroraWaveD {
+      0% {
+        transform: translate3d(12%, -10%, 0) rotate(10deg) scale(0.88);
+      }
+      100% {
+        transform: translate3d(-20%, 14%, 0) rotate(-16deg) scale(1.28);
+      }
+    }
+
+    @keyframes auroraCenter {
+      0% {
+        transform: translate3d(-14%, -6%, 0) scale(0.86);
+      }
+      100% {
+        transform: translate3d(18%, 12%, 0) scale(1.22);
+      }
+    }
+
+    @keyframes auroraSweep {
+      0% {
+        transform: translate3d(-18%, -8%, 0) rotate(-10deg) scale(0.82);
+      }
+      100% {
+        transform: translate3d(24%, 12%, 0) rotate(12deg) scale(1.28);
+      }
+    }
+
+    @keyframes grainDrift {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(24px, 18px, 0);
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .hero-frame,
+      .section-head,
+      .feature-grid,
+      .story-grid,
+      .network-grid,
+      .ecosystem-grid,
+      .pricing-grid,
+      .gallery-grid,
+      .timeline-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      body::after {
+        opacity: 0.62;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(calc(100% - 22px), var(--max));
+      }
+
+      .brand-lockup img {
+        width: 120px;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+
+      .hero,
+      .section {
+        padding-top: 24px;
+        padding-bottom: 24px;
+      }
+
+      .hero-content,
+      .hero-slogan,
+      .hero-image-stack,
+      .hero-panel,
+      .side-grid,
+      .story-card,
+      .network-card,
+      .ecosystem-card,
+      .pricing-card,
+      .timeline-card,
+      .cta-card {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero-content {
+        padding-top: 28px;
+        padding-bottom: 28px;
+      }
+
+      .hero-main {
+        min-height: 680px;
+      }
+
+      .hero-image-stack,
+      .side-grid,
+      .gallery-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .cta-visual {
+        justify-items: stretch;
+      }
+
+      body::before,
+      body::after,
+      .aurora,
+      .aurora-layer {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora-layer one"></div>
+    <div class="aurora-layer two"></div>
+    <div class="aurora-layer three"></div>
+    <div class="aurora-layer four"></div>
+  </div>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand-lockup">
+        <img src="./change-pro-assets/logo-white.png" alt="Change Pro">
+        <div class="brand-sub">
+          High Density Urban Fitness<br>
+          Change Is A Habit
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#positioning">定位</a>
+        <a href="#network">场馆</a>
+        <a href="#gallery">空间</a>
+        <a href="#ecosystem">生态</a>
+        <a href="#future">未来</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-frame">
+          <article class="hero-main motion-card dark-glow reveal">
+            <div class="section-glow" aria-hidden="true"></div>
+            <div class="hero-content">
+              <div class="eyebrow">Change Pro / Urban Fitness Platform</div>
+              <img class="hero-logo" src="./change-pro-assets/logo-white.png" alt="Change Pro white logo">
+              <h1 class="hero-title">让高密度训练空间<br>数字会员系统<br>城市运动文化<br>变成一种可以<br>每天发生的习惯</h1>
+              <div class="hero-copy">
+                <p>Change Pro 不想做传统健身房的又一个版本，而是在更大的会员容量、更强的设备覆盖和更轻的交易门槛之间，重新定义一套城市运动基础设施。</p>
+                <p>它看上去是健身空间，实际上更像一个持续运转的健康生活方式平台。</p>
+              </div>
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <strong>7</strong>
+                  <span>Open Clubs</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>6000+</strong>
+                  <span>Members Per Club</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>130</strong>
+                  <span>Cardio Machines</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside class="hero-aside motion-card reveal">
+            <div class="hero-slogan">
+              <img src="./change-pro-assets/slogan-white.png" alt="Change is a Habit">
+            </div>
+            <div class="hero-image-stack">
+              <img class="reveal-soft" src="./change-pro-assets/longemeng.jpg" alt="Change Pro club interior">
+              <img class="reveal-soft" src="./change-pro-assets/eka.jpg" alt="Change Pro equipment hall">
+            </div>
+            <div class="hero-panel">
+              <h2>高性价比，不代表低标准。<br>大众普惠，也可以有高级品牌感。</h2>
+              <p>品牌的核心不是“便宜”，而是把设备密度、空间效率、信任机制与数字化体验一起抬高，再用更低门槛交给更大的人群。</p>
+              <p>所以 Change Pro 的价值，不止是一张卡，而是一种更容易坚持下去的运动方式。</p>
+            </div>
+            <div class="side-grid">
+              <div class="side-card motion-card">
+                <small>Refund</small>
+                <strong>24h</strong>
+                <p>App 内自助退款，秒到账，用机制先建立信任。</p>
+              </div>
+              <div class="side-card motion-card">
+                <small>Model</small>
+                <strong>¥500</strong>
+                <p>基础年卡切入，配合月管理费形成更轻的消费路径。</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="ticker">
+        <div class="ticker-track">
+          <span>Change Is A Habit</span>
+          <span>High Density Fitness</span>
+          <span>City Expansion</span>
+          <span>Change Cup</span>
+          <span>Change App</span>
+          <span>Training + Water Bar + Retail</span>
+          <span>Change Is A Habit</span>
+          <span>High Density Fitness</span>
+          <span>City Expansion</span>
+          <span>Change Cup</span>
+          <span>Change App</span>
+          <span>Training + Water Bar + Retail</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="positioning">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">Positioning</div>
+            <h3>把“可负担的专业感”，做成健身行业的新默认值。</h3>
+          </div>
+          <p>Change Pro 的竞争力，不只是价格结构，而是把高设备密度、统一会员系统、创始人流量、随时退机制和复合业态同时做强。它卖的不只是健身卡，而是稳定复购的运动生活方式。</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card motion-card reveal" data-delay="1">
+            <small>Capacity</small>
+            <strong>6000+</strong>
+            <p>单店可容纳 6000 名以上会员，用更大的容量支撑城市核心店的持续运营。</p>
+          </article>
+          <article class="feature-card motion-card reveal" data-delay="2">
+            <small>Density</small>
+            <strong>130</strong>
+            <p>有氧设备的数量不是点缀，而是品牌对训练体验的底层配置。</p>
+          </article>
+          <article class="feature-card motion-card reveal" data-delay="3">
+            <small>Training</small>
+            <strong>300</strong>
+            <p>青训业务已经形成稳定人群，为品牌打开家庭运动消费入口。</p>
+          </article>
+          <article class="feature-card motion-card reveal" data-delay="4">
+            <small>Influence</small>
+            <strong>1600万</strong>
+            <p>赛事内容与线上传播持续累积品牌声量，让 Change Pro 在更广泛的运动人群中建立清晰识别。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell story-grid">
+        <article class="story-card dark motion-card reveal" data-delay="1">
+          <div class="cap">Brand Logic</div>
+          <h4>真正让品牌成立的，不是“首店爆红”，而是可以被反复复制的信任系统。</h4>
+          <p>从 2015 年品牌成立，到 2024 年首家实体店落地，再到 2026 年开始加速扩张，Change Pro 已经从单点突破走向体系化建设。</p>
+          <p>徐恩杰带来的是品牌势能和流量入口，龚先建接任 CEO 之后，品牌则开始强调组织效率、标准化复制与更稳定的城市扩张能力。</p>
+          <div class="quote">“改变，是一种习惯。”<br>它定义的不是一句口号，而是一种更稳定、更可持续的训练关系。</div>
+        </article>
+
+        <article class="story-card motion-card reveal" data-delay="2">
+          <div class="cap">Spatial Signature</div>
+          <h4>空间不靠浮夸装饰取胜，而靠秩序、设备密度和持续训练氛围建立气场。</h4>
+          <p>从 MOHO 到龙之梦，再到杭州与常州，品牌视觉始终围绕高净值感的灰、黑、暖木与灯光轮廓展开。它的审美不花哨，却很容易让人形成“专业、稳定、可持续训练”的心理预期。</p>
+          <p>门店空间本身就是 Change Pro 品牌识别度最直接、最有说服力的表达方式。</p>
+          <div class="story-photo">
+            <img src="./change-pro-assets/shangdong.jpg" alt="Change Pro treadmill hall">
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="network">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">Venue Network</div>
+            <h3>从上海样板，到长三角扩张，品牌正在形成真正的场馆网络。</h3>
+          </div>
+          <p>当前已开业 7 家场馆，上海是品牌心智中心，常州和杭州代表跨城复制的第一阶段成果。下一轮增长，不再只是开店数量，而是品牌密度与城市覆盖效率。</p>
+        </div>
+
+        <div class="network-grid">
+          <article class="network-card motion-card reveal" data-delay="1">
+            <div class="pill">Shanghai Core</div>
+            <h4>上海主场</h4>
+            <p>长宁龙之梦、静安 MOHO、近铁城市广场、尚东国际、金桥 EKA 天物，共同构成品牌最强样板网络。</p>
+          </article>
+          <article class="network-card motion-card reveal" data-delay="2">
+            <div class="pill">Expansion</div>
+            <h4>异地复制</h4>
+            <p>常州江南环球港与杭州下沙弗雷德，标记着品牌从内容热度走向跨城复制能力。</p>
+          </article>
+          <article class="network-card motion-card reveal" data-delay="3">
+            <div class="pill">Pipeline 2026</div>
+            <h4>持续推进</h4>
+            <p>陆家嘴正大广场、闵行嘉寰广场、宁波三江口金光中心等项目，让品牌继续向核心商圈推进。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">Club Gallery</div>
+            <h3>真正的高级感，不靠堆砌文案，而是让空间自己说话。</h3>
+          </div>
+          <p>器械排布、动线尺度与光影层次，共同构成 Change Pro 的空间识别度。用户进入门店的第一眼，就能感受到专业、稳定与可持续训练的氛围。</p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-lead motion-card reveal" data-delay="1">
+            <img src="./change-pro-assets/moho.jpg" alt="Change Pro MOHO club">
+            <div class="gallery-copy">
+              <h4>静安 MOHO</h4>
+              <p>用深色器械、整排灯光和发光 slogan，<br>建立城市中心店的识别度。空间一眼就能传达“高密度、强秩序、可持续训练”。</p>
+            </div>
+          </article>
+
+          <div class="gallery-stack">
+            <div class="gallery-shot motion-card reveal" data-delay="1">
+              <img src="./change-pro-assets/longemeng.jpg" alt="Longemeng club">
+            </div>
+            <div class="gallery-shot motion-card reveal" data-delay="2">
+              <img src="./change-pro-assets/jintie.jpg" alt="Jintie club">
+            </div>
+            <div class="gallery-shot motion-card reveal" data-delay="3">
+              <img src="./change-pro-assets/eka.jpg" alt="EKA equipment">
+            </div>
+            <div class="gallery-shot motion-card reveal" data-delay="4">
+              <img src="./change-pro-assets/changzhou.jpg" alt="Changzhou club">
+            </div>
+            <div class="gallery-shot motion-card reveal" data-delay="2">
+              <img src="./change-pro-assets/hangzhou.jpg" alt="Hangzhou club">
+            </div>
+            <div class="gallery-shot motion-card reveal" data-delay="3">
+              <img src="./change-pro-assets/shangdong.jpg" alt="Shangdong club">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ecosystem">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">Ecosystem</div>
+            <h3>它不是单一健身空间，而是一整套运动消费生态。</h3>
+          </div>
+          <p>青训、水吧、周边、App、社交游戏与赛事 IP 共同构成品牌护城河。场馆负责日常触达，数字产品负责持续连接，内容与赛事负责对外扩音。</p>
+        </div>
+
+        <div class="ecosystem-grid">
+          <article class="ecosystem-card motion-card reveal" data-delay="1">
+            <div class="pill">Youth Training</div>
+            <h4>青训</h4>
+            <p>美式装备橄榄球和腰旗橄榄球双线展开，近 300 名学员，把品牌从个人训练拓展到家庭运动消费。</p>
+          </article>
+          <article class="ecosystem-card motion-card reveal" data-delay="2">
+            <div class="pill">Water Bar</div>
+            <h4>水吧</h4>
+            <p>咖啡、气泡美式、奶昔、冰沙、茶饮并行，已经具备独立内容与外卖增长潜力。</p>
+          </article>
+          <article class="ecosystem-card motion-card reveal" data-delay="3">
+            <div class="pill">Retail</div>
+            <h4>周边零售</h4>
+            <p>T 恤、长袖、卫衣、背包、能量饮，把训练关系延展成品牌消费关系。</p>
+          </article>
+          <article class="ecosystem-card motion-card reveal" data-delay="1">
+            <div class="pill">App</div>
+            <h4>Change App</h4>
+            <p>自主办卡、随时退款、水吧点单、预约、热量查询、抓拍摄影师和内容功能全部集中到一个入口。</p>
+          </article>
+          <article class="ecosystem-card motion-card reveal" data-delay="2">
+            <div class="pill">Game</div>
+            <h4>Change Online</h4>
+            <p>内嵌于 Change App 的社交游戏模块，1:1 还原线下健身房体验，把日常训练关系延伸到线上娱乐与互动社交。</p>
+          </article>
+          <article class="ecosystem-card motion-card reveal" data-delay="3">
+            <div class="pill">IP</div>
+            <h4>Change Cup</h4>
+            <p>8 张 IFBB 职业卡、3 名运动员直通奥赛、1600 万话题播放，品牌内容资产持续扩张。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell timeline-grid">
+        <article class="timeline-card motion-card reveal" data-delay="1">
+          <div class="label">Milestones</div>
+          <h4>品牌关键节点</h4>
+          <div class="timeline-list">
+            <div class="timeline-item">
+              <strong>2024.10</strong>
+              <p>长宁龙之梦首店开业，10 天客流近 3 万人次。</p>
+            </div>
+            <div class="timeline-item">
+              <strong>2025.01</strong>
+              <p>静安 MOHO 馆开业，品牌开始占据上海高识别度城市点位。</p>
+            </div>
+            <div class="timeline-item">
+              <strong>2025.11</strong>
+              <p>常州江南环球港与金桥 EKA 天物馆相继落地，形成扩张信号。</p>
+            </div>
+            <div class="timeline-item">
+              <strong>2026.03</strong>
+              <p>管理层交接完成，品牌从单点爆发走向系统化扩张。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-card motion-card reveal" data-delay="2">
+          <div class="label">Pricing Logic</div>
+          <h4>收费与信任机制</h4>
+          <div class="timeline-list">
+            <div class="timeline-item">
+              <strong>年卡</strong>
+              <p>基础年卡 ¥500/年 + ¥60/月管理费，降低首次决策门槛。</p>
+            </div>
+            <div class="timeline-item">
+              <strong>通卡</strong>
+              <p>门店通卡 ¥500/年 + ¥200/月管理费，适配多店流动用户。</p>
+            </div>
+            <div class="timeline-item">
+              <strong>退款</strong>
+              <p>24 小时 App 自助退款，秒到账，把交易风险前置解决。</p>
+            </div>
+            <div class="timeline-item">
+              <strong>延展</strong>
+              <p>月卡、含游泳月卡、次卡和青训年卡，形成更柔性的消费层级。</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="future">
+      <div class="shell">
+        <article class="cta-card motion-card dark-glow reveal" data-delay="1">
+          <div class="section-glow" aria-hidden="true"></div>
+          <div class="cta-grid">
+            <div class="cta-text">
+              <div class="label" style="color: rgba(250, 199, 150, 0.88);">Next Phase</div>
+              <h3>下一阶段，Change Pro 要复制的不是单店，而是“改变成为习惯”的整套城市系统。</h3>
+              <p>品牌正在从大型高密度综合健身房，进一步延伸为健康生活方式平台：训练场景是入口，数字化会员系统是骨架，水吧、青训、赛事与零售则是不断外扩的利润边界。</p>
+              <p>未来的 Change Pro<br>将继续把场馆体验、数字服务与品牌内容连接成更完整的城市运动日常。</p>
+              <div class="cta-actions">
+                <a class="button" href="http://changepro.vip/index.html" target="_blank" rel="noreferrer">Visit Official Site</a>
+                <a class="ghost" href="#gallery">View Club Spaces</a>
+              </div>
+            </div>
+            <div class="cta-visual">
+              <img src="./change-pro-assets/slogan-white.png" alt="Change is a habit white">
+              <div class="cta-photo">
+                <img src="./change-pro-assets/hangzhou.jpg" alt="Hangzhou club photo">
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const topbar = document.querySelector(".topbar");
+    const hero = document.querySelector(".hero");
+    const motionCards = document.querySelectorAll(".motion-card");
+
+    const applyHeroMotion = () => {
+      const offset = Math.max(0, Math.min(window.scrollY, 240));
+      if (hero) {
+        hero.style.setProperty("--hero-shift", `${offset}px`);
+      }
+
+      if (topbar) {
+        topbar.classList.toggle("scrolled", window.scrollY > 18);
+      }
+    };
+
+    applyHeroMotion();
+    window.addEventListener("scroll", applyHeroMotion, { passive: true });
+
+    const handlePointer = (event) => {
+      const { clientX, clientY } = event;
+
+      motionCards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((clientX - rect.left) / rect.width) * 100;
+        const y = ((clientY - rect.top) / rect.height) * 100;
+        const angle = Math.atan2(clientY - (rect.top + rect.height / 2), clientX - (rect.left + rect.width / 2)) * 180 / Math.PI + 180;
+        card.style.setProperty("--mx", `${x}%`);
+        card.style.setProperty("--my", `${y}%`);
+        card.style.setProperty("--ma", `${angle}deg`);
+      });
+    };
+
+    window.addEventListener("pointermove", handlePointer, { passive: true });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
