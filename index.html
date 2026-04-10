@@ -7,58 +7,10 @@
   <style>
     @font-face {
       font-family: "Alibaba PuHuiTi";
-      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-35-Thin.ttf") format("truetype");
-      font-weight: 100;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Alibaba PuHuiTi";
-      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-45-Light.otf") format("opentype");
-      font-weight: 300;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Alibaba PuHuiTi";
       src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-55-Regular.ttf") format("truetype");
       font-weight: 400;
       font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Alibaba PuHuiTi";
-      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-65-Medium.ttf") format("truetype");
-      font-weight: 500;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Alibaba PuHuiTi";
-      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-75-SemiBold.ttf") format("truetype");
-      font-weight: 600;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Alibaba PuHuiTi";
-      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-85-Bold.otf") format("opentype");
-      font-weight: 700;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Alibaba PuHuiTi";
-      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-95-ExtraBold.otf") format("opentype");
-      font-weight: 800;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Alibaba PuHuiTi";
-      src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-105-Heavy.ttf") format("truetype");
-      font-weight: 850;
-      font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
@@ -66,13 +18,7 @@
       src: url("./change-pro-assets/fonts/AlibabaPuHuiTi-3-115-Black.otf") format("opentype");
       font-weight: 900;
       font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Balgin";
-      src: url("./change-pro-assets/fonts/Balgin Light.ttf") format("truetype");
-      font-weight: 300;
-      font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
@@ -80,6 +26,7 @@
       src: url("./change-pro-assets/fonts/Balgin Regular.ttf") format("truetype");
       font-weight: 400;
       font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
@@ -87,13 +34,7 @@
       src: url("./change-pro-assets/fonts/Balgin Bold.ttf") format("truetype");
       font-weight: 700;
       font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Balgin";
-      src: url("./change-pro-assets/fonts/Balgin Black.ttf") format("truetype");
-      font-weight: 900;
-      font-style: normal;
+      font-display: swap;
     }
 
     :root {
@@ -134,6 +75,7 @@
         radial-gradient(circle at 90% 14%, rgba(255, 235, 214, 0.05), transparent 18%),
         linear-gradient(180deg, #161311 0%, #1d1815 48%, #151210 100%);
       overflow-x: hidden;
+      text-rendering: optimizeLegibility;
     }
 
     body::before {
@@ -276,6 +218,7 @@
     img {
       display: block;
       max-width: 100%;
+      height: auto;
     }
 
     .shell {
@@ -587,10 +530,16 @@
       padding: 30px 34px 0;
     }
 
-    .hero-slogan img {
-      width: min(46%, 210px);
+    .hero-slogan-text {
       margin: 0 auto;
-      transform: translate3d(0, calc(var(--hero-shift, 0px) * -0.08), 0);
+      text-align: center;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: clamp(18px, 1.8vw, 24px);
+      line-height: 1.3;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 244, 231, 0.96);
+      transform: translate3d(0, calc(100% + (var(--hero-shift, 0px) * -0.08)), 0);
       transition: transform 320ms ease;
     }
 
@@ -717,6 +666,8 @@
 
     .section {
       padding: 48px 0;
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 900px;
     }
 
     .section-head {
@@ -1006,9 +957,9 @@
 
     .gallery-lead img {
       width: 100%;
-      height: 100%;
-      min-height: 460px;
-      object-fit: cover;
+      height: auto;
+      min-height: 0;
+      object-fit: contain;
       transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease;
     }
 
@@ -1059,8 +1010,8 @@
 
     .gallery-shot img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease;
     }
 
@@ -1243,9 +1194,15 @@
       justify-items: center;
     }
 
-    .cta-visual > img {
-      width: min(72%, 300px);
-      margin: 0 auto;
+    .cta-slogan {
+      margin: 6px auto 0;
+      text-align: center;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: clamp(18px, 1.8vw, 24px);
+      line-height: 1.3;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 244, 231, 0.96);
     }
 
     .cta-visual .cta-photo {
@@ -1412,11 +1369,23 @@
 
     @media (max-width: 760px) {
       .shell {
-        width: min(calc(100% - 22px), var(--max));
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .topbar-inner {
+        min-height: 78px;
+        align-items: center;
+      }
+
+      .brand-lockup {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
       }
 
       .brand-lockup img {
-        width: 120px;
+        width: 96px;
+        margin-top: 0;
       }
 
       .brand-sub {
@@ -1425,8 +1394,8 @@
 
       .hero,
       .section {
-        padding-top: 24px;
-        padding-bottom: 24px;
+        padding-top: 18px;
+        padding-bottom: 18px;
       }
 
       .hero-content,
@@ -1440,17 +1409,25 @@
       .pricing-card,
       .timeline-card,
       .cta-card {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
 
       .hero-content {
-        padding-top: 28px;
-        padding-bottom: 28px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        gap: 10px;
+        justify-content: flex-start;
       }
 
       .hero-main {
-        min-height: 680px;
+        min-height: auto;
+      }
+
+      .hero-main::before,
+      .hero-main::after,
+      .cta-card::after {
+        display: none;
       }
 
       .hero-image-stack,
@@ -1466,6 +1443,224 @@
 
       .cta-visual {
         justify-items: stretch;
+      }
+
+      .eyebrow,
+      .label,
+      .pill,
+      .cap {
+        letter-spacing: 0.14em;
+      }
+
+      .eyebrow {
+        text-align: center;
+        align-self: center;
+      }
+
+      .hero-title {
+        font-family: "Alibaba PuHuiTi", "PingFang SC", sans-serif;
+        font-weight: 400;
+        font-size: clamp(18px, 6vw, 26px);
+        line-height: 1.58;
+        letter-spacing: 0.15em;
+        max-width: 100%;
+        margin-top: 0;
+      }
+
+      .hero-logo {
+        width: min(42%, 140px);
+        margin-top: 0;
+      }
+
+      .hero-copy,
+      .hero-panel p,
+      .section-head p,
+      .feature-card p,
+      .story-card p,
+      .network-card p,
+      .ecosystem-card p,
+      .timeline-item p,
+      .cta-text p,
+      .gallery-copy p,
+      .side-card p {
+        font-size: 14px;
+        line-height: 1.78;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+        margin-top: 6px;
+        font-size: 12px;
+        line-height: 1.66;
+      }
+
+      .hero-panel h2,
+      .section-head h3,
+      .story-card h4,
+      .network-card h4,
+      .ecosystem-card h4,
+      .timeline-card h4,
+      .gallery-copy h4,
+      .cta-text h3 {
+        font-size: clamp(17px, 5.2vw, 22px);
+        line-height: 1.42;
+        letter-spacing: 0.03em;
+        text-wrap: pretty;
+      }
+
+      .hero-panel h2 {
+        font-size: clamp(13px, 4.2vw, 17px);
+        line-height: 1.58;
+      }
+
+      .hero-panel {
+        position: relative;
+        z-index: 1;
+        margin-top: 6px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background: linear-gradient(180deg, rgba(31, 25, 22, 0.82), rgba(27, 22, 19, 0.96));
+        border-radius: 22px;
+      }
+
+      .hero-slogan {
+        padding-top: 14px;
+      }
+
+      .hero-slogan-text {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-image-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 8px;
+      }
+
+      .hero-image-stack img {
+        min-height: 0;
+        height: auto;
+        aspect-ratio: 4 / 3.4;
+      }
+
+      .hero-stats {
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .hero-stat,
+      .feature-card,
+      .side-card,
+      .network-card,
+      .ecosystem-card,
+      .pricing-card,
+      .timeline-card {
+        padding: 14px;
+      }
+
+      .hero-stat {
+        background: rgba(18, 15, 13, 0.46);
+        backdrop-filter: blur(6px);
+      }
+
+      .story-card,
+      .cta-card {
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+
+      .feature-grid,
+      .network-grid,
+      .ecosystem-grid,
+      .pricing-grid,
+      .timeline-grid,
+      .story-grid,
+      .gallery-grid {
+        gap: 12px;
+      }
+
+      .gallery-copy {
+        padding: 10px;
+      }
+
+      .gallery-lead,
+      .gallery-shot,
+      .story-photo,
+      .cta-visual .cta-photo {
+        min-height: 0;
+      }
+
+      .gallery-lead img,
+      .gallery-shot img,
+      .story-photo img,
+      .cta-visual .cta-photo img {
+        min-height: 0;
+        height: auto;
+        aspect-ratio: auto;
+      }
+
+      .gallery-lead {
+        overflow: hidden;
+      }
+
+      .gallery-stack {
+        gap: 12px;
+      }
+
+      .gallery-copy p {
+        text-wrap: pretty;
+      }
+
+      .cta-card {
+        margin-bottom: 24px;
+        padding-top: 14px;
+      }
+
+      .cta-grid {
+        gap: 14px;
+      }
+
+      .cta-text h3 {
+        font-size: clamp(12px, 4vw, 16px);
+        line-height: 1.62;
+        letter-spacing: 0.022em;
+      }
+
+      .cta-actions {
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .button,
+      .ghost {
+        min-height: 38px;
+        width: 100%;
+        padding: 0 14px;
+        font-size: 11px;
+      }
+
+      .cta-visual {
+        gap: 14px;
+        margin-top: 10px;
+        padding-top: 18px;
+        justify-items: center;
+      }
+
+      .cta-slogan {
+        margin-top: 6px;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+
+      .cta-visual .cta-photo {
+        margin-top: 6px;
+        width: 100%;
+      }
+
+      .desktop-break {
+        display: none;
       }
 
       body::before,
@@ -1537,14 +1732,14 @@
 
           <aside class="hero-aside motion-card reveal">
             <div class="hero-slogan">
-              <img src="./change-pro-assets/slogan-white.png" alt="Change is a Habit">
+              <div class="hero-slogan-text">CHANGE ITSELF IS CONSTANT</div>
             </div>
             <div class="hero-image-stack">
-              <img class="reveal-soft" src="./change-pro-assets/longemeng.jpg" alt="Change Pro club interior">
-              <img class="reveal-soft" src="./change-pro-assets/eka.jpg" alt="Change Pro equipment hall">
+              <img class="reveal-soft" src="./change-pro-assets/longemeng.jpg" alt="Change Pro club interior" loading="eager" decoding="async">
+              <img class="reveal-soft" src="./change-pro-assets/eka.jpg" alt="Change Pro equipment hall" loading="lazy" decoding="async">
             </div>
             <div class="hero-panel">
-              <h2>高性价比，不代表低标准。<br>大众普惠，也可以有高级品牌感。</h2>
+              <h2>高性价比，不代表低标准。<span class="desktop-break"><br></span>大众普惠，也可以有高级品牌感。</h2>
               <p>品牌的核心不是“便宜”，而是把设备密度、空间效率、信任机制与数字化体验一起抬高，再用更低门槛交给更大的人群。</p>
               <p>所以 Change Pro 的价值，不止是一张卡，而是一种更容易坚持下去的运动方式。</p>
             </div>
@@ -1633,7 +1828,7 @@
           <p>从 MOHO 到龙之梦，再到杭州与常州，品牌视觉始终围绕高净值感的灰、黑、暖木与灯光轮廓展开。它的审美不花哨，却很容易让人形成“专业、稳定、可持续训练”的心理预期。</p>
           <p>门店空间本身就是 Change Pro 品牌识别度最直接、最有说服力的表达方式。</p>
           <div class="story-photo">
-            <img src="./change-pro-assets/shangdong.jpg" alt="Change Pro treadmill hall">
+            <img src="./change-pro-assets/shangdong.jpg" alt="Change Pro treadmill hall" loading="lazy" decoding="async">
           </div>
         </article>
       </div>
@@ -1681,31 +1876,31 @@
 
         <div class="gallery-grid">
           <article class="gallery-lead motion-card reveal" data-delay="1">
-            <img src="./change-pro-assets/moho.jpg" alt="Change Pro MOHO club">
+            <img src="./change-pro-assets/moho.jpg" alt="Change Pro MOHO club" loading="lazy" decoding="async">
             <div class="gallery-copy">
               <h4>静安 MOHO</h4>
-              <p>用深色器械、整排灯光和发光 slogan，<br>建立城市中心店的识别度。空间一眼就能传达“高密度、强秩序、可持续训练”。</p>
+              <p>用深色器械、整排灯光和发光 slogan，<span class="desktop-break"><br></span>建立城市中心店的识别度。空间一眼就能传达“高密度、强秩序、可持续训练”。</p>
             </div>
           </article>
 
           <div class="gallery-stack">
             <div class="gallery-shot motion-card reveal" data-delay="1">
-              <img src="./change-pro-assets/longemeng.jpg" alt="Longemeng club">
+              <img src="./change-pro-assets/longemeng.jpg" alt="Longemeng club" loading="lazy" decoding="async">
             </div>
             <div class="gallery-shot motion-card reveal" data-delay="2">
-              <img src="./change-pro-assets/jintie.jpg" alt="Jintie club">
+              <img src="./change-pro-assets/jintie.jpg" alt="Jintie club" loading="lazy" decoding="async">
             </div>
             <div class="gallery-shot motion-card reveal" data-delay="3">
-              <img src="./change-pro-assets/eka.jpg" alt="EKA equipment">
+              <img src="./change-pro-assets/eka.jpg" alt="EKA equipment" loading="lazy" decoding="async">
             </div>
             <div class="gallery-shot motion-card reveal" data-delay="4">
-              <img src="./change-pro-assets/changzhou.jpg" alt="Changzhou club">
+              <img src="./change-pro-assets/changzhou.jpg" alt="Changzhou club" loading="lazy" decoding="async">
             </div>
             <div class="gallery-shot motion-card reveal" data-delay="2">
-              <img src="./change-pro-assets/hangzhou.jpg" alt="Hangzhou club">
+              <img src="./change-pro-assets/hangzhou.jpg" alt="Hangzhou club" loading="lazy" decoding="async">
             </div>
             <div class="gallery-shot motion-card reveal" data-delay="3">
-              <img src="./change-pro-assets/shangdong.jpg" alt="Shangdong club">
+              <img src="./change-pro-assets/shangdong.jpg" alt="Shangdong club" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -1816,16 +2011,16 @@
               <div class="label" style="color: rgba(250, 199, 150, 0.88);">Next Phase</div>
               <h3>下一阶段，Change Pro 要复制的不是单店，而是“改变成为习惯”的整套城市系统。</h3>
               <p>品牌正在从大型高密度综合健身房，进一步延伸为健康生活方式平台：训练场景是入口，数字化会员系统是骨架，水吧、青训、赛事与零售则是不断外扩的利润边界。</p>
-              <p>未来的 Change Pro<br>将继续把场馆体验、数字服务与品牌内容连接成更完整的城市运动日常。</p>
+              <p>未来的 Change Pro<span class="desktop-break"><br></span>将继续把场馆体验、数字服务与品牌内容连接成更完整的城市运动日常。</p>
               <div class="cta-actions">
                 <a class="button" href="http://changepro.vip/index.html" target="_blank" rel="noreferrer">Visit Official Site</a>
                 <a class="ghost" href="#gallery">View Club Spaces</a>
               </div>
             </div>
             <div class="cta-visual">
-              <img src="./change-pro-assets/slogan-white.png" alt="Change is a habit white">
+              <div class="cta-slogan">CHANGE ITSELF IS CONSTANT</div>
               <div class="cta-photo">
-                <img src="./change-pro-assets/hangzhou.jpg" alt="Hangzhou club photo">
+                <img src="./change-pro-assets/hangzhou.jpg" alt="Hangzhou club photo" loading="lazy" decoding="async">
               </div>
             </div>
           </div>
