@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Change Pro | Change Is A Habit</title>
+  <script>if("scrollRestoration"in history)history.scrollRestoration="manual";</script>
   <style>
     @font-face {
       font-family: "Alibaba PuHuiTi";
@@ -39,11 +40,11 @@
 
     :root {
       --sand: #161311;
-      --paper: rgba(34, 28, 24, 0.84);
+      --paper: rgba(34, 28, 24, 0.72);
       --ink: #f7efe5;
       --muted: #d1c2b1;
       --bronze: #9b6a44;
-      --bronze-soft: rgba(155, 106, 68, 0.14);
+      --bronze-soft: rgba(155, 106, 68, 0.11);
       --headline: #fff4e8;
       --headline-dark: #fff2e4;
       --line: rgba(255, 243, 230, 0.10);
@@ -54,6 +55,16 @@
       --radius-lg: 28px;
       --radius-md: 22px;
       --max: 1320px;
+      --glass-blur: 20px;
+      --glass-blur-deep: 28px;
+      --glass-fill: rgba(31, 25, 22, 0.4);
+      --glass-fill-soft: rgba(34, 28, 24, 0.34);
+      --glass-fill-warm: rgba(38, 30, 26, 0.45);
+      --glass-border: rgba(255, 243, 230, 0.12);
+      --glass-border-hover: rgba(255, 244, 231, 0.2);
+      --glass-edge: inset 0 1px 0 rgba(255, 244, 231, 0.07);
+      --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+      --glass-shadow-hover: 0 18px 48px rgba(0, 0, 0, 0.26);
     }
 
     * {
@@ -61,6 +72,10 @@
     }
 
     html {
+      scroll-behavior: auto;
+    }
+
+    html.smooth-scroll {
       scroll-behavior: smooth;
     }
 
@@ -70,10 +85,7 @@
       font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
       font-weight: 400;
       letter-spacing: 0.012em;
-      background:
-        radial-gradient(circle at top left, rgba(155, 106, 68, 0.18), transparent 24%),
-        radial-gradient(circle at 90% 14%, rgba(255, 235, 214, 0.05), transparent 18%),
-        linear-gradient(180deg, #161311 0%, #1d1815 48%, #151210 100%);
+      background: linear-gradient(180deg, #161311 0%, #1d1815 48%, #151210 100%);
       overflow-x: hidden;
       text-rendering: optimizeLegibility;
     }
@@ -83,10 +95,10 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.22;
+      opacity: 0.14;
       background-image:
-        linear-gradient(rgba(255, 244, 231, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 244, 231, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(255, 244, 231, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 244, 231, 0.022) 1px, transparent 1px);
       background-size: 40px 40px;
       mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 88%);
       animation: grainDrift 18s linear infinite;
@@ -98,116 +110,38 @@
       inset: -18vh -12vw;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.18;
+      opacity: 0.1;
       background:
-        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.16), transparent 28%),
-        radial-gradient(circle at 82% 14%, rgba(244, 248, 255, 0.08), transparent 24%),
-        radial-gradient(circle at 72% 72%, rgba(255, 255, 255, 0.1), transparent 28%),
-        radial-gradient(circle at 28% 82%, rgba(240, 245, 255, 0.06), transparent 20%);
+        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.12), transparent 28%),
+        radial-gradient(circle at 82% 14%, rgba(244, 248, 255, 0.055), transparent 24%),
+        radial-gradient(circle at 72% 72%, rgba(255, 255, 255, 0.07), transparent 28%),
+        radial-gradient(circle at 28% 82%, rgba(240, 245, 255, 0.04), transparent 20%);
       filter: blur(72px);
       animation: auraFloat 10s ease-in-out infinite alternate;
     }
 
     .aurora {
       position: fixed;
-      inset: -24vh -18vw;
+      inset: 0;
       pointer-events: none;
       z-index: 0;
       overflow: hidden;
-      filter: blur(34px) saturate(1.08);
-      opacity: 1;
+      opacity: 0.78;
     }
 
-    .aurora-layer {
-      position: absolute;
-      border-radius: 999px;
-      mix-blend-mode: screen;
-      opacity: 0.96;
-      will-change: transform;
-    }
-
-    .aurora-layer.one {
-      width: 56vw;
-      height: 46vh;
-      left: -6vw;
-      top: 6vh;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.5), rgba(248, 250, 255, 0.22) 34%, transparent 68%);
-      animation: auroraWaveA 7.5s ease-in-out infinite alternate;
-    }
-
-    .aurora-layer.two {
-      width: 52vw;
-      height: 42vh;
-      right: -10vw;
-      top: 2vh;
-      background:
-        radial-gradient(circle at 54% 48%, rgba(244, 248, 255, 0.42), rgba(230, 238, 255, 0.16) 32%, transparent 70%);
-      animation: auroraWaveB 8.5s ease-in-out infinite alternate;
-    }
-
-    .aurora-layer.three {
-      width: 62vw;
-      height: 48vh;
-      left: 18vw;
-      bottom: -6vh;
-      background:
-        radial-gradient(circle at 46% 52%, rgba(255, 255, 255, 0.34), rgba(236, 242, 255, 0.14) 30%, transparent 72%);
-      animation: auroraWaveC 8s ease-in-out infinite alternate;
-    }
-
-    .aurora-layer.four {
-      width: 42vw;
-      height: 34vh;
-      right: 12vw;
-      bottom: 12vh;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(247, 250, 255, 0.28), rgba(228, 236, 255, 0.08) 34%, transparent 72%);
-      animation: auroraWaveD 6.8s ease-in-out infinite alternate;
-    }
-
-    .aurora::before {
-      content: "";
-      position: absolute;
-      inset: 4vh 18vw auto 10vw;
-      height: 32vh;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 44% 46%, rgba(255, 255, 255, 0.28), rgba(240, 245, 255, 0.1) 36%, transparent 72%);
-      filter: blur(24px);
-      opacity: 1;
-      mix-blend-mode: screen;
-      animation: auroraSweep 5.8s ease-in-out infinite alternate;
-    }
-
-    .aurora::after {
-      content: "";
-      position: absolute;
-      inset: 12vh 14vw auto;
-      height: 38vh;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.24), rgba(242, 247, 255, 0.08) 34%, transparent 72%);
-      filter: blur(26px);
-      opacity: 1;
-      animation: auroraCenter 7.2s ease-in-out infinite alternate;
+    .aurora canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
     }
 
     .section-glow {
       position: absolute;
-      inset: -18%;
+      inset: 0;
       pointer-events: none;
-      z-index: 0;
-      opacity: 0.78;
-      background:
-        radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 242, 224, 0.24), rgba(181, 128, 84, 0.16) 30%, transparent 62%);
-      filter: blur(34px);
-      transition: opacity 240ms ease;
-    }
-
-    .hero-main:hover .section-glow,
-    .cta-card:hover .section-glow {
-      opacity: 1;
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 400ms ease;
     }
 
     a {
@@ -232,16 +166,18 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(16px);
-      background: rgba(22, 18, 15, 0.72);
-      border-bottom: 1px solid rgba(255, 243, 230, 0.08);
-      transition: background 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
+      backdrop-filter: blur(var(--glass-blur-deep)) saturate(1.25);
+      -webkit-backdrop-filter: blur(var(--glass-blur-deep)) saturate(1.25);
+      background: rgba(22, 19, 17, 0.42);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 1px 0 rgba(255, 244, 231, 0.04);
+      transition: background 400ms ease, border-color 400ms ease, box-shadow 400ms ease;
     }
 
     .topbar.scrolled {
-      background: rgba(20, 17, 14, 0.88);
-      border-bottom-color: rgba(255, 243, 230, 0.12);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+      background: rgba(22, 19, 17, 0.55);
+      border-bottom-color: rgba(255, 244, 231, 0.14);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
     }
 
     .topbar-inner {
@@ -305,6 +241,61 @@
       transform: scaleX(1);
     }
 
+    .section-nav {
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+      background: rgba(22, 19, 17, 0.32);
+      backdrop-filter: blur(var(--glass-blur-deep)) saturate(1.2);
+      -webkit-backdrop-filter: blur(var(--glass-blur-deep)) saturate(1.2);
+    }
+
+    .section-nav-scroll {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: smooth;
+    }
+
+    .section-nav-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .section-nav a {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 244, 231, 0.04);
+      backdrop-filter: blur(12px) saturate(1.1);
+      -webkit-backdrop-filter: blur(12px) saturate(1.1);
+      color: var(--muted);
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 11.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+    }
+
+    .section-nav a:hover {
+      color: var(--headline);
+      border-color: var(--glass-border-hover);
+      background: rgba(255, 244, 231, 0.08);
+    }
+
+    .hero,
+    .section[id] {
+      scroll-margin-top: 148px;
+    }
+
     .hero {
       padding: 28px 0 18px;
     }
@@ -319,13 +310,14 @@
     .hero-aside {
       border-radius: var(--radius-xl);
       overflow: hidden;
-      border: 1px solid rgba(23, 23, 23, 0.08);
-      box-shadow: var(--shadow);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-edge), var(--glass-shadow);
     }
 
     .motion-card {
       position: relative;
       isolation: isolate;
+      transition: transform 500ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 500ms cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .motion-card::before {
@@ -336,8 +328,8 @@
       pointer-events: none;
       opacity: 0;
       background:
-        radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.22), rgba(255, 237, 214, 0.08) 28%, transparent 52%);
-      transition: opacity 260ms ease;
+        radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 235, 200, 0.42), rgba(255, 210, 160, 0.16) 30%, transparent 55%);
+      transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1);
       z-index: 0;
     }
 
@@ -346,12 +338,18 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      padding: 1px;
+      padding: 1.5px;
       pointer-events: none;
-      opacity: 0;
-      background:
-        conic-gradient(from var(--ma, 180deg) at var(--mx, 50%) var(--my, 50%), transparent 0deg, rgba(255, 244, 229, 0.42) 22deg, rgba(181, 128, 84, 0.34) 54deg, transparent 96deg, transparent 360deg),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(155, 106, 68, 0.18), rgba(255, 255, 255, 0.08));
+      z-index: 1;
+      background: conic-gradient(
+        from var(--ma, 0deg),
+        rgba(255, 220, 170, 0.65) 0%,
+        rgba(216, 165, 122, 0.5) 12%,
+        transparent 30%,
+        transparent 70%,
+        rgba(216, 165, 122, 0.5) 88%,
+        rgba(255, 220, 170, 0.65) 100%
+      );
       -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
@@ -360,35 +358,72 @@
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
       mask-composite: exclude;
-      transition: opacity 260ms ease, transform 260ms ease;
-      z-index: 1;
+      opacity: 0;
+      transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    .motion-card:hover::before,
+    .motion-card:hover {
+      transform: none;
+    }
+
     .motion-card:hover::after {
       opacity: 1;
+      animation: borderSweep 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .motion-card:hover::after {
-      transform: scale(1.012);
+    @keyframes borderSweep {
+      0% {
+        background: conic-gradient(
+          from var(--ma, 0deg),
+          rgba(255, 225, 180, 0.8) 0%,
+          transparent 6%,
+          transparent 94%,
+          rgba(255, 225, 180, 0.8) 100%
+        );
+      }
+      40% {
+        background: conic-gradient(
+          from var(--ma, 0deg),
+          rgba(255, 225, 180, 0.7) 0%,
+          rgba(216, 165, 122, 0.55) 18%,
+          transparent 42%,
+          transparent 58%,
+          rgba(216, 165, 122, 0.55) 82%,
+          rgba(255, 225, 180, 0.7) 100%
+        );
+      }
+      100% {
+        background: conic-gradient(
+          from var(--ma, 0deg),
+          rgba(255, 225, 180, 0.6) 0%,
+          rgba(216, 165, 122, 0.48) 25%,
+          rgba(180, 130, 80, 0.3) 50%,
+          rgba(216, 165, 122, 0.48) 75%,
+          rgba(255, 225, 180, 0.6) 100%
+        );
+      }
+    }
+
+    .motion-card.mc-active::after {
+      opacity: 1;
+      animation: borderSweep 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .motion-card.mc-fading::after {
+      opacity: 0;
+      transition: opacity 600ms ease-out;
     }
 
     .motion-card.dark-glow::before {
       background:
-        radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 245, 232, 0.3), rgba(181, 128, 84, 0.18) 28%, transparent 60%);
-    }
-
-    .motion-card.dark-glow::after {
-      background:
-        conic-gradient(from var(--ma, 180deg) at var(--mx, 50%) var(--my, 50%), transparent 0deg, rgba(255, 244, 229, 0.48) 20deg, rgba(181, 128, 84, 0.42) 56deg, transparent 100deg, transparent 360deg),
-        linear-gradient(135deg, rgba(255, 244, 229, 0.32), rgba(181, 128, 84, 0.3), rgba(255, 255, 255, 0.08));
+        radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 240, 220, 0.22), rgba(255, 220, 180, 0.08) 30%, transparent 55%);
     }
 
     .hero-main {
       position: relative;
       min-height: 760px;
       background:
-        linear-gradient(155deg, rgba(16, 15, 15, 0.82), rgba(34, 29, 26, 0.58)),
+        linear-gradient(155deg, rgba(16, 15, 15, 0.68), rgba(34, 29, 26, 0.42)),
         url("./change-pro-assets/moho.jpg") center center / cover no-repeat;
       color: #f8f3ec;
       transform: translate3d(0, 0, 0);
@@ -409,7 +444,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(15, 15, 15, 0.18) 0%, rgba(15, 15, 15, 0.28) 28%, rgba(15, 15, 15, 0.72) 100%);
+        linear-gradient(180deg, rgba(15, 15, 15, 0.14) 0%, rgba(15, 15, 15, 0.22) 28%, rgba(15, 15, 15, 0.55) 100%);
       transition: opacity 420ms ease;
     }
 
@@ -423,9 +458,9 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      gap: 22px;
+      gap: 16px;
       height: 100%;
-      padding: 52px;
+      padding: 62px 52px;
       transform: translate3d(0, calc(var(--hero-shift, 0px) * -0.18), 0);
     }
 
@@ -487,15 +522,19 @@
     .hero-stat {
       padding: 18px 18px 16px;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: transform 320ms ease, background 320ms ease, border-color 320ms ease;
+      background: rgba(255, 248, 241, 0.06);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(14px) saturate(1.08);
+      -webkit-backdrop-filter: blur(14px) saturate(1.08);
+      box-shadow: var(--glass-edge);
+      transition: transform 320ms ease, background 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
     }
 
     .hero-stat:hover {
       transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 248, 241, 0.1);
+      border-color: var(--glass-border-hover);
+      box-shadow: var(--glass-edge), 0 10px 28px rgba(0, 0, 0, 0.14);
     }
 
     .hero-stat strong {
@@ -519,8 +558,10 @@
       display: grid;
       grid-template-rows: auto auto 1fr auto;
       background:
-        radial-gradient(circle at top left, rgba(155, 106, 68, 0.18), transparent 32%),
-        linear-gradient(180deg, rgba(34, 28, 24, 0.92), rgba(27, 22, 19, 0.98));
+        radial-gradient(circle at top left, rgba(155, 106, 68, 0.18), transparent 38%),
+        linear-gradient(180deg, rgba(34, 28, 24, 0.38), rgba(27, 22, 19, 0.44));
+      backdrop-filter: blur(var(--glass-blur-deep)) saturate(1.12);
+      -webkit-backdrop-filter: blur(var(--glass-blur-deep)) saturate(1.12);
     }
 
     .hero-slogan {
@@ -567,33 +608,36 @@
     }
 
     .hero-panel {
-      padding: 28px 34px 24px;
+      padding: 26px 22px 22px;
     }
 
     .hero-panel h2 {
       margin: 0;
       font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
       font-weight: 300;
-      font-size: clamp(20px, 2vw, 31px);
-      line-height: 1.34;
-      letter-spacing: 0.024em;
+      font-size: clamp(18px, 1.95vw, 29px);
+      line-height: 1.4;
+      letter-spacing: 0.014em;
       color: var(--headline);
-      text-wrap: balance;
+      width: 100%;
+      max-width: none;
+      text-wrap: auto;
     }
 
     .hero-panel p {
-      margin: 18px 0 0;
-      max-width: 520px;
+      margin: 26px 0 0;
+      width: 100%;
+      max-width: none;
       color: rgba(255, 244, 231, 0.82);
       font-size: 16px;
-      line-height: 2.16;
+      line-height: 2.22;
       letter-spacing: 0.018em;
       font-weight: 300;
-      text-wrap: pretty;
+      text-wrap: auto;
     }
 
     .hero-panel p + p {
-      margin-top: 14px;
+      margin-top: 18px;
     }
 
     .side-grid {
@@ -606,15 +650,19 @@
     .side-card {
       padding: 18px;
       border-radius: 20px;
-      background: rgba(255, 248, 241, 0.06);
-      border: 1px solid var(--line);
-      transition: transform 320ms ease, box-shadow 320ms ease, background 320ms ease;
+      background: var(--glass-fill-soft);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+      box-shadow: var(--glass-edge);
+      transition: transform 320ms ease, box-shadow 320ms ease, background 320ms ease, border-color 320ms ease;
     }
 
     .side-card:hover {
       transform: translateY(-4px);
-      background: rgba(255, 248, 241, 0.1);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+      background: rgba(34, 28, 24, 0.46);
+      border-color: var(--glass-border-hover);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
     }
 
     .side-card small {
@@ -646,9 +694,12 @@
     .ticker {
       margin-top: 22px;
       overflow: hidden;
-      border-top: 1px solid rgba(255, 243, 230, 0.08);
-      border-bottom: 1px solid rgba(255, 243, 230, 0.08);
-      background: rgba(255, 248, 241, 0.03);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+      background: rgba(27, 22, 19, 0.28);
+      backdrop-filter: blur(16px) saturate(1.08);
+      -webkit-backdrop-filter: blur(16px) saturate(1.08);
+      box-shadow: var(--glass-edge);
     }
 
     .ticker-track {
@@ -666,8 +717,6 @@
 
     .section {
       padding: 48px 0;
-      content-visibility: auto;
-      contain-intrinsic-size: 1px 900px;
     }
 
     .section-head {
@@ -682,9 +731,9 @@
       color: #d8a57a;
       font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
       text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 12px;
-      margin-bottom: 12px;
+      letter-spacing: 0.24em;
+      font-size: 11.5px;
+      margin-bottom: 14px;
     }
 
     .section-head h3 {
@@ -724,9 +773,11 @@
     .gallery-lead,
     .cta-card {
       border-radius: var(--radius-lg);
-      background: rgba(31, 25, 22, 0.86);
-      border: 1px solid rgba(255, 243, 230, 0.08);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
+      background: var(--glass-fill);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.12);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.12);
+      box-shadow: var(--glass-edge), var(--glass-shadow);
     }
 
     .feature-card {
@@ -736,9 +787,10 @@
     }
 
     .feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(36, 28, 22, 0.1);
-      border-color: rgba(155, 106, 68, 0.16);
+      transform: translateY(-4px);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
+      border-color: var(--glass-border-hover);
+      background: var(--glass-fill-warm);
     }
 
     .feature-card small {
@@ -785,13 +837,17 @@
 
     .story-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 22px 52px rgba(36, 28, 22, 0.1);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
+      border-color: var(--glass-border-hover);
     }
 
     .story-card.dark {
       background:
-        radial-gradient(circle at top right, rgba(155, 106, 68, 0.22), transparent 28%),
-        linear-gradient(155deg, rgba(27, 24, 22, 0.98), rgba(38, 32, 29, 0.94));
+        radial-gradient(circle at top right, rgba(155, 106, 68, 0.22), transparent 36%),
+        linear-gradient(155deg, rgba(27, 24, 22, 0.48), rgba(38, 32, 29, 0.42));
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.15);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.15);
+      border-color: rgba(216, 165, 122, 0.14);
       color: #f7f2eb;
     }
 
@@ -803,11 +859,11 @@
       font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .story-card.dark .cap {
-      color: rgba(250, 199, 150, 0.88);
+      color: rgba(216, 165, 122, 0.75);
     }
 
     .story-card h4 {
@@ -892,24 +948,25 @@
     .network-card:hover,
     .ecosystem-card:hover,
     .pricing-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(36, 28, 22, 0.1);
-      border-color: rgba(155, 106, 68, 0.16);
+      transform: translateY(-4px);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
+      border-color: var(--glass-border-hover);
+      background: var(--glass-fill-warm);
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px;
+      padding: 6px 14px;
       margin-bottom: 18px;
       border-radius: 999px;
       background: var(--bronze-soft);
       color: #d8a57a;
       font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
-      font-size: 12px;
+      font-size: 11.5px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
     }
 
     .network-card h4,
@@ -947,12 +1004,12 @@
       overflow: hidden;
       min-height: 660px;
       padding: 0;
-      transition: transform 360ms ease, box-shadow 360ms ease;
+      transition: transform 360ms ease, box-shadow 360ms ease, border-color 360ms ease;
     }
 
     .gallery-lead:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 52px rgba(36, 28, 22, 0.1);
+      border-color: var(--glass-border-hover);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
     }
 
     .gallery-lead img {
@@ -1002,10 +1059,12 @@
       border-radius: 26px;
       overflow: hidden;
       min-height: 250px;
-      border: 1px solid rgba(255, 243, 230, 0.08);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
-      background: rgba(31, 25, 22, 0.86);
-      transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-edge), var(--glass-shadow);
+      background: var(--glass-fill);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+      transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease, background 320ms ease;
     }
 
     .gallery-shot img {
@@ -1016,9 +1075,10 @@
     }
 
     .gallery-shot:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(36, 28, 22, 0.1);
-      border-color: rgba(155, 106, 68, 0.16);
+      transform: translateY(-4px);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
+      border-color: var(--glass-border-hover);
+      background: var(--glass-fill-warm);
     }
 
     .gallery-shot:hover img {
@@ -1038,9 +1098,10 @@
     }
 
     .timeline-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(36, 28, 22, 0.1);
-      border-color: rgba(155, 106, 68, 0.16);
+      transform: translateY(-4px);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
+      border-color: var(--glass-border-hover);
+      background: var(--glass-fill-warm);
     }
 
     .timeline-card h4 {
@@ -1068,7 +1129,7 @@
     }
 
     .timeline-item strong {
-      color: #e0ad82;
+      color: #d8a57a;
       font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
       letter-spacing: 0.08em;
       font-size: 14px;
@@ -1086,24 +1147,25 @@
       margin: 14px 0 58px;
       padding: 40px;
       background:
-        linear-gradient(145deg, rgba(22, 20, 18, 0.98), rgba(40, 32, 28, 0.94)),
-        radial-gradient(circle at top left, rgba(155, 106, 68, 0.28), transparent 30%);
-      color: #f7f2eb;
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(155, 106, 68, 0.12), transparent 55%),
+        linear-gradient(145deg, rgba(36, 30, 26, 0.48), rgba(28, 24, 20, 0.4));
+      backdrop-filter: blur(var(--glass-blur-deep)) saturate(1.12);
+      -webkit-backdrop-filter: blur(var(--glass-blur-deep)) saturate(1.12);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-edge), var(--glass-shadow);
+      color: #f0eee8;
       position: relative;
       overflow: hidden;
     }
 
     .cta-card:hover {
-      box-shadow: 0 26px 64px rgba(18, 14, 12, 0.24);
+      transform: translateY(-4px);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
+      border-color: var(--glass-border-hover);
     }
 
     .cta-card::after {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      pointer-events: none;
+      display: none;
     }
 
     .cta-grid {
@@ -1160,31 +1222,26 @@
     }
 
     .button {
-      background: #f4ede4;
-      color: #161412;
-      transition: transform 240ms ease, box-shadow 240ms ease, background 240ms ease;
+      background: var(--headline);
+      color: var(--sand);
+      transition: transform 200ms ease, box-shadow 200ms ease;
     }
 
     .ghost {
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(255, 255, 255, 0.04);
-      color: #f4ede4;
-      transition: transform 240ms ease, border-color 240ms ease, background 240ms ease;
-    }
-
-    .button:hover,
-    .ghost:hover {
-      transform: translateY(-3px);
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      transition: border-color 200ms ease, color 200ms ease;
     }
 
     .button:hover {
-      background: #fff5ea;
-      box-shadow: 0 12px 26px rgba(18, 16, 14, 0.16);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255, 244, 231, 0.12);
     }
 
     .ghost:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.26);
+      border-color: rgba(255, 244, 231, 0.24);
+      color: var(--headline);
     }
 
     .cta-visual {
@@ -1226,10 +1283,241 @@
       filter: saturate(1.04);
     }
 
+    .screen-grid,
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .screen-card,
+    .lifestyle-card {
+      padding: 18px;
+      border-radius: 26px;
+      background: var(--glass-fill);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.12);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.12);
+      box-shadow: var(--glass-edge), var(--glass-shadow);
+      transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease, background 320ms ease;
+    }
+
+    .screen-card:hover,
+    .lifestyle-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--glass-edge), var(--glass-shadow-hover);
+      border-color: rgba(155, 106, 68, 0.22);
+      background: var(--glass-fill-warm);
+    }
+
+    .screen-card img,
+    .lifestyle-card img {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+      background: transparent;
+    }
+
+    .screen-card .pill,
+    .lifestyle-card .pill {
+      margin: 14px 0 12px;
+    }
+
+    .screen-card h4,
+    .lifestyle-card h4 {
+      margin: 0 0 10px;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 20px;
+      line-height: 1.34;
+      letter-spacing: 0.02em;
+      color: var(--headline);
+      font-weight: 400;
+    }
+
+    .screen-card p,
+    .lifestyle-card p {
+      margin: 0;
+      color: rgba(255, 244, 231, 0.82);
+      line-height: 2;
+      letter-spacing: 0.016em;
+      font-size: 14px;
+      text-wrap: pretty;
+    }
+
+    .system-showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .system-copy {
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at top left, rgba(155, 106, 68, 0.2), transparent 38%),
+        linear-gradient(145deg, rgba(22, 20, 18, 0.45), rgba(38, 32, 29, 0.4));
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.12);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.12);
+      box-shadow: var(--glass-edge), var(--glass-shadow);
+    }
+
+    .system-copy h4 {
+      margin: 0 0 16px;
+      font-family: "Balgin", "Alibaba PuHuiTi", "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      font-weight: 300;
+      font-size: clamp(20px, 1.8vw, 30px);
+      line-height: 1.42;
+      letter-spacing: 0.024em;
+      color: var(--headline-dark);
+      text-wrap: balance;
+    }
+
+    .system-copy p {
+      margin: 0 0 16px;
+      color: rgba(255, 244, 231, 0.86);
+      line-height: 2.08;
+      letter-spacing: 0.016em;
+      font-size: 16px;
+      text-wrap: pretty;
+    }
+
+    .system-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .system-points .timeline-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding-top: 14px;
+      text-align: center;
+    }
+
+    .system-points .timeline-item strong {
+      font-size: 20px;
+      letter-spacing: 0.14em;
+    }
+
+    .system-visual {
+      display: grid;
+      gap: 18px;
+    }
+
+    .system-screen-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .system-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+      gap: 18px;
+      align-items: center;
+      padding: 18px;
+      border-radius: 26px;
+      background: var(--glass-fill);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+      box-shadow: var(--glass-edge), var(--glass-shadow);
+    }
+
+    .system-row-copy h4 {
+      margin: 0 0 10px;
+      font-family: "Balgin", "Avenir Next", "Helvetica Neue", sans-serif;
+      font-size: 20px;
+      line-height: 1.34;
+      letter-spacing: 0.02em;
+      color: var(--headline);
+      font-weight: 400;
+    }
+
+    .system-row-copy p {
+      margin: 0;
+      color: rgba(255, 244, 231, 0.82);
+      line-height: 1.96;
+      letter-spacing: 0.016em;
+      font-size: 14px;
+      text-wrap: pretty;
+    }
+
+    .system-row-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 260px;
+    }
+
+    .system-hero {
+      padding: 18px;
+      border-radius: 26px;
+      background: var(--glass-fill);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+      box-shadow: var(--glass-edge), var(--glass-shadow);
+    }
+
+    .system-hero img {
+      width: 100%;
+      border-radius: 22px;
+      display: block;
+    }
+
+    .app-shot {
+      width: min(100%, 320px);
+      max-height: 520px;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      margin: 0 auto;
+      display: block;
+      background: transparent;
+      border-radius: 22px;
+    }
+
+    .app-shot--feature {
+      width: min(100%, 348px);
+      max-height: 560px;
+    }
+
+    .system-hero .app-shot {
+      width: min(100%, 360px);
+    }
+
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .merch-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      padding: 8px;
+      border-radius: 16px;
+      background: var(--glass-fill-soft);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(14px) saturate(1.08);
+      -webkit-backdrop-filter: blur(14px) saturate(1.08);
+      box-shadow: var(--glass-edge);
+      display: block;
+    }
+
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
     .reveal {
       opacity: 0;
       transform: translateY(28px);
-      filter: blur(8px);
+      filter: blur(4px);
       transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
     }
 
@@ -1272,59 +1560,7 @@
       }
     }
 
-    @keyframes auroraWaveA {
-      0% {
-        transform: translate3d(-16%, -6%, 0) rotate(-16deg) scale(0.9);
-      }
-      100% {
-        transform: translate3d(26%, -14%, 0) rotate(18deg) scale(1.3);
-      }
-    }
-
-    @keyframes auroraWaveB {
-      0% {
-        transform: translate3d(12%, -8%, 0) rotate(12deg) scale(0.9);
-      }
-      100% {
-        transform: translate3d(-26%, 16%, 0) rotate(-18deg) scale(1.32);
-      }
-    }
-
-    @keyframes auroraWaveC {
-      0% {
-        transform: translate3d(-14%, 8%, 0) rotate(-14deg) scale(0.92);
-      }
-      100% {
-        transform: translate3d(22%, -18%, 0) rotate(16deg) scale(1.28);
-      }
-    }
-
-    @keyframes auroraWaveD {
-      0% {
-        transform: translate3d(12%, -10%, 0) rotate(10deg) scale(0.88);
-      }
-      100% {
-        transform: translate3d(-20%, 14%, 0) rotate(-16deg) scale(1.28);
-      }
-    }
-
-    @keyframes auroraCenter {
-      0% {
-        transform: translate3d(-14%, -6%, 0) scale(0.86);
-      }
-      100% {
-        transform: translate3d(18%, 12%, 0) scale(1.22);
-      }
-    }
-
-    @keyframes auroraSweep {
-      0% {
-        transform: translate3d(-18%, -8%, 0) rotate(-10deg) scale(0.82);
-      }
-      100% {
-        transform: translate3d(24%, 12%, 0) rotate(12deg) scale(1.28);
-      }
-    }
+    
 
     @keyframes grainDrift {
       0% {
@@ -1357,13 +1593,24 @@
         display: none;
       }
 
+      .section-nav-scroll {
+        gap: 8px;
+        min-height: 50px;
+      }
+
+      .section-nav a {
+        padding: 9px 12px;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+      }
+
       .hero-stats {
         grid-template-columns: 1fr;
         max-width: 100%;
       }
 
       body::after {
-        opacity: 0.62;
+        opacity: 0.48;
       }
     }
 
@@ -1465,6 +1712,7 @@
         letter-spacing: 0.15em;
         max-width: 100%;
         margin-top: 0;
+        text-wrap: auto;
       }
 
       .hero-logo {
@@ -1485,6 +1733,7 @@
       .side-card p {
         font-size: 14px;
         line-height: 1.78;
+        text-wrap: auto;
       }
 
       .hero-copy {
@@ -1505,12 +1754,13 @@
         font-size: clamp(17px, 5.2vw, 22px);
         line-height: 1.42;
         letter-spacing: 0.03em;
-        text-wrap: pretty;
+        text-wrap: auto;
       }
 
       .hero-panel h2 {
-        font-size: clamp(13px, 4.2vw, 17px);
-        line-height: 1.58;
+        font-size: clamp(17px, 5.2vw, 22px);
+        line-height: 1.48;
+        letter-spacing: 0.034em;
       }
 
       .hero-panel {
@@ -1519,8 +1769,12 @@
         margin-top: 6px;
         padding-top: 12px;
         padding-bottom: 12px;
-        background: linear-gradient(180deg, rgba(31, 25, 22, 0.82), rgba(27, 22, 19, 0.96));
-        border-radius: 22px;
+        background: none;
+        border: none;
+        border-radius: 0;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
       }
 
       .hero-slogan {
@@ -1561,11 +1815,17 @@
       }
 
       .hero-stat {
-        background: rgba(18, 15, 13, 0.46);
-        backdrop-filter: blur(6px);
+        background: rgba(27, 22, 19, 0.36);
+        backdrop-filter: blur(16px) saturate(1.08);
+        -webkit-backdrop-filter: blur(16px) saturate(1.08);
       }
 
-      .story-card,
+      .story-card {
+        padding-top: 18px;
+        padding-bottom: 18px;
+        min-height: auto;
+      }
+
       .cta-card {
         padding-top: 18px;
         padding-bottom: 18px;
@@ -1575,14 +1835,120 @@
       .network-grid,
       .ecosystem-grid,
       .pricing-grid,
+      .screen-grid,
+      .lifestyle-grid,
       .timeline-grid,
       .story-grid,
-      .gallery-grid {
+      .gallery-grid,
+      .system-showcase,
+      .mosaic-grid {
         gap: 12px;
       }
 
       .gallery-copy {
         padding: 10px;
+      }
+
+      .screen-grid,
+      .lifestyle-grid,
+      .mosaic-grid,
+      .system-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .screen-card,
+      .lifestyle-card,
+      .system-copy,
+      .system-hero {
+        padding: 14px;
+      }
+
+      .system-copy h4 {
+        font-size: clamp(15px, 4.6vw, 20px);
+        line-height: 1.56;
+        text-wrap: auto;
+      }
+
+      .system-copy p,
+      .screen-card p,
+      .lifestyle-card p {
+        font-size: 13px;
+        line-height: 1.86;
+        text-wrap: auto;
+      }
+
+      .system-copy .pill,
+      .screen-card .pill,
+      .lifestyle-card .pill {
+        display: inline-flex;
+        width: auto;
+        max-width: fit-content;
+        white-space: nowrap;
+      }
+
+      .system-visual {
+        grid-template-columns: 1fr;
+      }
+
+      .system-row {
+        grid-template-columns: minmax(0, 1fr) minmax(110px, 132px);
+        gap: 12px;
+        padding: 14px;
+        align-items: center;
+      }
+
+      .system-row-visual {
+        min-height: 0;
+      }
+
+      .system-row-copy h4 {
+        font-size: 16px;
+        line-height: 1.5;
+        word-break: normal;
+        overflow-wrap: normal;
+        text-wrap: auto;
+      }
+
+      .system-row-copy p {
+        font-size: 12px;
+        line-height: 1.78;
+        word-break: normal;
+        overflow-wrap: normal;
+        text-wrap: auto;
+      }
+
+      .system-hero img,
+      .screen-card img {
+        width: min(100%, 260px);
+        margin: 0 auto;
+      }
+
+      .app-shot {
+        width: min(100%, 198px);
+        max-height: 390px;
+        height: auto;
+        transform: scale(1.78);
+        transform-origin: center center;
+      }
+
+      .system-row:nth-of-type(4) .app-shot,
+      .system-row:nth-of-type(5) .app-shot {
+        width: min(100%, 116px);
+        max-height: 220px;
+        transform: none;
+      }
+
+      .app-shot--feature {
+        width: min(100%, 150px);
+        max-height: 300px;
+        transform: scale(1.54);
+        transform-origin: center center;
+      }
+
+      .screen-card h4,
+      .lifestyle-card h4 {
+        font-size: 18px;
+        line-height: 1.4;
       }
 
       .gallery-lead,
@@ -1610,7 +1976,7 @@
       }
 
       .gallery-copy p {
-        text-wrap: pretty;
+        text-wrap: auto;
       }
 
       .cta-card {
@@ -1663,6 +2029,30 @@
         display: none;
       }
 
+      .section-glow {
+        display: none;
+      }
+
+      .motion-card:hover {
+        transform: none;
+      }
+
+      .motion-card:hover::before,
+      .motion-card:hover::after {
+        opacity: 0;
+        animation: none;
+      }
+
+      .motion-card.mc-active::after {
+        opacity: 1 !important;
+        animation: borderSweep 2s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+      }
+
+      .motion-card.mc-fading::after {
+        opacity: 0 !important;
+        transition: opacity 600ms ease-out !important;
+      }
+
       body::before,
       body::after,
       .aurora,
@@ -1674,12 +2064,8 @@
   </style>
 </head>
 <body>
-  <div class="aurora" aria-hidden="true">
-    <div class="aurora-layer one"></div>
-    <div class="aurora-layer two"></div>
-    <div class="aurora-layer three"></div>
-    <div class="aurora-layer four"></div>
-  </div>
+  <script>window.scrollTo(0,0);</script>
+  <div class="aurora" id="aurora-ctn" aria-hidden="true"></div>
   <header class="topbar">
     <div class="shell topbar-inner">
       <div class="brand-lockup">
@@ -1697,10 +2083,25 @@
         <a href="#future">未来</a>
       </nav>
     </div>
+    <div class="section-nav">
+      <div class="shell section-nav-scroll">
+        <a href="#hero">首页</a>
+        <a href="#positioning">定位</a>
+        <a href="#system">系统</a>
+        <a href="#network">场馆</a>
+        <a href="#gallery">空间</a>
+        <a href="#ecosystem">生态</a>
+        <a href="#digital">App</a>
+        <a href="#online">Online</a>
+        <a href="#youth">青训</a>
+        <a href="#retail">零售</a>
+        <a href="#future">未来</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="shell">
         <div class="hero-frame">
           <article class="hero-main motion-card dark-glow reveal">
@@ -1739,7 +2140,7 @@
               <img class="reveal-soft" src="./change-pro-assets/eka.jpg" alt="Change Pro equipment hall" loading="lazy" decoding="async">
             </div>
             <div class="hero-panel">
-              <h2>高性价比，不代表低标准。<span class="desktop-break"><br></span>大众普惠，也可以有高级品牌感。</h2>
+              <h2>高性价比｜不代表低标准<br>大众普惠｜也可以有高级品牌感</h2>
               <p>品牌的核心不是“便宜”，而是把设备密度、空间效率、信任机制与数字化体验一起抬高，再用更低门槛交给更大的人群。</p>
               <p>所以 Change Pro 的价值，不止是一张卡，而是一种更容易坚持下去的运动方式。</p>
             </div>
@@ -1784,7 +2185,7 @@
             <div class="label">Positioning</div>
             <h3>把“可负担的专业感”，做成健身行业的新默认值。</h3>
           </div>
-          <p>Change Pro 的竞争力，不只是价格结构，而是把高设备密度、统一会员系统、创始人流量、随时退机制和复合业态同时做强。它卖的不只是健身卡，而是稳定复购的运动生活方式。</p>
+          <p>Change Pro 正在从高密度健身空间，延伸为一个行为驱动的生活方式平台。它卖的不只是健身卡，而是把训练、会员、内容和日常消费连接起来的稳定运动关系。</p>
         </div>
 
         <div class="feature-grid">
@@ -1807,6 +2208,36 @@
             <small>Influence</small>
             <strong>1600万</strong>
             <p>赛事内容与线上传播持续累积品牌声量，让 Change Pro 在更广泛的运动人群中建立清晰识别。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="system">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">System Structure</div>
+            <h3>真正支撑 Change Pro 的，不是一家门店，而是三套彼此联动的系统。</h3>
+          </div>
+          <p>线下空间负责触达和承载，积分体系负责复购和内部循环，Change Online 负责把训练关系延伸到线上娱乐与互动社交。三者叠在一起，才构成品牌真正的复制力。</p>
+        </div>
+
+        <div class="network-grid">
+          <article class="network-card motion-card reveal" data-delay="1">
+            <div class="pill">Offline Space</div>
+            <h4>高密度健身空间</h4>
+            <p>高设备密度、核心商圈选址和可持续训练氛围，是 Change Pro 建立日常用户触达和城市认知的入口。</p>
+          </article>
+          <article class="network-card motion-card reveal" data-delay="2">
+            <div class="pill">Points Engine</div>
+            <h4>积分经济系统</h4>
+            <p>消费返积分、积分再消费，把会员、水吧、零售和推荐机制接进同一套内部循环，持续提高复购频率与用户粘性。</p>
+          </article>
+          <article class="network-card motion-card reveal" data-delay="3">
+            <div class="pill">Digital Layer</div>
+            <h4>Change Online</h4>
+            <p>内嵌在 Change App 中的社交游戏模块，把线下训练关系延伸到线上互动、任务、社交与传播，让品牌活跃度不只发生在门店内。</p>
           </article>
         </div>
       </div>
@@ -1914,39 +2345,240 @@
             <div class="label">Ecosystem</div>
             <h3>它不是单一健身空间，而是一整套运动消费生态。</h3>
           </div>
-          <p>青训、水吧、周边、App、社交游戏与赛事 IP 共同构成品牌护城河。场馆负责日常触达，数字产品负责持续连接，内容与赛事负责对外扩音。</p>
+          <p>青训、水吧、周边、App、社交游戏与赛事内容，共同构成 Change Pro 的外延生态。场馆负责日常触达，数字系统负责持续连接，内容与品牌事件则不断放大用户关系网络。</p>
         </div>
 
         <div class="ecosystem-grid">
           <article class="ecosystem-card motion-card reveal" data-delay="1">
             <div class="pill">Youth Training</div>
             <h4>青训</h4>
-            <p>美式装备橄榄球和腰旗橄榄球双线展开，近 300 名学员，把品牌从个人训练拓展到家庭运动消费。</p>
+            <p>青训业务已经形成稳定人群，把品牌从个人训练拓展到家庭运动消费，也为门店建立更长期的训练关系。</p>
           </article>
           <article class="ecosystem-card motion-card reveal" data-delay="2">
             <div class="pill">Water Bar</div>
             <h4>水吧</h4>
-            <p>咖啡、气泡美式、奶昔、冰沙、茶饮并行，已经具备独立内容与外卖增长潜力。</p>
+            <p>咖啡、奶昔、冰沙和茶饮让门店从训练空间延伸到日常消费场景，也让外卖与内容传播具备增长空间。</p>
           </article>
           <article class="ecosystem-card motion-card reveal" data-delay="3">
             <div class="pill">Retail</div>
             <h4>周边零售</h4>
-            <p>T 恤、长袖、卫衣、背包、能量饮，把训练关系延展成品牌消费关系。</p>
+            <p>服饰、装备与能量饮等零售品类，把训练关系进一步延展成品牌消费关系，补足用户的生活方式表达。</p>
           </article>
           <article class="ecosystem-card motion-card reveal" data-delay="1">
             <div class="pill">App</div>
             <h4>Change App</h4>
-            <p>自主办卡、随时退款、水吧点单、预约、热量查询、抓拍摄影师和内容功能全部集中到一个入口。</p>
+            <p>办卡、退款、预约、水吧点单和内容功能全部集中到一个入口，让品牌和会员之间始终保持稳定连接。</p>
           </article>
           <article class="ecosystem-card motion-card reveal" data-delay="2">
             <div class="pill">Game</div>
             <h4>Change Online</h4>
-            <p>内嵌于 Change App 的社交游戏模块，1:1 还原线下健身房体验，把日常训练关系延伸到线上娱乐与互动社交。</p>
+            <p>以游戏化方式重建门店社交和用户互动，让训练关系从线下进入线上，进一步提升活跃频率与传播能力。</p>
           </article>
           <article class="ecosystem-card motion-card reveal" data-delay="3">
             <div class="pill">IP</div>
             <h4>Change Cup</h4>
-            <p>8 张 IFBB 职业卡、3 名运动员直通奥赛、1600 万话题播放，品牌内容资产持续扩张。</p>
+            <p>赛事内容与品牌事件持续累积外部影响力，让 Change Pro 在更广泛的运动圈层中形成更清晰的品牌记忆。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="digital">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">Digital System</div>
+            <h3>真正让用户留下来的，不只是门店体验，还有持续在线的数字连接。</h3>
+          </div>
+          <p>办卡、退款、会员中心、水吧下单与分享裂变都在同一个数字入口完成。它让 Change Pro 从一次消费，变成一套可持续运营的会员关系系统。</p>
+        </div>
+
+        <div class="system-showcase">
+          <article class="system-copy motion-card reveal" data-delay="1">
+            <div class="pill">Change App</div>
+            <h4>从办卡到日常使用，品牌体验被完整收进一个 App 入口里。</h4>
+            <p>用户可以在 App 内完成购卡、预约、会员管理、水吧下单、退款和内容浏览，门店体验不再停留在线下，而是成为一个持续在线的运动日常。</p>
+            <p>这套数字系统也是 Change Pro 提高复购、降低沟通损耗、构建会员认知统一性的核心基础设施。</p>
+            <div class="system-points">
+              <div class="timeline-item">
+                <strong>购卡</strong>
+                <p>统一入口完成年卡、通卡与不同层级的会员选择。</p>
+              </div>
+              <div class="timeline-item">
+                <strong>会员</strong>
+                <p>把使用状态、权益管理和训练关系持续沉淀在会员系统中。</p>
+              </div>
+              <div class="timeline-item">
+                <strong>消费</strong>
+                <p>水吧、积分、零售与品牌内容在同一系统里连续发生。</p>
+              </div>
+            </div>
+          </article>
+
+          <div class="system-visual">
+            <div class="system-screen-grid">
+              <article class="system-row motion-card reveal" data-delay="1">
+                <div class="system-row-copy">
+                  <div class="pill">Home</div>
+                  <h4>首页承接训练、内容与日常使用入口</h4>
+                  <p>首页不是简单导航，而是把训练数据、品牌内容、工具入口和会员使用场景集中在一个持续打开的主屏里。</p>
+                </div>
+                <div class="system-row-visual">
+                  <img class="app-shot" src="./change-pro-assets/content/app-home-clean.png" alt="Change App home screen" loading="lazy" decoding="async">
+                </div>
+              </article>
+              <article class="system-row motion-card reveal" data-delay="2">
+                <div class="system-row-copy">
+                  <div class="pill">Member + Trust</div>
+                  <h4>会员中心与购卡机制，共同建立更低门槛的信任体验</h4>
+                  <p>用户中心承接身份与权益，购卡流程承接决策和转化。它们不需要重复展示，而是共同构成 Change Pro 更轻、更稳的会员关系入口。</p>
+                </div>
+                <div class="system-row-visual">
+                  <img class="app-shot" src="./change-pro-assets/content/app-user-clean.png" alt="Change App user center" loading="lazy" decoding="async">
+                </div>
+              </article>
+              <article class="system-row motion-card reveal" data-delay="3">
+                <div class="system-row-copy">
+                  <div class="pill">Consumption</div>
+                  <h4>水吧下单把训练后的即时消费自然接进会员日常</h4>
+                  <p>从训练前后的饮品选择，到积分与消费闭环，水吧不再只是门店附属，而是品牌生活方式的一部分。</p>
+                </div>
+                <div class="system-row-visual">
+                  <img class="app-shot" src="./change-pro-assets/content/app-bar-clean.png" alt="Change App bar order page" loading="lazy" decoding="async">
+                </div>
+              </article>
+              <article class="system-row motion-card reveal" data-delay="4">
+                <div class="system-row-copy">
+                  <div class="pill">Points Sharing</div>
+                  <h4>分享购买与积分返还，把交易行为直接接进品牌内部循环</h4>
+                  <p>用户不只是购买者，也能成为传播节点。分享、购买、积分返还与再次消费被接进同一条链路，让 Change Pro 的数字系统具备更强的自增长能力。</p>
+                </div>
+                <div class="system-row-visual">
+                  <img class="app-shot" src="./change-pro-assets/content/share-purchase.png" alt="Change App share purchase and points screen" loading="lazy" decoding="async">
+                </div>
+              </article>
+              <article class="system-row motion-card reveal" data-delay="1">
+                <div class="system-row-copy">
+                  <div class="pill">Referral Action</div>
+                  <h4>刚裂行动把会员裂变从口头推荐，变成系统化的增长动作</h4>
+                  <p>通过明确的推荐路径和可视化的动作入口，用户被真正转化成品牌传播节点。这也是 Change Pro 低销售成本模型的一部分。</p>
+                </div>
+                <div class="system-row-visual">
+                  <img class="app-shot" src="./change-pro-assets/content/referral-action.png" alt="Change referral action screen" loading="lazy" decoding="async">
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="online">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">Change Online</div>
+            <h3>它不是一个附属小游戏，而是品牌在数字世界里的第二个训练场。</h3>
+          </div>
+          <p>Change Online 把线下门店的社交关系、角色认同和互动节奏延伸到线上。它承接活跃、积分、任务与传播，让品牌连接不止发生在用户到店的那几个小时。</p>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card dark motion-card reveal" data-delay="1">
+            <div class="cap">Virtual Layer</div>
+            <h4>它让 Change Pro 从“去一次健身房”，变成一套持续在线的社交与互动体验。</h4>
+            <p>角色、场景、任务、PK 与社交网络共同组成线上层，用户在 App 内继续延续线下训练关系，也更容易把品牌带入自己的数字日常。</p>
+            <p>对于官网来说，这块最重要的意义不是“游戏化”，而是说明 Change Pro 正在把品牌从门店空间延展为可持续使用的数字生活方式系统。</p>
+          </article>
+
+          <article class="story-card motion-card reveal" data-delay="2">
+            <div class="cap">Scene Preview</div>
+            <div class="story-photo">
+              <img src="./change-pro-assets/content/online-scene-1.jpg" alt="Change Online scene preview" loading="lazy" decoding="async">
+            </div>
+            <div class="mosaic-grid" style="margin-top: 18px;">
+              <div class="gallery-shot motion-card reveal-soft">
+                <img src="./change-pro-assets/content/online-scene-2.png" alt="Change Online in-app scene" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-shot motion-card reveal-soft">
+                <img src="./change-pro-assets/content/online-avatar.png" alt="Change Online character avatar" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="youth">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">Youth Training</div>
+            <h3>品牌影响力不只来自场馆，也来自它与年轻用户和家庭场景建立的新连接。</h3>
+          </div>
+          <p>青训业务让 Change Pro 的用户关系从成年人训练，延展到家庭消费与长期陪伴。它不仅提升人群结构，也为品牌增加更具社群感的成长叙事。</p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-lead motion-card reveal" data-delay="1">
+            <img src="./change-pro-assets/content/training-rugby.jpg" alt="Change Pro youth rugby training" loading="lazy" decoding="async">
+            <div class="gallery-copy">
+              <h4>从训练品牌走向成长型社群</h4>
+              <p>青训让 Change Pro 不只服务个人训练需求，也开始进入家庭运动、青少年成长和线下社群活动的长期场景。</p>
+            </div>
+          </article>
+
+          <div class="gallery-stack">
+            <div class="gallery-shot motion-card reveal" data-delay="1">
+              <img src="./change-pro-assets/content/training-1.jpg" alt="Change Pro youth training" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-shot motion-card reveal" data-delay="2">
+              <img src="./change-pro-assets/content/training-3.jpg" alt="Change Pro training community" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="retail">
+      <div class="shell">
+        <div class="section-head reveal" data-delay="1">
+          <div>
+            <div class="label">Lifestyle Retail</div>
+            <h3>训练之外，品牌也在进入用户的日常消费场景。</h3>
+          </div>
+          <p>水吧和周边零售不是附属品，而是 Change Pro 生活方式表达的一部分。它让品牌从训练现场延展到穿着、饮品和更连续的消费习惯里。</p>
+        </div>
+
+        <div class="lifestyle-grid">
+          <article class="lifestyle-card motion-card reveal" data-delay="1">
+            <img src="./change-pro-assets/content/bar-moho.jpg" alt="Change Pro bar counter" loading="lazy" decoding="async">
+            <div class="pill">Water Bar</div>
+            <h4>水吧场景</h4>
+            <p>从咖啡到奶昔，门店的消费内容正在和训练体验一起构成完整的到店节奏。</p>
+          </article>
+          <article class="lifestyle-card motion-card reveal" data-delay="2">
+            <img src="./change-pro-assets/content/drink-americano.png" alt="Change Pro iced americano" loading="lazy" decoding="async">
+            <div class="pill">Daily Drink</div>
+            <h4>日常饮品</h4>
+            <p>饮品不是点缀，而是品牌进入用户训练前后日常消费的轻入口。</p>
+          </article>
+          <article class="lifestyle-card motion-card reveal" data-delay="3">
+            <img src="./change-pro-assets/content/drink-shake.png" alt="Change Pro avocado shake" loading="lazy" decoding="async">
+            <div class="pill">Recovery</div>
+            <h4>恢复型消费</h4>
+            <p>更贴近训练场景的产品线，让消费逻辑和空间体验真正发生连接。</p>
+          </article>
+          <article class="lifestyle-card motion-card reveal" data-delay="4">
+            <div class="merch-grid">
+              <img src="./change-pro-assets/content/tee-gray-front.png" alt="Change Pro gray tee front" loading="lazy" decoding="async">
+              <img src="./change-pro-assets/content/tee-pink-back.png" alt="Change Pro pink tee back" loading="lazy" decoding="async">
+              <img src="./change-pro-assets/content/hoodie-white.png" alt="Change Pro white hoodie front" loading="lazy" decoding="async">
+              <img src="./change-pro-assets/content/hoodie-gray-back.png" alt="Change Pro gray hoodie back" loading="lazy" decoding="async">
+            </div>
+            <div class="pill">Merch</div>
+            <h4>品牌周边</h4>
+            <p>服饰与零售品类让用户关系不止停在门店内，也进入更长期的生活方式表达。</p>
           </article>
         </div>
       </div>
@@ -2010,8 +2642,8 @@
             <div class="cta-text">
               <div class="label" style="color: rgba(250, 199, 150, 0.88);">Next Phase</div>
               <h3>下一阶段，Change Pro 要复制的不是单店，而是“改变成为习惯”的整套城市系统。</h3>
-              <p>品牌正在从大型高密度综合健身房，进一步延伸为健康生活方式平台：训练场景是入口，数字化会员系统是骨架，水吧、青训、赛事与零售则是不断外扩的利润边界。</p>
-              <p>未来的 Change Pro<span class="desktop-break"><br></span>将继续把场馆体验、数字服务与品牌内容连接成更完整的城市运动日常。</p>
+              <p>未来的 Change Pro，不会只停留在场馆扩张，而会继续把训练场景、数字会员、积分循环和品牌内容连接成更完整的城市运动日常。</p>
+              <p>商户接入、商品体系、社交网络与更完整的信用结构，会让 Change Pro 从健身品牌继续走向更有平台属性的运动生活方式生态。</p>
               <div class="cta-actions">
                 <a class="button" href="http://changepro.vip/index.html" target="_blank" rel="noreferrer">Visit Official Site</a>
                 <a class="ghost" href="#gallery">View Club Spaces</a>
@@ -2030,6 +2662,10 @@
   </main>
 
   <script>
+    window.scrollTo(0, 0);
+    setTimeout(() => window.scrollTo(0, 0), 0);
+    setTimeout(() => window.scrollTo(0, 0), 50);
+
     const topbar = document.querySelector(".topbar");
     const hero = document.querySelector(".hero");
     const motionCards = document.querySelectorAll(".motion-card");
@@ -2050,7 +2686,6 @@
 
     const handlePointer = (event) => {
       const { clientX, clientY } = event;
-
       motionCards.forEach((card) => {
         const rect = card.getBoundingClientRect();
         const x = ((clientX - rect.left) / rect.width) * 100;
@@ -2064,6 +2699,45 @@
 
     window.addEventListener("pointermove", handlePointer, { passive: true });
 
+    function setCardGlowPos(card, clientX, clientY) {
+      const rect = card.getBoundingClientRect();
+      const x = ((clientX - rect.left) / rect.width) * 100;
+      const y = ((clientY - rect.top) / rect.height) * 100;
+      const angle = Math.atan2(clientY - (rect.top + rect.height / 2), clientX - (rect.left + rect.width / 2)) * 180 / Math.PI + 180;
+      card.style.setProperty("--mx", `${x}%`);
+      card.style.setProperty("--my", `${y}%`);
+      card.style.setProperty("--ma", `${angle}deg`);
+    }
+
+    let activeCard = null;
+
+    function activateCard(card, clientX, clientY) {
+      if (card === activeCard) return;
+
+      if (activeCard) {
+        const prev = activeCard;
+        prev.classList.remove("mc-active");
+        prev.classList.add("mc-fading");
+        setTimeout(() => prev.classList.remove("mc-fading"), 600);
+      }
+
+      setCardGlowPos(card, clientX, clientY);
+      card.classList.remove("mc-fading");
+      card.classList.add("mc-active");
+      activeCard = card;
+    }
+
+    motionCards.forEach((card) => {
+      card.addEventListener("pointerdown", (e) => {
+        activateCard(card, e.clientX, e.clientY);
+      });
+
+      card.addEventListener("touchstart", (e) => {
+        const t = e.touches[0];
+        activateCard(card, t.clientX, t.clientY);
+      }, { passive: true });
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -2074,6 +2748,183 @@
     }, { threshold: 0.16 });
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    requestAnimationFrame(() => {
+      document.documentElement.classList.add("smooth-scroll");
+    });
+  </script>
+
+  <script>
+  (function() {
+    var ctn = document.getElementById('aurora-ctn');
+    if (!ctn) return;
+
+    var canvas = document.createElement('canvas');
+    var gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: true });
+    if (!gl) {
+      gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true });
+    }
+    if (!gl) return;
+
+    ctn.appendChild(canvas);
+    gl.clearColor(0, 0, 0, 0);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    canvas.style.backgroundColor = 'transparent';
+
+    var isWebGL2 = !!gl.createVertexArray;
+
+    var VERT = isWebGL2
+      ? '#version 300 es\nin vec2 position;\nvoid main(){gl_Position=vec4(position,0.0,1.0);}'
+      : 'attribute vec2 position;\nvoid main(){gl_Position=vec4(position,0.0,1.0);}';
+
+    var FRAG_300 = [
+      '#version 300 es',
+      'precision highp float;',
+      'uniform float uTime;',
+      'uniform float uAmplitude;',
+      'uniform vec3 uColorStops[3];',
+      'uniform vec2 uResolution;',
+      'uniform float uBlend;',
+      'out vec4 fragColor;',
+      'vec3 permute(vec3 x){return mod(((x*34.0)+1.0)*x,289.0);}',
+      'float snoise(vec2 v){',
+      '  const vec4 C=vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);',
+      '  vec2 i=floor(v+dot(v,C.yy));vec2 x0=v-i+dot(i,C.xx);',
+      '  vec2 i1=(x0.x>x0.y)?vec2(1.0,0.0):vec2(0.0,1.0);',
+      '  vec4 x12=x0.xyxy+C.xxzz;x12.xy-=i1;i=mod(i,289.0);',
+      '  vec3 p=permute(permute(i.y+vec3(0.0,i1.y,1.0))+i.x+vec3(0.0,i1.x,1.0));',
+      '  vec3 m=max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.0);',
+      '  m=m*m;m=m*m;',
+      '  vec3 x=2.0*fract(p*C.www)-1.0;vec3 h=abs(x)-0.5;',
+      '  vec3 ox=floor(x+0.5);vec3 a0=x-ox;',
+      '  m*=1.79284291400159-0.85373472095314*(a0*a0+h*h);',
+      '  vec3 g;g.x=a0.x*x0.x+h.x*x0.y;g.yz=a0.yz*x12.xz+h.yz*x12.yw;',
+      '  return 130.0*dot(m,g);',
+      '}',
+      'struct ColorStop{vec3 color;float position;};',
+      'void main(){',
+      '  vec2 uv=gl_FragCoord.xy/uResolution;',
+      '  ColorStop colors[3];',
+      '  colors[0]=ColorStop(uColorStops[0],0.0);',
+      '  colors[1]=ColorStop(uColorStops[1],0.5);',
+      '  colors[2]=ColorStop(uColorStops[2],1.0);',
+      '  int idx=0;',
+      '  for(int i=0;i<2;i++){if(colors[i].position<=uv.x)idx=i;}',
+      '  float range=colors[idx+1].position-colors[idx].position;',
+      '  float lf=(uv.x-colors[idx].position)/range;',
+      '  vec3 rampColor=mix(colors[idx].color,colors[idx+1].color,lf);',
+      '  float height=snoise(vec2(uv.x*2.0+uTime*0.1,uTime*0.25))*0.5*uAmplitude;',
+      '  height=exp(height);height=(uv.y*2.0-height+0.2);',
+      '  float intensity=0.42*height;',
+      '  float midPoint=0.20;',
+      '  float auroraAlpha=smoothstep(midPoint-uBlend*0.5,midPoint+uBlend*0.5,intensity);',
+      '  vec3 auroraColor=intensity*rampColor;',
+      '  fragColor=vec4(auroraColor*auroraAlpha,auroraAlpha);',
+      '}'
+    ].join('\n');
+
+    var FRAG_100 = [
+      'precision highp float;',
+      'uniform float uTime;',
+      'uniform float uAmplitude;',
+      'uniform vec3 uColorStops[3];',
+      'uniform vec2 uResolution;',
+      'uniform float uBlend;',
+      'vec3 permute(vec3 x){return mod(((x*34.0)+1.0)*x,289.0);}',
+      'float snoise(vec2 v){',
+      '  vec4 C=vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);',
+      '  vec2 i=floor(v+dot(v,C.yy));vec2 x0=v-i+dot(i,C.xx);',
+      '  vec2 i1=(x0.x>x0.y)?vec2(1.0,0.0):vec2(0.0,1.0);',
+      '  vec4 x12=x0.xyxy+C.xxzz;x12.xy-=i1;i=mod(i,289.0);',
+      '  vec3 p=permute(permute(i.y+vec3(0.0,i1.y,1.0))+i.x+vec3(0.0,i1.x,1.0));',
+      '  vec3 m=max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.0);',
+      '  m=m*m;m=m*m;',
+      '  vec3 x2=2.0*fract(p*C.www)-1.0;vec3 h=abs(x2)-0.5;',
+      '  vec3 ox=floor(x2+0.5);vec3 a0=x2-ox;',
+      '  m*=1.79284291400159-0.85373472095314*(a0*a0+h*h);',
+      '  vec3 g;g.x=a0.x*x0.x+h.x*x0.y;g.yz=a0.yz*x12.xz+h.yz*x12.yw;',
+      '  return 130.0*dot(m,g);',
+      '}',
+      'void main(){',
+      '  vec2 uv=gl_FragCoord.xy/uResolution;',
+      '  vec3 c0=uColorStops[0];vec3 c1=uColorStops[1];vec3 c2=uColorStops[2];',
+      '  vec3 rampColor=uv.x<0.5?mix(c0,c1,uv.x*2.0):mix(c1,c2,(uv.x-0.5)*2.0);',
+      '  float height=snoise(vec2(uv.x*2.0+uTime*0.1,uTime*0.25))*0.5*uAmplitude;',
+      '  height=exp(height);height=(uv.y*2.0-height+0.2);',
+      '  float intensity=0.42*height;',
+      '  float midPoint=0.20;',
+      '  float auroraAlpha=smoothstep(midPoint-uBlend*0.5,midPoint+uBlend*0.5,intensity);',
+      '  vec3 auroraColor=intensity*rampColor;',
+      '  gl_FragColor=vec4(auroraColor*auroraAlpha,auroraAlpha);',
+      '}'
+    ].join('\n');
+
+    var FRAG = isWebGL2 ? FRAG_300 : FRAG_100;
+
+    function compileShader(type, src) {
+      var s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return s;
+    }
+
+    var vs = compileShader(gl.VERTEX_SHADER, VERT);
+    var fs = compileShader(gl.FRAGMENT_SHADER, FRAG);
+    var prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    gl.useProgram(prog);
+
+    var verts = new Float32Array([-1, -1, 3, -1, -1, 3]);
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
+    var posLoc = gl.getAttribLocation(prog, 'position');
+    gl.enableVertexAttribArray(posLoc);
+    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+    var uTime = gl.getUniformLocation(prog, 'uTime');
+    var uAmplitude = gl.getUniformLocation(prog, 'uAmplitude');
+    var uBlend = gl.getUniformLocation(prog, 'uBlend');
+    var uResolution = gl.getUniformLocation(prog, 'uResolution');
+    var uColorStops = gl.getUniformLocation(prog, 'uColorStops');
+
+    function hexToGL(hex) {
+      var r = parseInt(hex.slice(1, 3), 16) / 255;
+      var g = parseInt(hex.slice(3, 5), 16) / 255;
+      var b = parseInt(hex.slice(5, 7), 16) / 255;
+      return [r, g, b];
+    }
+
+    var colors = ['#FF8844', '#D4A54A', '#FF6622'];
+    var colorArr = [].concat(hexToGL(colors[0]), hexToGL(colors[1]), hexToGL(colors[2]));
+    gl.uniform3fv(uColorStops, colorArr);
+    gl.uniform1f(uAmplitude, 1.0);
+    gl.uniform1f(uBlend, 0.5);
+
+    function resize() {
+      var w = ctn.offsetWidth;
+      var h = ctn.offsetHeight;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(uResolution, canvas.width, canvas.height);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    var animId;
+    function render(t) {
+      animId = requestAnimationFrame(render);
+      gl.uniform1f(uTime, t * 0.004);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    animId = requestAnimationFrame(render);
+  })();
   </script>
 </body>
 </html>
