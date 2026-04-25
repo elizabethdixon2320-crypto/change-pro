@@ -71,4 +71,8 @@
     .footer__top { grid-template-columns: 1fr; gap: var(--space-7); }
     .footer__cols { grid-template-columns: 1fr 1fr; }
   }
+  @media (max-width: 640px) {
+    .footer__cols { grid-template-columns: 1fr; gap: var(--space-5); }
+    .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+  }
 </style>

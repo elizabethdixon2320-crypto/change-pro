@@ -99,4 +99,8 @@ const categories = [
     .coffee { grid-template-columns: 1fr; gap: var(--space-6); }
     .cats { grid-template-columns: repeat(2, 1fr); }
   }
+  @media (max-width: 640px) {
+    .coffee__title { white-space: normal; font-size: 28px; line-height: 1.25; }
+    .coffee__img { aspect-ratio: 4 / 3; }
+  }
 </style>

@@ -102,3 +102,27 @@
   --ease:        cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* ====== Mobile token overrides (≤640px) ======
+   桌面用大留白和 fluid 字号, 手机统一压缩到舒服读的尺寸 */
+@media (max-width: 640px) {
+  :root {
+    --gutter:       20px;
+    --section-y:    56px;
+
+    --fs-mega:      56px;     /* Hero CHANGE/PRO */
+    --fs-display:   40px;
+    --fs-h1:        32px;
+    --fs-h2:        26px;
+    --fs-h3:        20px;
+    --fs-lead:      16px;
+    --fs-body:      15px;
+    --fs-small:     13px;
+
+    --space-7:      32px;
+    --space-8:      48px;
+    --space-9:      64px;
+    --space-10:     80px;
+    --space-11:     96px;
+  }
+}

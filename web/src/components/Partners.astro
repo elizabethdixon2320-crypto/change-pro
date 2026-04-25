@@ -183,8 +183,15 @@ const momentsRest = [
   }
   @media (max-width: 900px) {
     .p__logos { grid-template-columns: repeat(3, 1fr); }
-    .cup-stats { grid-template-columns: 1fr; }
+    .cup-stats { grid-template-columns: repeat(2, 1fr); }
     .cup-top { grid-template-columns: 1fr; }
     .cup-rest { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .p__logos { grid-template-columns: repeat(2, 1fr); }
+    .logo { padding: var(--space-4); }
+    .cup-stats { grid-template-columns: 1fr; gap: var(--space-5); padding-block: var(--space-6); }
+    .cstat__big { font-size: 56px; }
+    .cup-rest { grid-template-columns: 1fr; }
   }
 </style>
