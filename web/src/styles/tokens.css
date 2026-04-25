@@ -1,0 +1,104 @@
+/* ======================================================================
+   CHANGE PRO · DESIGN TOKENS
+   极简·白主导 / 灰辅 #404040 / 橙点缀 #F88500
+   字体: Balgin (英文展示) + Alibaba PuHuiTi (中文正文)
+====================================================================== */
+
+/* ---- Fonts ---- */
+@font-face {
+  font-family: "Balgin";
+  src: url("/assets/fonts/Balgin Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Balgin";
+  src: url("/assets/fonts/Balgin Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Balgin";
+  src: url("/assets/fonts/Balgin Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Alibaba PuHuiTi";
+  src: url("/assets/fonts/AlibabaPuHuiTi-3-55-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Alibaba PuHuiTi";
+  src: url("/assets/fonts/AlibabaPuHuiTi-3-115-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---- Palette ---- */
+  --white:        #ffffff;
+  --off-white:    #fafafa;
+  --hairline:     #ededed;
+  --line:         #d4d4d4;
+  --gray-soft:    #8a8a8a;
+  --gray:         #404040;   /* 用户指定 · 辅色 */
+  --ink:          #111111;   /* 主正文 */
+  --black:        #0a0a0a;   /* 反转 section */
+
+  --orange:       #f88500;   /* 用户指定 · 点缀色 */
+  --orange-soft:  #fff4e5;
+  --orange-deep:  #d86f00;
+
+  /* ---- Typography ---- */
+  --font-display: "Balgin", "Helvetica Neue", Arial, sans-serif;
+  --font-text:    "Balgin", "Alibaba PuHuiTi", -apple-system, "PingFang SC", sans-serif;
+
+  /* Type scale (fluid) */
+  --fs-mega:      clamp(72px, 14vw, 240px);   /* Hero 大字 */
+  --fs-display:   clamp(48px, 8vw, 120px);    /* 大标题 */
+  --fs-h1:        clamp(40px, 5.5vw, 88px);
+  --fs-h2:        clamp(28px, 3.6vw, 56px);
+  --fs-h3:        clamp(22px, 2.2vw, 32px);
+  --fs-lead:      clamp(18px, 1.4vw, 22px);   /* 导语 */
+  --fs-body:      17px;
+  --fs-small:     14px;
+  --fs-eyebrow:   12px;
+  --fs-caption:   11px;
+
+  /* Letter/Line */
+  --ls-tight:     -0.02em;
+  --ls-wide:      0.14em;
+  --lh-tight:     1.02;
+  --lh-snug:      1.3;
+  --lh-body:      1.7;
+
+  /* ---- Spacing ---- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+  --space-11: 192px;
+
+  /* ---- Layout ---- */
+  --container:   1320px;
+  --container-sm: 960px;
+  --gutter:      clamp(24px, 5vw, 80px);
+  --section-y:   clamp(80px, 10vw, 160px);
+
+  /* ---- Motion ---- */
+  --ease:        cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+}

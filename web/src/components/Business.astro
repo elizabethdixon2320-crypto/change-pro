@@ -1,0 +1,214 @@
+---
+const engines = [
+  { tag: "OFFLINE SPACE", cn: "高密度健身空间",
+    desc: "把训练时间留给训练本身——空间是品牌最稳的日常触达入口，也是 Change Pro 全部体验的物理起点。" },
+  { tag: "POINTS ENGINE", cn: "积分经济系统",
+    desc: "消费返积分、积分再消费——把会员、水吧、零售与推荐接入内循环，每一次消费都在给下一次消费蓄力。" },
+  { tag: "DIGITAL LAYER", cn: "Change Online",
+    desc: "把训练关系做成可交互的角色、任务与 PK——让会员之间的连接，不只发生在更衣室。" },
+];
+
+const ecosystem = [
+  { tag: "YOUTH TRAINING", cn: "青训",       desc: "把品牌从个人训练拓展到家庭运动消费。" },
+  { tag: "WATER BAR",      cn: "水吧",       desc: "咖啡、奶昔、冰沙，把门店延伸到日常消费。" },
+  { tag: "RETAIL",         cn: "周边零售",   desc: "服饰、装备、能量饮，补足生活方式表达。" },
+  { tag: "APP",            cn: "Change App", desc: "办卡、预约、水吧、内容，一个入口全承接。" },
+  { tag: "GAME",           cn: "Change Online", desc: "游戏化社交层，提升活跃频率与传播。" },
+  { tag: "IP",             cn: "Change Cup", desc: "赛事与品牌事件持续放大外部声量。" },
+];
+
+const timeline = [
+  { year: "2015", title: "品牌成立",              sub: "" },
+  { year: "2024", title: "首店落地 · 长宁龙之梦", sub: "10 天客流近 3 万" },
+  { year: "2025", title: "沪内加密 + 跨城扩张",   sub: "MOHO / 常州 / 金桥" },
+  { year: "2026", title: "管理层交接 · 系统化扩张", sub: "走向标准化复制" },
+];
+---
+
+<section class="biz section section--off" id="system">
+  <div class="container">
+    <div class="biz__head reveal">
+      <div class="eyebrow">02 / BUSINESS LANDSCAPE</div>
+      <h2 class="section-title-cn">
+        空间是入口 积分是循环<br/>
+        <span class="accent">数字是连接</span>
+      </h2>
+      <p class="lead">高密度空间、积分经济、数字系统，三者共同构成品牌的业务骨架。</p>
+    </div>
+
+    <!-- Three engines -->
+    <div class="engines">
+      {engines.map((e, i) => (
+        <article class="engine reveal" style={`--delay: ${i * 80}ms`}>
+          <div class="engine__num">0{i + 1}</div>
+          <div class="engine__tag">{e.tag}</div>
+          <h3 class="engine__cn">{e.cn}</h3>
+          <p class="engine__desc">{e.desc}</p>
+        </article>
+      ))}
+    </div>
+
+    <!-- Ecosystem -->
+    <div class="eco-head reveal">
+      <div class="eyebrow">ECOSYSTEM</div>
+      <h3 class="eco-title">从训练空间到生活方式生态</h3>
+      <p class="eco-lead">青训、水吧、零售、赛事与 App、Change Online 一起，把单次训练延展为持续的消费与社交关系。</p>
+    </div>
+    <div class="eco-grid">
+      {ecosystem.map((e, i) => (
+        <div class="eco reveal" style={`--delay: ${i * 50}ms`}>
+          <div class="eco__tag">{e.tag}</div>
+          <div class="eco__cn">{e.cn}</div>
+          <p class="eco__desc">{e.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Timeline -->
+    <div class="tl-head reveal">
+      <div class="eyebrow">BRAND LOGIC</div>
+      <h3 class="tl-title">不是首店爆红，而是可被反复复制的信任系统</h3>
+    </div>
+    <ol class="timeline">
+      {timeline.map((t, i) => (
+        <li class="tl-item reveal" style={`--delay: ${i * 90}ms`}>
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-year">{t.year}</div>
+          <div class="tl-title-row">{t.title}</div>
+          {t.sub && <div class="tl-sub">{t.sub}</div>}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .biz__head { max-width: 980px; margin-bottom: var(--space-9); }
+  .biz__head .section-title-cn { margin-block: var(--space-5) var(--space-6); }
+  .biz__head .accent { color: var(--orange); }
+
+  /* Engines */
+  .engines {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-7);
+    padding-block: var(--space-8);
+    border-block: 1px solid var(--hairline);
+    margin-bottom: var(--space-10);
+  }
+  .engine { transition-delay: var(--delay, 0ms); }
+  .engine__num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(48px, 4.5vw, 72px);
+    line-height: 1;
+    color: var(--orange);
+    margin-bottom: var(--space-5);
+  }
+  .engine__tag {
+    font-family: var(--font-display); font-size: var(--fs-eyebrow);
+    font-weight: 700; letter-spacing: var(--ls-wide);
+    color: var(--gray); margin-bottom: var(--space-3);
+  }
+  .engine__cn {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(24px, 2vw, 30px); color: var(--ink);
+    margin: 0 0 var(--space-4) 0; line-height: 1.3;
+  }
+  .engine__desc { color: var(--gray); font-size: var(--fs-small); line-height: 1.75; margin: 0; }
+
+  /* Ecosystem */
+  .eco-head { max-width: 720px; margin-bottom: var(--space-7); }
+  .eco-title {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(26px, 2.6vw, 40px);
+    margin: var(--space-4) 0 var(--space-3) 0; color: var(--ink);
+  }
+  .eco-lead { color: var(--gray); font-size: var(--fs-body); line-height: 1.7; margin: 0; }
+
+  .eco-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: var(--space-10);
+    border-top: 1px solid var(--hairline);
+  }
+  .eco {
+    padding: var(--space-6) var(--space-5);
+    border-bottom: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+    transition-delay: var(--delay, 0ms);
+  }
+  .eco:nth-child(3n) { border-right: 0; }
+  .eco:nth-child(3n+1) { padding-left: 0; }
+  .eco__tag {
+    font-family: var(--font-display); font-size: var(--fs-eyebrow);
+    font-weight: 700; letter-spacing: var(--ls-wide);
+    color: var(--orange); margin-bottom: var(--space-3);
+  }
+  .eco__cn {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: 22px; color: var(--ink); margin-bottom: var(--space-3);
+    letter-spacing: -0.01em;
+  }
+  .eco__desc { color: var(--gray); font-size: var(--fs-small); line-height: 1.7; margin: 0; }
+
+  /* Timeline */
+  .tl-head { max-width: 1100px; margin-bottom: var(--space-7); }
+  .tl-title {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(24px, 2.4vw, 36px);
+    margin: var(--space-4) 0 0 0; color: var(--ink);
+    word-break: keep-all; overflow-wrap: normal;
+  }
+  .timeline {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    padding-top: var(--space-8);
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute; top: var(--space-8); left: 0; right: 0;
+    height: 1px; background: var(--line);
+  }
+  .tl-item {
+    position: relative;
+    padding-top: var(--space-5);
+    transition-delay: var(--delay, 0ms);
+  }
+  .tl-dot {
+    position: absolute; top: -4px; left: 0;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--orange);
+  }
+  .tl-year {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(32px, 2.6vw, 44px);
+    color: var(--ink);
+    margin-bottom: var(--space-3); line-height: 1;
+    letter-spacing: 0.02em;
+    font-feature-settings: "kern" off;
+  }
+  .tl-title-row {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: 15px; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-sub { font-size: var(--fs-small); color: var(--gray); }
+
+  @media (max-width: 1000px) {
+    .engines, .eco-grid, .timeline { grid-template-columns: repeat(2, 1fr); }
+    .eco:nth-child(2n) { border-right: 0; }
+    .eco:nth-child(2n+1) { border-right: 1px solid var(--hairline); }
+    .timeline::before { display: none; }
+    .tl-item { border-top: 1px solid var(--hairline); padding-top: var(--space-5); }
+    .tl-dot { top: -5px; }
+  }
+  @media (max-width: 640px) {
+    .engines, .eco-grid, .timeline { grid-template-columns: 1fr; }
+    .eco { border-right: 0 !important; padding-inline: 0; }
+  }
+</style>

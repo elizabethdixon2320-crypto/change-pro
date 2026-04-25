@@ -1,0 +1,102 @@
+---
+const categories = [
+  { tag: "WATER BAR",  cn: "水吧场景",   img: "/assets/content/bar-moho.jpg" },
+  { tag: "DAILY DRINK", cn: "日常饮品",  img: "/assets/content/drink-americano.png" },
+  { tag: "RECOVERY",   cn: "恢复型消费", img: "/assets/content/drink-shake.png" },
+  { tag: "MERCH",      cn: "品牌周边",   img: "/assets/content/hoodie-white.png" },
+];
+---
+
+<section class="retail section section--off" id="retail">
+  <div class="container">
+    <div class="r__head reveal">
+      <div class="eyebrow">07 / LIFESTYLE RETAIL</div>
+      <h2 class="section-title-cn">
+        训练之外 品牌也在 <br/>
+        <span class="accent">进入日常消费场景</span>
+      </h2>
+      <p class="lead">水吧、咖啡、服饰、装备——把品牌从训练现场延伸到穿着、饮品与更连续的消费习惯。</p>
+    </div>
+
+    <!-- Change Coffee hero -->
+    <div class="coffee reveal">
+      <div class="coffee__text">
+        <div class="eyebrow eyebrow--orange">CHANGE COFFEE</div>
+        <h3 class="coffee__title">咖啡消费场景延展</h3>
+        <p class="coffee__desc">
+          Change Coffee 支持合作伙伴以街边独立门店形式开设。
+          用户在任意一家 Change Coffee 购买咖啡，即可获得一次
+          <strong>Change Pro 健身体验权益</strong>。
+        </p>
+      </div>
+      <div class="coffee__img" style="background-image:url('/assets/content/coffee-bar-wide.png')"></div>
+    </div>
+
+    <!-- Categories -->
+    <div class="cats">
+      {categories.map((c, i) => (
+        <article class="cat reveal" style={`--delay: ${i * 70}ms`}>
+          <div class="cat__img" style={`background-image:url('${c.img}')`}></div>
+          <div class="cat__tag">{c.tag}</div>
+          <div class="cat__cn">{c.cn}</div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .r__head { max-width: 980px; margin-bottom: var(--space-9); }
+  .r__head .section-title-cn { margin-block: var(--space-5) var(--space-6); }
+  .r__head .accent { color: var(--orange); }
+
+  .coffee {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    gap: var(--space-8);
+    align-items: center;
+    padding-block: var(--space-8);
+    border-block: 1px solid var(--hairline);
+    margin-bottom: var(--space-10);
+  }
+  .coffee__title {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(28px, 3vw, 44px);
+    margin: var(--space-4) 0 var(--space-5) 0; color: var(--ink); line-height: 1.2;
+    white-space: nowrap;
+  }
+  .coffee__desc { color: var(--gray); font-size: var(--fs-body); line-height: 1.8; margin: 0; }
+  .coffee__desc strong { color: var(--ink); font-weight: 900; }
+  .coffee__img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-size: cover; background-position: center;
+    background-color: var(--hairline);
+  }
+
+  .cats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+  .cat { transition-delay: var(--delay, 0ms); }
+  .cat__img {
+    width: 100%; aspect-ratio: 1 / 1;
+    background-size: cover; background-position: center;
+    background-color: var(--white);
+    margin-bottom: var(--space-4);
+    transition: transform 500ms var(--ease);
+  }
+  .cat:hover .cat__img { transform: scale(1.02); }
+  .cat__tag {
+    font-family: var(--font-display); font-size: var(--fs-eyebrow);
+    font-weight: 700; letter-spacing: var(--ls-wide);
+    color: var(--orange); margin-bottom: 4px;
+  }
+  .cat__cn { font-family: var(--font-text); font-weight: 900; font-size: 17px; color: var(--ink); }
+
+  @media (max-width: 900px) {
+    .coffee { grid-template-columns: 1fr; gap: var(--space-6); }
+    .cats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

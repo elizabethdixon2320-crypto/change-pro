@@ -1,1 +1,17 @@
 .DS_Store
+
+# Astro / Node
+web/node_modules
+web/dist
+web/.astro
+web/.vercel
+node_modules
+.vercel
+
+# Local-only build artifacts (PPT/PDF generation, backups)
+_backup/
+decks/
+scripts/
+*.bak
+index-lite.html
+index-17板块-*.html

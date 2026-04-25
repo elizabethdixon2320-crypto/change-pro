@@ -1,0 +1,141 @@
+---
+const scenes = [
+  { num: "01", tag: "HOME",           cn: "首页承接训练、内容与日常入口",
+    desc: "把训练数据、品牌内容与会员场景集中在一个持续打开的主屏。",
+    img: "/assets/content/app-home-clean.png" },
+  { num: "02", tag: "MEMBER + TRUST", cn: "会员中心与购卡机制共建信任",
+    desc: "用户中心承接身份与权益，购卡流程承接决策与转化。",
+    img: "/assets/content/app-user-clean.png" },
+  { num: "03", tag: "CONSUMPTION",    cn: "水吧下单接进会员日常",
+    desc: "从饮品选择到积分闭环，水吧不再只是门店附属。",
+    img: "/assets/content/app-bar-clean.png" },
+  { num: "04", tag: "POINTS SHARING", cn: "分享购买 + 积分返还接入循环",
+    desc: "用户不只是购买者，也是传播节点。",
+    img: "/assets/content/share-purchase.png" },
+  { num: "05", tag: "REFERRAL ACTION", cn: "裂变行动：系统化的裂变动作",
+    desc: "清晰的推荐路径，把口头推荐变成可执行的增长动作。",
+    img: "/assets/content/referral-action.png" },
+];
+---
+
+<section class="digital section" id="digital">
+  <div class="container">
+    <div class="d__head reveal">
+      <div class="eyebrow">06 / CHANGE APP</div>
+      <h2 class="section-title-cn"><span style="white-space:nowrap;">品牌在数字世界的</span><br/><span class="accent" style="white-space:nowrap;">训练场</span></h2>
+      <p class="lead">办卡、预约、会员、水吧、退款、内容——门店体验不再停留在线下，而是持续在线的运动日常。</p>
+    </div>
+
+    <div class="d__scenes">
+      {scenes.map((s, i) => (
+        <article class={`scene reveal scene--${i % 2 === 0 ? 'l' : 'r'}`} style={`--delay: ${i * 60}ms`}>
+          <div class="scene__text">
+            <div class="scene__num">{s.num}</div>
+            <div class="scene__tag">{s.tag}</div>
+            <h3 class="scene__cn">{s.cn}</h3>
+            <p class="scene__desc">{s.desc}</p>
+          </div>
+          <div class="scene__phone">
+            <img src={s.img} alt={s.tag} loading="lazy"/>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Change Online -->
+    <div class="online reveal">
+      <div class="online__left">
+        <div class="eyebrow eyebrow--orange">CHANGE ONLINE</div>
+        <h3 class="online__title">
+          线下汗水<br/>
+          <span class="accent">线上继续发生</span>
+        </h3>
+      </div>
+      <div class="online__right">
+        <div class="online__meta">角色 · 场景 · 任务 · PK · 社交网络</div>
+        <p class="online__desc">
+          Change Online 把门店训练关系延伸为持续在线的生活方式。
+          不只是 App，是一个完整的数字伴生层——线下汗水，线上继续发生。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .d__head { max-width: 980px; margin-bottom: var(--space-9); }
+  .d__head .section-title-cn { margin-block: var(--space-5) var(--space-6); }
+  .d__head .accent { color: var(--orange); }
+
+  .d__scenes {
+    display: flex; flex-direction: column;
+    gap: var(--space-9);
+    margin-bottom: var(--space-10);
+  }
+  .scene {
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    gap: var(--space-8);
+    align-items: center;
+    transition-delay: var(--delay, 0ms);
+  }
+  .scene--r { grid-template-columns: 5fr 6fr; }
+  .scene--r .scene__text { order: 2; }
+  .scene--r .scene__phone { order: 1; }
+
+  .scene__num {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(48px, 5vw, 80px); line-height: 1;
+    color: var(--orange); letter-spacing: -0.03em;
+    margin-bottom: var(--space-5);
+  }
+  .scene__tag {
+    font-family: var(--font-display); font-size: var(--fs-eyebrow);
+    font-weight: 700; letter-spacing: var(--ls-wide);
+    color: var(--gray); margin-bottom: var(--space-3);
+  }
+  .scene__cn {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(24px, 2.4vw, 36px); line-height: 1.3;
+    color: var(--ink); margin: 0 0 var(--space-4) 0;
+  }
+  .scene__desc { color: var(--gray); font-size: var(--fs-body); line-height: 1.75; margin: 0; max-width: 480px; }
+
+  .scene__phone {
+    display: grid; place-items: center;
+  }
+  .scene__phone img {
+    max-width: 320px; width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Online */
+  .online {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    padding: var(--space-10) 0 var(--space-9);
+    border-top: 1px solid var(--hairline);
+    align-items: start;
+  }
+  .online__title {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(36px, 4.5vw, 72px); line-height: 1.15;
+    margin: var(--space-4) 0 0 0; color: var(--ink);
+  }
+  .online__title .accent { color: var(--orange); }
+  .online__meta {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(20px, 1.8vw, 26px);
+    color: var(--ink); margin-bottom: var(--space-5);
+  }
+  .online__desc { color: var(--gray); font-size: var(--fs-body); line-height: 1.8; margin: 0; }
+
+  @media (max-width: 900px) {
+    .scene, .scene--r { grid-template-columns: 1fr; gap: var(--space-6); }
+    .scene--r .scene__text { order: 1; }
+    .scene--r .scene__phone { order: 2; }
+    .online { grid-template-columns: 1fr; gap: var(--space-6); }
+  }
+</style>

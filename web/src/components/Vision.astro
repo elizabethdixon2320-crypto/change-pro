@@ -1,0 +1,126 @@
+---
+const pillars = [
+  {
+    num: "01",
+    tag: "OUR VISION",
+    cn: "让每个人想要健身的权利不被剥夺",
+    en: "We fight for your right to fitness.",
+  },
+  {
+    num: "02",
+    tag: "OUR MISSION",
+    cn: "用心做好健身，真正参与到全民健身中",
+    en: "Dedication, craftsmanship. To truly provide fitness for all.",
+  },
+  {
+    num: "03",
+    tag: "BRAND SPIRIT",
+    cn: "让改变持续发生",
+    en: "Change is a habit — 走进来，就是开始改变。",
+  },
+];
+---
+
+<section class="vision section" id="vision">
+  <div class="container">
+    <div class="vision__head reveal">
+      <div class="eyebrow eyebrow--orange">01 / VISION · POSITIONING</div>
+      <h2 class="section-title-cn vision__title">
+        让改变持续发生<br/>
+        <span class="vision__title-accent">把「可负担的专业感」<br/>做成行业新默认</span>
+      </h2>
+      <p class="lead">健身可以是每天的事。Change Pro 把高密度门店做成可负担的日常起点，再用赛事、青训与数字层把它带到训练之外的生活里。</p>
+    </div>
+
+    <div class="vision__grid">
+      {pillars.map((p, i) => (
+        <article class={`pillar reveal`} style={`--delay: ${i * 80}ms`}>
+          <div class="pillar__num">{p.num}</div>
+          <div class="pillar__tag">{p.tag}</div>
+          <h3 class="pillar__cn">{p.cn}</h3>
+          <p class="pillar__en">{p.en}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .vision {
+    background: var(--white);
+    padding-block: var(--section-y);
+  }
+  .vision__head {
+    max-width: 980px;
+    margin-bottom: var(--space-10);
+  }
+  .vision__title {
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-6);
+    font-size: clamp(32px, 4vw, 64px);
+    line-height: 1.15;
+    font-weight: 900;
+  }
+  .vision__title-accent {
+    display: block;
+    color: var(--gray);
+    font-weight: 400;
+  }
+
+  .vision__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    position: relative;
+  }
+  .vision__grid::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--hairline);
+  }
+
+  .pillar {
+    padding-top: var(--space-7);
+    padding-right: var(--space-5);
+    transition-delay: var(--delay, 0ms);
+  }
+  .pillar__num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(48px, 5vw, 72px);
+    line-height: 1;
+    color: var(--orange);
+    margin-bottom: var(--space-5);
+  }
+  .pillar__tag {
+    font-family: var(--font-display);
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--ls-wide);
+    color: var(--gray);
+    margin-bottom: var(--space-4);
+  }
+  .pillar__cn {
+    font-family: var(--font-text);
+    font-weight: 900;
+    font-size: clamp(22px, 1.8vw, 28px);
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 0 0 var(--space-4) 0;
+  }
+  .pillar__en {
+    font-family: var(--font-display);
+    font-size: var(--fs-small);
+    color: var(--gray);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .vision__grid { grid-template-columns: 1fr; gap: var(--space-6); }
+    .pillar { padding-top: var(--space-6); }
+    .pillar + .pillar { border-top: 1px solid var(--hairline); }
+  }
+</style>

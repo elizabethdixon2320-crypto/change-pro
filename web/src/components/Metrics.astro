@@ -1,0 +1,129 @@
+---
+const stats = [
+  { big: "7",       suf: "家", tag: "OPEN CLUBS",     cn: "已开业门店",   sub: "覆盖上海、常州、杭州" },
+  { big: "6000",    suf: "+",  tag: "CAPACITY",        cn: "单店会员容量", sub: "高密度空间承载力" },
+  { big: "130",     suf: "",   tag: "DENSITY",         cn: "有氧设备密度 / 店", sub: "行业头部水平" },
+  { big: "1600万",  suf: "+",  tag: "VIEWS",           cn: "Change 杯抖音播放", sub: "赛事累计声量" },
+];
+---
+<section class="metrics section">
+  <div class="container">
+    <div class="metrics__head reveal">
+      <div class="eyebrow">01 / KEY METRICS</div>
+      <h2 class="section-title-cn">撑得起愿景的 是每个环节的硬指标</h2>
+      <p class="lead">以下为现阶段核心运营数据，反映品牌在空间、用户、训练与外部影响力四端的真实体量。</p>
+    </div>
+
+    <div class="metrics__grid">
+      {stats.map((s, i) => (
+        <div class="metric reveal" style={`--delay: ${i * 90}ms`}>
+          <div class="metric__index">0{i + 1}</div>
+          <div class="metric__big">
+            <span>{s.big}</span>
+            {s.suf && <em>{s.suf}</em>}
+          </div>
+          <div class="metric__tag">{s.tag}</div>
+          <div class="metric__cn">{s.cn}</div>
+          <div class="metric__sub">{s.sub}</div>
+        </div>
+      ))}
+    </div>
+
+    <blockquote class="metrics__quote reveal">
+      <span class="q">“</span>
+      四个端口同时跑通，<em>"可负担的专业感"</em>才能在每一次到店里被反复兑现。
+    </blockquote>
+  </div>
+</section>
+
+<style>
+  .metrics { background: var(--white); }
+  .metrics__head { max-width: 860px; margin-bottom: var(--space-9); }
+  .metrics__head .section-title-cn { margin-block: var(--space-5) var(--space-6); }
+
+  .metrics__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-7);
+    padding-block: var(--space-8);
+    border-block: 1px solid var(--hairline);
+  }
+  .metric { transition-delay: var(--delay, 0ms); }
+  .metric__index {
+    font-family: var(--font-display);
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--ls-wide);
+    color: var(--gray-soft);
+    margin-bottom: var(--space-5);
+  }
+  .metric__big {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(40px, 4.6vw, 76px);
+    line-height: 0.95;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: var(--space-4);
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+  .metric__big span { white-space: nowrap; }
+  .metric__big em {
+    font-style: normal;
+    color: var(--orange);
+    font-size: 0.5em;
+  }
+  .metric:last-child .metric__big span { color: var(--orange); }
+
+  .metric__tag {
+    font-family: var(--font-display);
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--ls-wide);
+    color: var(--orange);
+    margin-bottom: var(--space-2);
+  }
+  .metric__cn {
+    font-family: var(--font-text);
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .metric__sub {
+    font-size: var(--fs-small);
+    color: var(--gray);
+  }
+
+  .metrics__quote {
+    margin: var(--space-9) 0 0 0;
+    font-family: var(--font-text);
+    font-weight: 900;
+    font-size: clamp(26px, 2.8vw, 40px);
+    line-height: 1.35;
+    color: var(--ink);
+    max-width: 1100px;
+    position: relative;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+  .metrics__quote .q {
+    font-family: var(--font-display);
+    color: var(--orange);
+    font-size: 1.4em;
+    margin-right: 8px;
+    line-height: 0;
+  }
+  .metrics__quote em { font-style: normal; color: var(--orange); }
+
+  @media (max-width: 1100px) {
+    .metrics__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .metrics__grid { grid-template-columns: 1fr; }
+  }
+</style>

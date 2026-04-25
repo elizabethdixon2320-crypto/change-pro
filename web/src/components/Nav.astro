@@ -1,0 +1,70 @@
+---
+const links = [
+  { href: "#vision",    label: "VISION" },
+  { href: "#system",    label: "SYSTEM" },
+  { href: "#network",   label: "NETWORK" },
+  { href: "#partners",  label: "PARTNERS" },
+  { href: "#community", label: "COMMUNITY" },
+  { href: "#digital",   label: "DIGITAL" },
+  { href: "#retail",    label: "RETAIL" },
+  { href: "#future",    label: "FUTURE" },
+];
+---
+
+<header class="nav">
+  <div class="nav__inner container">
+    <a class="nav__brand" href="#hero" aria-label="Change Pro">
+      <img src="/assets/logo-black.png" alt="Change Pro" />
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      {links.map((l) => (
+        <a href={l.href}>{l.label}</a>
+      ))}
+    </nav>
+    <a class="btn btn--primary nav__cta" href="#future">APP</a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 80;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    height: 68px;
+  }
+  .nav__brand img {
+    height: 22px;
+    width: auto;
+  }
+  .nav__links {
+    display: flex;
+    gap: var(--space-6);
+    font-family: var(--font-display);
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--ls-wide);
+  }
+  .nav__links a {
+    color: var(--gray);
+    transition: color 180ms var(--ease);
+  }
+  .nav__links a:hover { color: var(--orange); }
+  .nav__cta { padding: 10px 20px; }
+
+  @media (max-width: 1080px) {
+    .nav__links { display: none; }
+  }
+  @media (max-width: 560px) {
+    .nav__cta { display: none; }
+  }
+</style>

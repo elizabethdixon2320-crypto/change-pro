@@ -1,0 +1,100 @@
+---
+const items = [
+  { tag: "LOW BARRIER",  cn: "更低门槛", en: "Low Barrier",
+    desc: "¥500 基础年卡切入，月管理费形成更轻的决策路径。" },
+  { tag: "HIGH DENSITY", cn: "更高效率", en: "High Density",
+    desc: "高设备密度、核心商圈选址，让训练时间不再被排队消耗。" },
+  { tag: "TRUSTED",      cn: "更值得信任", en: "Trusted",
+    desc: "App 内 24 小时自助退款，秒到账。透明承诺，兑现在到账速度里。" },
+  { tag: "CONNECTED",    cn: "更完整连接", en: "Connected",
+    desc: "App、积分、水吧、零售与赛事共享同一套身份与信用结构。" },
+];
+---
+<section class="props section">
+  <div class="container">
+    <div class="props__head reveal">
+      <div class="eyebrow">01 / CORE PROPOSITIONS</div>
+      <h2 class="section-title-cn">
+        把专业感<br/>
+        <span class="accent">做成行业新默认</span>
+      </h2>
+      <p class="lead">
+        门槛、效率、信任、连接——四件事一起抬高，才让"可负担的专业感"在每一个会员日常里都成立。
+      </p>
+    </div>
+
+    <div class="props__grid">
+      {items.map((it, i) => (
+        <article class="prop reveal" style={`--delay: ${i * 70}ms`}>
+          <div class="prop__index">0{i + 1}</div>
+          <div class="prop__tag">{it.tag}</div>
+          <h3 class="prop__cn">{it.cn}</h3>
+          <p class="prop__desc">{it.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .props { background: var(--off-white); }
+  .props__head { max-width: 980px; margin-bottom: var(--space-9); }
+  .props__head .section-title-cn { margin-block: var(--space-5) var(--space-6); font-size: clamp(32px, 3.6vw, 56px); }
+  .props__head .accent { color: var(--orange); }
+
+  .props__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .prop {
+    padding: var(--space-7) var(--space-5) var(--space-7) 0;
+    border-right: 1px solid var(--hairline);
+    transition-delay: var(--delay, 0ms);
+  }
+  .prop:last-child { border-right: 0; }
+  .prop:nth-child(n+2) { padding-left: var(--space-5); }
+
+  .prop__index {
+    font-family: var(--font-display);
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--ls-wide);
+    color: var(--orange);
+    margin-bottom: var(--space-5);
+  }
+  .prop__tag {
+    font-family: var(--font-display);
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--ls-wide);
+    color: var(--gray);
+    margin-bottom: var(--space-3);
+  }
+  .prop__cn {
+    font-family: var(--font-text);
+    font-weight: 900;
+    font-size: clamp(24px, 2vw, 32px);
+    color: var(--ink);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.25;
+  }
+  .prop__desc {
+    color: var(--gray);
+    font-size: var(--fs-small);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .props__grid { grid-template-columns: repeat(2, 1fr); }
+    .prop:nth-child(2) { border-right: 0; }
+    .prop:nth-child(n+3) { border-top: 1px solid var(--hairline); }
+  }
+  @media (max-width: 640px) {
+    .props__grid { grid-template-columns: 1fr; }
+    .prop { border-right: 0 !important; padding-inline: 0; }
+    .prop + .prop { border-top: 1px solid var(--hairline); }
+  }
+</style>

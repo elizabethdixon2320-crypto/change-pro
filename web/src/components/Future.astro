@@ -1,0 +1,200 @@
+---
+const milestones = [
+  { date: "2024.10", text: "长宁龙之梦首店开业，10 天客流近 3 万人次。" },
+  { date: "2025.01", text: "静安 MOHO 馆开业，品牌占据上海高识别度点位。" },
+  { date: "2025.11", text: "常州环球港与金桥 EKA 天物相继落地。" },
+  { date: "2026.03", text: "管理层交接完成，走向系统化扩张。" },
+];
+const pricing = [
+  { name: "年卡", price: "¥500", extra: "/年 + ¥60/月管理费", note: "降低决策门槛。" },
+  { name: "通卡", price: "¥500", extra: "/年 + ¥200/月管理费", note: "适配多店流动。" },
+  { name: "退款", price: "24h",  extra: " App 自助退款",        note: "秒到账。" },
+  { name: "延展", price: "柔性", extra: " 层级覆盖",            note: "月卡 / 游泳 / 次卡 / 青训。" },
+];
+---
+
+<section class="future section" id="future">
+  <div class="container">
+    <div class="f__head reveal">
+      <div class="eyebrow">08 / MILESTONES · PRICING</div>
+      <h2 class="section-title-cn">关键节点与<span class="accent">信任机制</span></h2>
+    </div>
+
+    <div class="f__grid">
+      <!-- Milestones -->
+      <div class="f__col reveal">
+        <div class="f__col-tag">MILESTONES</div>
+        <h3 class="f__col-title">品牌关键节点</h3>
+        <ol class="ms">
+          {milestones.map((m) => (
+            <li class="ms__item">
+              <div class="ms__date">{m.date}</div>
+              <div class="ms__text">{m.text}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- Pricing -->
+      <div class="f__col reveal">
+        <div class="f__col-tag">PRICING LOGIC</div>
+        <h3 class="f__col-title">收费与信任机制</h3>
+        <div class="pr">
+          {pricing.map((p) => (
+            <div class="pr__row">
+              <div class="pr__name">{p.name}</div>
+              <div class="pr__body">
+                <div class="pr__price">
+                  <span class="pr__price-big">{p.price}</span>
+                  <span class="pr__price-extra">{p.extra}</span>
+                </div>
+                <div class="pr__note">{p.note}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Next Phase / Final CTA -->
+  <div class="next">
+    <div class="container">
+      <div class="next__inner reveal">
+        <div class="eyebrow eyebrow--orange">—— NEXT PHASE</div>
+        <h2 class="next__title">
+          复制的不是单店<br/>
+          而是「<em>让改变持续发生</em>」<br/>
+          的整套城市系统
+        </h2>
+        <p class="next__desc">
+          商户接入、商品体系、社交网络与信用结构，正在把 Change Pro 从健身品牌推向运动生活方式生态。
+        </p>
+        <div class="next__cta">
+          <a href="#hero" class="btn btn--primary">下载 Change App</a>
+          <a href="#network" class="btn btn--ghost">查看门店网络</a>
+        </div>
+        <div class="next__meta">
+          <div>
+            <span class="next__meta-label">COMPANY</span>
+            <span>上海大狗体育发展有限公司</span>
+          </div>
+          <div>
+            <span class="next__meta-label">WEBSITE</span>
+            <span>changepro.me</span>
+          </div>
+          <div>
+            <span class="next__meta-label">SLOGAN</span>
+            <span>让改变持续发生 · Change is a Habit.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .f__head { max-width: 980px; margin-bottom: var(--space-9); }
+  .f__head .section-title-cn { margin-top: var(--space-5); }
+  .f__head .accent { color: var(--orange); }
+
+  .f__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-9);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--hairline);
+  }
+  .f__col-tag {
+    font-family: var(--font-display); font-size: var(--fs-eyebrow);
+    font-weight: 700; letter-spacing: var(--ls-wide);
+    color: var(--orange); margin-bottom: var(--space-3);
+  }
+  .f__col-title {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(24px, 2.2vw, 32px); color: var(--ink);
+    margin: 0 0 var(--space-6) 0;
+  }
+
+  /* Milestones list */
+  .ms { list-style: none; padding: 0; margin: 0; }
+  .ms__item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--space-5);
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--hairline);
+    align-items: baseline;
+  }
+  .ms__item:last-child { border-bottom: 1px solid var(--hairline); }
+  .ms__date {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 18px; color: var(--ink);
+  }
+  .ms__text { color: var(--gray); font-size: var(--fs-small); line-height: 1.7; }
+
+  /* Pricing */
+  .pr { display: flex; flex-direction: column; }
+  .pr__row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-5);
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--hairline);
+    align-items: baseline;
+  }
+  .pr__row:last-child { border-bottom: 1px solid var(--hairline); }
+  .pr__name {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: 18px; color: var(--ink);
+  }
+  .pr__price { margin-bottom: 4px; display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap;}
+  .pr__price-big {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(24px, 2vw, 28px); color: var(--orange);
+  }
+  .pr__price-extra { font-size: var(--fs-small); color: var(--ink); }
+  .pr__note { font-size: var(--fs-small); color: var(--gray); }
+
+  /* Next phase */
+  .next {
+    padding-block: var(--space-11) var(--space-10);
+    margin-top: var(--space-11);
+    border-top: 1px solid var(--hairline);
+    background: var(--white);
+  }
+  .next__inner { max-width: 1100px; }
+  .next__title {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(36px, 5.5vw, 88px);
+    line-height: 1.15; color: var(--ink);
+    margin: var(--space-5) 0 var(--space-6) 0;
+    letter-spacing: -0.01em;
+  }
+  .next__title em { font-style: normal; color: var(--orange); }
+  .next__desc {
+    color: var(--gray); font-size: var(--fs-lead); line-height: 1.75;
+    max-width: 700px; margin: 0 0 var(--space-8) 0;
+  }
+  .next__cta { display: flex; gap: var(--space-4); margin-bottom: var(--space-10); flex-wrap: wrap; }
+
+  .next__meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--hairline);
+  }
+  .next__meta > div { display: flex; flex-direction: column; gap: 4px; }
+  .next__meta-label {
+    font-family: var(--font-display); font-size: var(--fs-eyebrow);
+    font-weight: 700; letter-spacing: var(--ls-wide);
+    color: var(--orange);
+  }
+  .next__meta span:not(.next__meta-label) { color: var(--ink); font-size: var(--fs-small); }
+
+  @media (max-width: 900px) {
+    .f__grid { grid-template-columns: 1fr; gap: var(--space-7); }
+    .next__meta { grid-template-columns: 1fr; }
+  }
+</style>

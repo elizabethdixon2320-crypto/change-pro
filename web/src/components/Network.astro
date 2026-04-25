@@ -1,0 +1,159 @@
+---
+const pillars = [
+  { num: "05", tag: "SHANGHAI CORE", cn: "上海主场",
+    desc: "龙之梦、MOHO、近铁城市广场、尚东国际、EKA 天物——品牌最强样板网络。" },
+  { num: "02", tag: "EXPANSION",     cn: "异地复制",
+    desc: "常州江南环球港、杭州下沙弗雷德，标记跨城复制能力。" },
+  { num: "03+", tag: "PIPELINE 2026", cn: "持续推进",
+    desc: "陆家嘴正大、闵行嘉寰、宁波三江口，继续向核心商圈推进。" },
+];
+
+const venues = [
+  { img: "/assets/moho.jpg",      name: "MOHO",          sub: "健身潮流冲击波",       note: "老钱的主干道，改变成为习惯。" },
+  { img: "/assets/longemeng.jpg", name: "龙之梦",        sub: "恰似刚刚好",           note: "" },
+  { img: "/assets/jintie.jpg",    name: "近铁城市广场",  sub: "泄压阀",               note: "" },
+  { img: "/assets/eka.jpg",       name: "EKA 天物",      sub: "运动与创意",           note: "" },
+  { img: "/assets/changzhou.jpg", name: "江南环球港",    sub: "穹顶之下",             note: "" },
+  { img: "/assets/hangzhou.jpg",  name: "弗雷德广场",    sub: "汗水为证",             note: "" },
+  { img: "/assets/shangdong.jpg", name: "尚东国际",      sub: "家的标配",             note: "" },
+];
+---
+
+<section class="net section" id="network">
+  <div class="container">
+    <div class="net__head reveal">
+      <div class="eyebrow">03 / NETWORK STRUCTURE</div>
+      <h2 class="section-title-cn">
+        上海为心智中心<br/>
+        <span class="accent">长三角完成跨城复制</span>
+      </h2>
+      <p class="lead">已开业 7 家门店，下一轮关注品牌密度与城市覆盖效率。</p>
+    </div>
+
+    <div class="net__pillars">
+      {pillars.map((p, i) => (
+        <article class="npillar reveal" style={`--delay: ${i * 80}ms`}>
+          <div class="npillar__num">{p.num}</div>
+          <div class="npillar__tag">{p.tag}</div>
+          <h3 class="npillar__cn">{p.cn}</h3>
+          <p class="npillar__desc">{p.desc}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="gallery-head reveal">
+      <div class="eyebrow">VENUE GALLERY</div>
+      <h3 class="gallery-title">七家门店 七种城市表情</h3>
+      <p class="lead">视觉统一在灰黑、暖木与灯光轮廓之间——门店本身就是最有说服力的品牌表达。</p>
+    </div>
+  </div>
+
+  <div class="gallery container">
+    {venues.map((v, i) => (
+      <figure class={`card reveal ${i === 0 ? 'card--wide' : ''}`} style={`--delay: ${i * 60}ms`}>
+        <div class="card__img-wrap">
+          <img src={v.img} alt={v.name} loading="lazy"/>
+        </div>
+        <figcaption class="card__cap">
+          <span class="card__name">{v.name}</span>
+          <span class="card__sub">{v.sub}</span>
+          {v.note && <span class="card__note">{v.note}</span>}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<style>
+  .net__head { max-width: 980px; margin-bottom: var(--space-9); }
+  .net__head .section-title-cn { margin-block: var(--space-5) var(--space-6); }
+  .net__head .accent { color: var(--orange); }
+
+  .net__pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-7);
+    padding-block: var(--space-8);
+    border-block: 1px solid var(--hairline);
+    margin-bottom: var(--space-10);
+  }
+  .npillar { transition-delay: var(--delay, 0ms); }
+  .npillar__num {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(72px, 8vw, 128px);
+    line-height: 1; color: var(--ink);
+    letter-spacing: -0.04em;
+    margin-bottom: var(--space-5);
+  }
+  .npillar:nth-child(3) .npillar__num { color: var(--orange); }
+  .npillar__tag {
+    font-family: var(--font-display); font-size: var(--fs-eyebrow);
+    font-weight: 700; letter-spacing: var(--ls-wide);
+    color: var(--gray); margin-bottom: var(--space-3);
+  }
+  .npillar__cn {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(22px, 1.8vw, 28px);
+    color: var(--ink); margin: 0 0 var(--space-4) 0;
+  }
+  .npillar__desc { color: var(--gray); font-size: var(--fs-small); line-height: 1.75; margin: 0; }
+
+  .gallery-head { max-width: 720px; margin-bottom: var(--space-7); }
+  .gallery-title {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: clamp(26px, 2.6vw, 40px);
+    margin: var(--space-4) 0 var(--space-3) 0; color: var(--ink);
+  }
+
+  /* 1 + 6 布局: 首图跨两列, 其余每张占一列 */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5) var(--space-5);
+    align-items: start;
+  }
+  .card {
+    margin: 0;
+    transition-delay: var(--delay, 0ms);
+  }
+  .card--wide { grid-column: 1 / -1; }
+  .card__img-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: var(--off-white);
+  }
+  .card__img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 500ms var(--ease);
+  }
+  .card:hover .card__img-wrap img { transform: scale(1.02); }
+
+  .card__cap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: var(--space-4);
+  }
+  .card__name {
+    font-family: var(--font-text); font-weight: 900;
+    font-size: 17px; color: var(--ink);
+  }
+  .card__sub {
+    font-family: var(--font-display); font-size: var(--fs-eyebrow);
+    font-weight: 700; letter-spacing: var(--ls-wide);
+    color: var(--orange);
+  }
+  .card__note { font-size: var(--fs-small); color: var(--gray); margin-top: 4px; }
+
+  @media (max-width: 1000px) {
+    .net__pillars { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .card--wide { grid-column: span 2; }
+  }
+  @media (max-width: 640px) {
+    .gallery { grid-template-columns: 1fr; }
+    .card--wide { grid-column: auto; }
+  }
+</style>
