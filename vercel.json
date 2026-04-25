@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd web && corepack enable && pnpm install --no-frozen-lockfile && pnpm build",
+  "buildCommand": "cd web && npm install --no-package-lock --legacy-peer-deps && npm run build",
   "outputDirectory": "web/dist",
   "installCommand": "echo 'No root deps'",
   "framework": null
