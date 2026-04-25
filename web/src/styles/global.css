@@ -2,6 +2,11 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html, body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,8 +22,9 @@ body {
   font-size: var(--fs-body);
   line-height: var(--lh-body);
   font-weight: 400;
-  overflow-x: hidden;
 }
+
+section { overflow-x: clip; }
 
 img { max-width: 100%; display: block; }
 button { font: inherit; color: inherit; cursor: pointer; }
