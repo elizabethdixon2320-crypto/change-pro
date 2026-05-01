@@ -116,6 +116,7 @@ const pricing = [
   .ms__date {
     font-family: var(--font-display); font-weight: 900;
     font-size: 18px; color: var(--ink);
+    letter-spacing: 0.12em;
   }
   .ms__text { color: var(--gray); font-size: var(--fs-small); line-height: 1.7; }
 
@@ -163,6 +164,14 @@ const pricing = [
     max-width: 700px; margin: 0 0 var(--space-6) 0;
   }
   .next__cta { display: flex; gap: var(--space-4); margin-bottom: 0; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .next__title {
+      font-size: clamp(28px, 8vw, 44px);
+      line-height: 1.2;
+    }
+    .next__desc { font-size: var(--fs-body); }
+  }
 
   .next__meta {
     display: grid;

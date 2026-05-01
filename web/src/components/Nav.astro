@@ -24,7 +24,7 @@ const links = [
         </a>
       ))}
     </nav>
-    <a class="btn btn--primary nav__cta" href="#digital">APP</a>
+    <a class="btn btn--primary nav__cta" href="https://changepro.vip" target="_blank" rel="noopener noreferrer">APP</a>
 
     <!-- Mobile hamburger -->
     <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -56,7 +56,7 @@ const links = [
       </a>
     ))}
   </nav>
-  <a class="btn btn--primary mobile-menu__cta" href="#digital">下载 Change App</a>
+  <a class="btn btn--primary mobile-menu__cta" href="https://changepro.vip" target="_blank" rel="noopener noreferrer">下载 Change App</a>
 </div>
 
 <style>
@@ -103,8 +103,8 @@ const links = [
   .nav__links a:hover { color: var(--orange); }
   .nav__en {
     font-size: var(--fs-eyebrow);
-    font-weight: 700;
-    letter-spacing: var(--ls-wide);
+    font-weight: 400;
+    letter-spacing: 0.15em;
     color: var(--orange);
   }
   .nav__cn {
@@ -154,6 +154,9 @@ const links = [
     pointer-events: none;
     visibility: hidden;
     transition: opacity 300ms var(--ease), visibility 300ms;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: 100vh;
   }
   .mobile-menu.is-open {
     opacity: 1;
@@ -183,8 +186,9 @@ const links = [
   .mobile-menu__nav {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-3);
     flex: 1;
+    justify-content: center;
   }
   .mobile-menu__link {
     font-family: var(--font-display);
@@ -198,7 +202,9 @@ const links = [
     transition-delay: var(--delay, 0ms);
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 0;
+    padding: 0;
+    line-height: 1.2;
   }
   .mobile-menu.is-open .mobile-menu__link {
     opacity: 1;
@@ -208,6 +214,9 @@ const links = [
   .mobile-menu__en {
     font-size: clamp(24px, 5vw, 40px);
     color: var(--orange);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.15em;
   }
   .mobile-menu__cn {
     font-size: 14px;
@@ -215,11 +224,12 @@ const links = [
     opacity: 0.8;
     text-transform: none;
     letter-spacing: 0.04em;
+    line-height: 1;
   }
   .mobile-menu__cta {
-    margin-top: var(--space-8);
+    margin-top: var(--space-2);
     align-self: flex-start;
-    padding: 14px 28px;
+    padding: 10px 20px;
     font-size: var(--fs-small);
   }
 

@@ -4,7 +4,7 @@
   <div class="container footer__inner">
     <div class="footer__brand">
       <img src="/assets/logo-black.png" alt="Change Pro" />
-      <p>让改变持续发生。<br/>Change is a Habit.</p>
+      <p>让改变持续发生。 <span class="footer__en">Change is a Habit.</span></p>
     </div>
     <hr class="footer__hr"/>
     <div class="footer__bottom">
@@ -27,8 +27,10 @@
     flex-direction: column;
     gap: var(--space-5);
   }
-  .footer__brand img { height: 26px; width: auto; margin-bottom: var(--space-4); }
-  .footer__brand p { margin: 0; color: var(--gray); font-size: var(--fs-small); line-height: 1.7; }
+  .footer__brand { display: flex; align-items: center; gap: var(--space-4); }
+  .footer__brand img { height: 26px; width: auto; margin-bottom: 0; }
+  .footer__brand p { margin: 0; color: var(--gray); font-size: var(--fs-small); line-height: 1.5; }
+  .footer__en { color: var(--gray-soft); margin-left: var(--space-2); }
   .footer__hr { height: 1px; background: var(--hairline); border: 0; margin: 0; }
   .footer__bottom {
     display: flex;
@@ -41,6 +43,6 @@
   }
   .footer__dot { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
   @media (max-width: 640px) {
-    .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+    .footer__bottom { flex-direction: row; align-items: center; gap: var(--space-3); }
   }
 </style>
