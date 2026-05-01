@@ -39,16 +39,12 @@ const momentsTop = ["IMG_5181.jpg", "IMG_5221.jpg", "IMG_5321.jpg"];
       <p class="lead">从器械到补剂，Change Pro 与全球顶级训练生态深度合作。</p>
     </div>
 
-    <div class="p__logos-wrap">
-      <div class="p__logos-fade p__logos-fade--top"></div>
-      <div class="p__logos">
-        {partners.map((p) => (
-          <div class="logo reveal">
-            <img src={p.src} alt={p.name} loading="lazy"/>
-          </div>
-        ))}
-      </div>
-      <div class="p__logos-fade p__logos-fade--bottom"></div>
+    <div class="p__logos">
+      {partners.map((p) => (
+        <div class="logo reveal">
+          <img src={p.src} alt={p.name} loading="lazy"/>
+        </div>
+      ))}
     </div>
 
     <!-- Change Cup -->
@@ -90,32 +86,12 @@ const momentsTop = ["IMG_5181.jpg", "IMG_5221.jpg", "IMG_5321.jpg"];
   .p__head .section-title-cn { margin-block: var(--space-5) var(--space-6); }
   .p__head .accent { color: var(--orange); }
 
-  /* Logo 区域 · 深灰面板 + 上下渐变过渡 */
-  .p__logos-wrap {
-    position: relative;
-    margin-bottom: var(--space-10);
-  }
-  .p__logos-fade {
-    position: absolute;
-    left: 0; right: 0;
-    height: 80px;
-    pointer-events: none;
-    z-index: 2;
-  }
-  .p__logos-fade--top {
-    top: 0;
-    background: linear-gradient(to bottom, var(--white) 0%, transparent 100%);
-  }
-  .p__logos-fade--bottom {
-    bottom: 0;
-    background: linear-gradient(to top, var(--white) 0%, transparent 100%);
-  }
+  /* Logo 区域 */
   .p__logos {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 1px;
-    padding: 80px 1px;
-    background: #e8e8e8;
+    gap: var(--space-2);
+    margin-bottom: var(--space-10);
   }
   .logo {
     aspect-ratio: 5 / 3;

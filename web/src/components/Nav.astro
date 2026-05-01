@@ -1,13 +1,13 @@
 ---
 const links = [
-  { href: "#vision",    label: "VISION" },
-  { href: "#system",    label: "SYSTEM" },
-  { href: "#network",   label: "NETWORK" },
-  { href: "#partners",  label: "PARTNERS" },
-  { href: "#community", label: "COMMUNITY" },
-  { href: "#digital",   label: "DIGITAL" },
-  { href: "#retail",    label: "RETAIL" },
-  { href: "#future",    label: "FUTURE" },
+  { href: "#vision",    label: "VISION",    cn: "品牌愿景" },
+  { href: "#system",    label: "SYSTEM",    cn: "运营体系" },
+  { href: "#network",   label: "NETWORK",   cn: "门店网络" },
+  { href: "#partners",  label: "PARTNERS",  cn: "合作伙伴" },
+  { href: "#community", label: "COMMUNITY", cn: "会员社群" },
+  { href: "#digital",   label: "DIGITAL",   cn: "数字生态" },
+  { href: "#retail",    label: "RETAIL",    cn: "零售消费" },
+  { href: "#future",    label: "FUTURE",    cn: "未来规划" },
 ];
 ---
 
@@ -18,7 +18,10 @@ const links = [
     </a>
     <nav class="nav__links" aria-label="Sections">
       {links.map((l) => (
-        <a href={l.href}>{l.label}</a>
+        <a href={l.href}>
+          <span class="nav__cn">{l.cn}</span>
+          <span class="nav__en">{l.label}</span>
+        </a>
       ))}
     </nav>
     <a class="btn btn--primary nav__cta" href="#digital">APP</a>
@@ -47,7 +50,10 @@ const links = [
   </div>
   <nav class="mobile-menu__nav" aria-label="Mobile sections">
     {links.map((l, i) => (
-      <a href={l.href} class="mobile-menu__link" style={`--delay: ${i * 60}ms`}>{l.label}</a>
+      <a href={l.href} class="mobile-menu__link" style={`--delay: ${i * 60}ms`}>
+        <span class="mobile-menu__cn">{l.cn}</span>
+        <span class="mobile-menu__en">{l.label}</span>
+      </a>
     ))}
   </nav>
   <a class="btn btn--primary mobile-menu__cta" href="#digital">下载 Change App</a>
@@ -82,17 +88,31 @@ const links = [
   }
   .nav__links {
     display: flex;
-    gap: var(--space-6);
+    gap: var(--space-5);
     font-family: var(--font-display);
+  }
+  .nav__links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--gray);
+    transition: color 180ms var(--ease);
+    line-height: 1.2;
+  }
+  .nav__links a:hover { color: var(--orange); }
+  .nav__en {
     font-size: var(--fs-eyebrow);
     font-weight: 700;
     letter-spacing: var(--ls-wide);
+    color: var(--orange);
   }
-  .nav__links a {
-    color: var(--gray);
-    transition: color 180ms var(--ease);
+  .nav__cn {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    opacity: 0.8;
   }
-  .nav__links a:hover { color: var(--orange); }
   .nav__cta { padding: 10px 20px; }
 
   /* Hamburger button */
@@ -168,7 +188,6 @@ const links = [
   }
   .mobile-menu__link {
     font-family: var(--font-display);
-    font-size: clamp(24px, 5vw, 40px);
     font-weight: 900;
     letter-spacing: var(--ls-wide);
     color: var(--ink);
@@ -177,12 +196,26 @@ const links = [
     transform: translateX(20px);
     transition: opacity 350ms var(--ease), transform 350ms var(--ease), color 180ms;
     transition-delay: var(--delay, 0ms);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
   .mobile-menu.is-open .mobile-menu__link {
     opacity: 1;
     transform: translateX(0);
   }
   .mobile-menu__link:hover { color: var(--orange); }
+  .mobile-menu__en {
+    font-size: clamp(24px, 5vw, 40px);
+    color: var(--orange);
+  }
+  .mobile-menu__cn {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
   .mobile-menu__cta {
     margin-top: var(--space-8);
     align-self: flex-start;
