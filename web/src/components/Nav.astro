@@ -149,7 +149,7 @@ const links = [
     -webkit-backdrop-filter: saturate(180%) blur(24px);
     display: flex;
     flex-direction: column;
-    padding: var(--space-5) var(--gutter) var(--space-8);
+    padding: var(--space-3) var(--gutter) var(--space-4);
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
@@ -168,7 +168,7 @@ const links = [
     align-items: center;
     justify-content: space-between;
     height: 56px;
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-4);
     border-bottom: 1px solid var(--hairline);
     padding-bottom: var(--space-4);
   }
@@ -184,11 +184,16 @@ const links = [
     cursor: pointer;
   }
   .mobile-menu__nav {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    flex: 1;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-4);
+    row-gap: var(--space-5);
+    justify-content: flex-start;
+    margin-top: var(--space-8);
+  }
+  .mobile-menu__cta {
+    margin-top: var(--space-8) !important;
+    align-self: flex-start;
   }
   .mobile-menu__link {
     font-family: var(--font-display);
@@ -202,7 +207,7 @@ const links = [
     transition-delay: var(--delay, 0ms);
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 6px;
     padding: 0;
     line-height: 1.2;
   }
@@ -212,11 +217,11 @@ const links = [
   }
   .mobile-menu__link:hover { color: var(--orange); }
   .mobile-menu__en {
-    font-size: clamp(24px, 5vw, 40px);
+    font-size: 12px;
     color: var(--orange);
     line-height: 1;
-    font-weight: 400;
-    letter-spacing: 0.15em;
+    font-weight: 300;
+    letter-spacing: 0.18em;
   }
   .mobile-menu__cn {
     font-size: 14px;

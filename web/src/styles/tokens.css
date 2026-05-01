@@ -7,6 +7,13 @@
 /* ---- Fonts ---- */
 @font-face {
   font-family: "Balgin";
+  src: url("/assets/fonts/Balgin Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Balgin";
   src: url("/assets/fonts/Balgin Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
