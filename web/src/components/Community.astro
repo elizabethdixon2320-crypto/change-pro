@@ -21,6 +21,14 @@ const youth = [
       <p class="lead">从成年会员到青训家庭，Change Pro 正在从训练品牌走向成长型社群。</p>
     </div>
 
+    <div class="c__adults-images reveal">
+      <div class="c__row c__row--adults-head">
+        {adults.map((src) => (
+          <figure class="c__img"><img src={src} alt="成年会员" loading="lazy"/></figure>
+        ))}
+      </div>
+    </div>
+
     <div class="c__layout">
       <div class="c__youth reveal">
         <div class="eyebrow eyebrow--orange">YOUTH TRAINING</div>
@@ -33,14 +41,11 @@ const youth = [
 
       <div class="c__images reveal">
         <div class="c__row c__row--adults">
-          {adults.map((src) => (
-            <figure class="c__img"><img src={src} alt="成年会员" loading="lazy"/></figure>
-          ))}
+          <figure class="c__img"><img src={youth[0]} alt="青训家庭" loading="lazy"/></figure>
+          <figure class="c__img"><img src={youth[1]} alt="青训家庭" loading="lazy"/></figure>
         </div>
         <div class="c__row c__row--youth">
-          {youth.map((src) => (
-            <figure class="c__img"><img src={src} alt="青训家庭" loading="lazy"/></figure>
-          ))}
+          <figure class="c__img"><img src={youth[2]} alt="青训家庭" loading="lazy"/></figure>
         </div>
       </div>
     </div>
@@ -76,7 +81,8 @@ const youth = [
   .c__images { display: flex; flex-direction: column; gap: var(--space-4); }
   .c__row { display: grid; gap: var(--space-4); align-items: start; }
   .c__row--adults { grid-template-columns: 1fr 1fr; }
-  .c__row--youth  { grid-template-columns: repeat(3, 1fr); }
+  .c__row--youth  { grid-template-columns: 1fr; }
+  .c__row--adults-head { grid-template-columns: 1fr 1fr; margin-bottom: var(--space-8); }
   .c__img { margin: 0; width: 100%; }
   .c__img img { width: 100%; height: auto; display: block; }
 
