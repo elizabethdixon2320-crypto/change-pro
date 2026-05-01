@@ -1,6 +1,6 @@
 ---
 const stats = [
-  { big: "7",       suf: "家", tag: "OPEN CLUBS",     cn: "已开业门店",   sub: "覆盖上海、常州、杭州" },
+  { big: "8",       suf: "家", tag: "OPEN CLUBS",     cn: "已开业门店",   sub: "覆盖上海、常州、杭州、宁波" },
   { big: "6000",    suf: "+",  tag: "CAPACITY",        cn: "单店会员容量", sub: "高密度空间承载力" },
   { big: "130",     suf: "",   tag: "DENSITY",         cn: "有氧设备密度 / 店", sub: "行业头部水平" },
   { big: "1600万",  suf: "+",  tag: "VIEWS",           cn: "Change 杯抖音播放", sub: "赛事累计声量" },
@@ -18,7 +18,7 @@ const stats = [
       {stats.map((s, i) => (
         <div class="metric reveal" style={`--delay: ${i * 90}ms`}>
           <div class="metric__index">0{i + 1}</div>
-          <div class="metric__big">
+          <div class="metric__big" data-count={s.big}>
             <span>{s.big}</span>
             {s.suf && <em>{s.suf}</em>}
           </div>

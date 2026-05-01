@@ -15,3 +15,7 @@ scripts/
 *.bak
 index-lite.html
 index-17板块-*.html
+
+# Backups and Pencil design files
+web.bak.*
+design/

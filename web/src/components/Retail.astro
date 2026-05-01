@@ -29,7 +29,7 @@ const categories = [
           <strong>Change Pro 健身体验权益</strong>。
         </p>
       </div>
-      <div class="coffee__img" style="background-image:url('/assets/content/coffee-bar-wide.png')"></div>
+      <div class="coffee__img" style="background-image:url('/assets/coffee-bar-new.jpg')"></div>
     </div>
 
     <!-- Categories -->
@@ -79,15 +79,26 @@ const categories = [
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-5);
   }
-  .cat { transition-delay: var(--delay, 0ms); }
+  .cat {
+    transition-delay: var(--delay, 0ms);
+    transition: transform 500ms var(--ease), box-shadow 500ms var(--ease);
+    padding: var(--space-3);
+    margin: calc(var(--space-3) * -1);
+    border-radius: 4px;
+  }
+  .cat:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+  }
   .cat__img {
     width: 100%; aspect-ratio: 1 / 1;
     background-size: cover; background-position: center;
     background-color: var(--white);
     margin-bottom: var(--space-4);
     transition: transform 500ms var(--ease);
+    border-radius: 2px;
   }
-  .cat:hover .cat__img { transform: scale(1.02); }
+  .cat:hover .cat__img { transform: scale(1.03); }
   .cat__tag {
     font-family: var(--font-display); font-size: var(--fs-eyebrow);
     font-weight: 700; letter-spacing: var(--ls-wide);

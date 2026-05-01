@@ -3,9 +3,9 @@ const pillars = [
   { num: "05", tag: "SHANGHAI CORE", cn: "上海主场",
     desc: "龙之梦、MOHO、近铁城市广场、尚东国际、EKA 天物——品牌最强样板网络。" },
   { num: "02", tag: "EXPANSION",     cn: "异地复制",
-    desc: "常州江南环球港、杭州下沙弗雷德，标记跨城复制能力。" },
+    desc: "常州江南环球港、杭州下沙弗雷德、宁波三江口，标记跨城复制能力。" },
   { num: "03+", tag: "PIPELINE 2026", cn: "持续推进",
-    desc: "陆家嘴正大、闵行嘉寰、宁波三江口，继续向核心商圈推进。" },
+    desc: "闵行嘉寰，继续向核心商圈推进。" },
 ];
 
 const venues = [
@@ -16,6 +16,7 @@ const venues = [
   { img: "/assets/changzhou.jpg", name: "江南环球港",    sub: "穹顶之下",             note: "" },
   { img: "/assets/hangzhou.jpg",  name: "弗雷德广场",    sub: "汗水为证",             note: "" },
   { img: "/assets/shangdong.jpg", name: "尚东国际",      sub: "家的标配",             note: "" },
+  { img: "/assets/ningbo.jpg",    name: "宁波金光中心",  sub: "三江口",               note: "" },
 ];
 ---
 
@@ -27,7 +28,7 @@ const venues = [
         上海为心智中心<br/>
         <span class="accent">长三角完成跨城复制</span>
       </h2>
-      <p class="lead">已开业 7 家门店，下一轮关注品牌密度与城市覆盖效率。</p>
+      <p class="lead">已开业 8 家门店，下一轮关注品牌密度与城市覆盖效率。</p>
     </div>
 
     <div class="net__pillars">
@@ -43,7 +44,7 @@ const venues = [
 
     <div class="gallery-head reveal">
       <div class="eyebrow">VENUE GALLERY</div>
-      <h3 class="gallery-title">七家门店 七种城市表情</h3>
+      <h3 class="gallery-title">八家门店 八种城市表情</h3>
       <p class="lead">视觉统一在灰黑、暖木与灯光轮廓之间——门店本身就是最有说服力的品牌表达。</p>
     </div>
   </div>
@@ -77,7 +78,17 @@ const venues = [
     border-block: 1px solid var(--hairline);
     margin-bottom: var(--space-10);
   }
-  .npillar { transition-delay: var(--delay, 0ms); }
+  .npillar {
+    transition-delay: var(--delay, 0ms);
+    transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
+    padding: var(--space-4);
+    margin: calc(var(--space-4) * -1);
+    border-radius: 6px;
+  }
+  .npillar:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+  }
   .npillar__num {
     font-family: var(--font-display); font-weight: 900;
     font-size: clamp(72px, 8vw, 128px);
@@ -115,12 +126,19 @@ const venues = [
   .card {
     margin: 0;
     transition-delay: var(--delay, 0ms);
+    transition: transform 500ms var(--ease), box-shadow 500ms var(--ease);
+    border-radius: 2px;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.10);
   }
   .card--wide { grid-column: 1 / -1; }
   .card__img-wrap {
     width: 100%;
     overflow: hidden;
     background: var(--off-white);
+    border-radius: 2px 2px 0 0;
   }
   .card__img-wrap img {
     width: 100%;
@@ -128,7 +146,7 @@ const venues = [
     display: block;
     transition: transform 500ms var(--ease);
   }
-  .card:hover .card__img-wrap img { transform: scale(1.02); }
+  .card:hover .card__img-wrap img { transform: scale(1.03); }
 
   .card__cap {
     display: flex;

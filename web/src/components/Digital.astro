@@ -2,13 +2,13 @@
 const scenes = [
   { num: "01", tag: "HOME",           cn: "首页承接训练、内容与日常入口",
     desc: "把训练数据、品牌内容与会员场景集中在一个持续打开的主屏。",
-    img: "/assets/content/app-home-clean.png" },
+    img: "/assets/app-home-new.png" },
   { num: "02", tag: "MEMBER + TRUST", cn: "会员中心与购卡机制共建信任",
     desc: "用户中心承接身份与权益，购卡流程承接决策与转化。",
-    img: "/assets/content/app-user-clean.png" },
+    img: "/assets/app-user-new.png" },
   { num: "03", tag: "CONSUMPTION",    cn: "水吧下单接进会员日常",
     desc: "从饮品选择到积分闭环，水吧不再只是门店附属。",
-    img: "/assets/content/app-bar-clean.png" },
+    img: "/assets/app-bar-new.png" },
   { num: "04", tag: "POINTS SHARING", cn: "分享购买 + 积分返还接入循环",
     desc: "用户不只是购买者，也是传播节点。",
     img: "/assets/content/share-purchase.png" },
@@ -57,6 +57,23 @@ const scenes = [
           Change Online 把门店训练关系延伸为持续在线的生活方式。
           不只是 App，是一个完整的数字伴生层——线下汗水，线上继续发生。
         </p>
+      </div>
+    </div>
+
+    <!-- Change Online Gallery -->
+    <div class="online-gallery">
+      <div class="online-gallery__col online-gallery__col--left">
+        <div class="online-gallery__item">
+          <img src="/assets/online-cover.png" alt="Change Online 平行宇宙" loading="lazy"/>
+        </div>
+        <div class="online-gallery__item">
+          <img src="/assets/online-gym-3d.png" alt="线下场馆数字化" loading="lazy"/>
+        </div>
+      </div>
+      <div class="online-gallery__col online-gallery__col--right">
+        <div class="online-gallery__item">
+          <img src="/assets/online-gameplay.png" alt="游戏化玩法" loading="lazy"/>
+        </div>
       </div>
     </div>
   </div>
@@ -132,10 +149,48 @@ const scenes = [
   }
   .online__desc { color: var(--gray); font-size: var(--fs-body); line-height: 1.8; margin: 0; }
 
+  /* Change Online Gallery — 两列：左列上下两张，右列一张 */
+  .online-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+    margin-top: var(--space-10);
+    align-items: start;
+  }
+  .online-gallery__col--left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .online-gallery__col--right .online-gallery__item {
+    height: 100%;
+  }
+  .online-gallery__col--right .online-gallery__item img {
+    height: 100%;
+    object-fit: cover;
+  }
+  .online-gallery__item {
+    overflow: hidden;
+    border-radius: 4px;
+    transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
+    background: var(--off-white);
+  }
+  .online-gallery__item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.10);
+  }
+  .online-gallery__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   @media (max-width: 900px) {
     .scene, .scene--r { grid-template-columns: 1fr; gap: var(--space-6); }
     .scene--r .scene__text { order: 1; }
     .scene--r .scene__phone { order: 2; }
     .online { grid-template-columns: 1fr; gap: var(--space-6); }
+    .online-gallery { grid-template-columns: 1fr; gap: var(--space-5); }
+    .online-gallery__col--left { flex-direction: column; }
   }
 </style>

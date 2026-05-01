@@ -2,29 +2,13 @@
 ---
 <footer class="footer">
   <div class="container footer__inner">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="/assets/logo-black.png" alt="Change Pro" />
-        <p>让改变持续发生。<br/>Change is a Habit.</p>
-      </div>
-      <div class="footer__cols">
-        <div>
-          <div class="footer__label">COMPANY</div>
-          <p>上海大狗体育发展有限公司</p>
-        </div>
-        <div>
-          <div class="footer__label">WEBSITE</div>
-          <p>changepro.me</p>
-        </div>
-        <div>
-          <div class="footer__label">2026</div>
-          <p>High Density Urban Fitness</p>
-        </div>
-      </div>
+    <div class="footer__brand">
+      <img src="/assets/logo-black.png" alt="Change Pro" />
+      <p>让改变持续发生。<br/>Change is a Habit.</p>
     </div>
     <hr class="footer__hr"/>
     <div class="footer__bottom">
-      <span>© 2026 CHANGE PRO</span>
+      <span>&copy; 2026 CHANGE PRO</span>
       <span class="footer__dot"></span>
       <span>BRAND DECK / 2026</span>
     </div>
@@ -35,28 +19,17 @@
   .footer {
     background: var(--white);
     color: var(--ink);
-    padding-block: var(--space-9) var(--space-6);
+    padding-block: var(--space-6) var(--space-5);
     border-top: 1px solid var(--hairline);
   }
-  .footer__top {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: var(--space-9);
-    align-items: start;
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
   }
-  .footer__brand img { height: 26px; width: auto; margin-bottom: var(--space-5); }
+  .footer__brand img { height: 26px; width: auto; margin-bottom: var(--space-4); }
   .footer__brand p { margin: 0; color: var(--gray); font-size: var(--fs-small); line-height: 1.7; }
-  .footer__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
-  .footer__label {
-    font-family: var(--font-display);
-    font-size: var(--fs-eyebrow);
-    font-weight: 700;
-    letter-spacing: var(--ls-wide);
-    color: var(--orange);
-    margin-bottom: var(--space-3);
-  }
-  .footer__cols p { margin: 0; color: var(--ink); font-size: var(--fs-small); }
-  .footer__hr { height: 1px; background: var(--hairline); border: 0; margin-block: var(--space-7) var(--space-5); }
+  .footer__hr { height: 1px; background: var(--hairline); border: 0; margin: 0; }
   .footer__bottom {
     display: flex;
     align-items: center;
@@ -67,12 +40,7 @@
     color: var(--gray-soft);
   }
   .footer__dot { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
-  @media (max-width: 900px) {
-    .footer__top { grid-template-columns: 1fr; gap: var(--space-7); }
-    .footer__cols { grid-template-columns: 1fr 1fr; }
-  }
   @media (max-width: 640px) {
-    .footer__cols { grid-template-columns: 1fr; gap: var(--space-5); }
     .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
   }
 </style>

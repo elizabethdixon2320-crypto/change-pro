@@ -33,7 +33,7 @@ const {
     </main>
     <Footer />
 
-    <script>
+    <script is:inline>
       // Reveal on scroll
       const io = new IntersectionObserver(
         (entries) => {
@@ -47,6 +47,82 @@ const {
         { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
       );
       document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // Count-up animation for stats
+      (function() {
+        const countEls = document.querySelectorAll('[data-count]');
+        if (!countEls.length) return;
+
+        const duration = 1600;
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+        function animateCount(el) {
+          const raw = el.getAttribute('data-count');
+          const cleanRaw = String(raw).replace(/,/g, '');
+          const match = cleanRaw.match(/^(\d+)(.*)$/);
+          if (!match) return;
+          const targetNum = parseInt(match[1], 10);
+          const startTime = performance.now();
+
+          // Find the span that holds the number
+          const span = el.querySelector('span');
+          // Preserve any non-digit suffix inside the span (e.g. "万")
+          let spanSuffix = '';
+          if (span) {
+            const spanText = (span.textContent || '').replace(/,/g, '');
+            const spanMatch = spanText.match(/^\d+(.*)$/);
+            if (spanMatch) spanSuffix = spanMatch[1] || '';
+          }
+
+          function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOutQuart(progress);
+            const current = Math.round(eased * targetNum);
+            const formatted = current.toLocaleString('en-US');
+            const fullText = formatted + spanSuffix;
+
+            if (span) {
+              span.textContent = fullText;
+            } else {
+              const em = el.querySelector('em');
+              if (em && el.childNodes.length >= 2) {
+                el.childNodes[0].nodeValue = fullText;
+              } else {
+                el.textContent = fullText;
+              }
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              const finalText = targetNum.toLocaleString('en-US') + spanSuffix;
+              if (span) {
+                span.textContent = finalText;
+              } else {
+                const em = el.querySelector('em');
+                if (em && el.childNodes.length >= 2) {
+                  el.childNodes[0].nodeValue = finalText;
+                } else {
+                  el.textContent = finalText;
+                }
+              }
+            }
+          }
+          requestAnimationFrame(step);
+        }
+
+        const countIo = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              animateCount(e.target);
+              countIo.unobserve(e.target);
+            }
+          }
+        }, { threshold: 0.3 });
+
+        countEls.forEach((el) => countIo.observe(el));
+      })();
     </script>
   </body>
 </html>

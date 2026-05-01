@@ -49,12 +49,18 @@ const items = [
     border-top: 1px solid var(--line);
   }
   .prop {
-    padding: var(--space-7) var(--space-5) var(--space-7) 0;
+    padding: var(--space-7) var(--space-5);
     border-right: 1px solid var(--hairline);
     transition-delay: var(--delay, 0ms);
+    transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
+    border-radius: 4px;
+  }
+  .prop:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    background: var(--white);
   }
   .prop:last-child { border-right: 0; }
-  .prop:nth-child(n+2) { padding-left: var(--space-5); }
 
   .prop__index {
     font-family: var(--font-display);
@@ -62,7 +68,7 @@ const items = [
     font-weight: 700;
     letter-spacing: var(--ls-wide);
     color: var(--orange);
-    margin-bottom: var(--space-5);
+    margin-bottom: var(--space-3);
   }
   .prop__tag {
     font-family: var(--font-display);
@@ -70,14 +76,14 @@ const items = [
     font-weight: 700;
     letter-spacing: var(--ls-wide);
     color: var(--gray);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
   }
   .prop__cn {
     font-family: var(--font-text);
     font-weight: 900;
     font-size: clamp(24px, 2vw, 32px);
     color: var(--ink);
-    margin: 0 0 var(--space-4) 0;
+    margin: 0 0 var(--space-3) 0;
     line-height: 1.25;
   }
   .prop__desc {

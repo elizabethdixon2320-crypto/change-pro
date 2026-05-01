@@ -5,21 +5,21 @@ const partners = [
   { src: "/assets/content/partners/ELEIKO.png",         name: "Eleiko" },
   { src: "/assets/content/partners/stairmaster.png",    name: "StairMaster" },
   { src: "/assets/content/partners/ua-logo-bg.png",     name: "Under Armour" },
-  { src: "/assets/content/partners/诺德士.png",         name: "Nautilus" },
-  { src: "/assets/content/partners/奥力来.png",         name: "Orior" },
-  { src: "/assets/content/partners/鹰牌.png",           name: "Yingpai" },
-  { src: "/assets/content/partners/資產 1shakesphere.png", name: "ShakeSphere" },
-  { src: "/assets/content/partners/資產 1wonderlab.png",   name: "WonderLab" },
-  { src: "/assets/content/partners/資產 5monster.png",     name: "Monster" },
-  { src: "/assets/content/partners/可口可乐.png",       name: "Coca-Cola" },
-  { src: "/assets/content/partners/农夫山泉.png",       name: "Nongfu Spring" },
-  { src: "/assets/content/partners/吨吨 bottled joy.png", name: "Bottled Joy" },
+  { src: "/assets/content/partners/nautilus.png",         name: "Nautilus" },
+  { src: "/assets/content/partners/orior.png",         name: "Orior" },
+  { src: "/assets/content/partners/yingpai.png",           name: "Yingpai" },
+  { src: "/assets/content/partners/shakesphere.png", name: "ShakeSphere" },
+  { src: "/assets/content/partners/wonderlab.png",   name: "WonderLab" },
+  { src: "/assets/content/partners/monster.png",     name: "Monster" },
+  { src: "/assets/content/partners/cocacola.png",       name: "Coca-Cola" },
+  { src: "/assets/content/partners/nongfuspring.png",       name: "Nongfu Spring" },
+  { src: "/assets/content/partners/bottledjoy.png", name: "Bottled Joy" },
 ];
 
 const cupStats = [
-  { big: "8", tag: "IFBB PRO CARDS",   cn: "职业卡发放" },
-  { big: "3", tag: "OLYMPIA",          cn: "奥赛资格" },
-  { big: "1600万+", tag: "DOUYIN VIEWS", cn: "抖音累计播放" },
+  { big: "8", suf: "", tag: "IFBB PRO CARDS",   cn: "职业卡发放" },
+  { big: "3", suf: "", tag: "OLYMPIA",          cn: "奥赛资格" },
+  { big: "1600", suf: "万+", tag: "DOUYIN VIEWS", cn: "抖音累计播放" },
 ];
 
 // 首排 3 张 (视觉主图 · 三栏大图)
@@ -42,12 +42,16 @@ const momentsRest = [
       <p class="lead">从器械到补剂，Change Pro 与全球顶级训练生态深度合作。</p>
     </div>
 
-    <div class="p__logos">
-      {partners.map((p) => (
-        <div class="logo reveal">
-          <img src={p.src} alt={p.name} loading="lazy"/>
-        </div>
-      ))}
+    <div class="p__logos-wrap">
+      <div class="p__logos-fade p__logos-fade--top"></div>
+      <div class="p__logos">
+        {partners.map((p) => (
+          <div class="logo reveal">
+            <img src={p.src} alt={p.name} loading="lazy"/>
+          </div>
+        ))}
+      </div>
+      <div class="p__logos-fade p__logos-fade--bottom"></div>
     </div>
 
     <!-- Change Cup -->
@@ -60,7 +64,9 @@ const momentsRest = [
     <div class="cup-stats">
       {cupStats.map((s, i) => (
         <div class="cstat reveal" style={`--delay: ${i * 80}ms`}>
-          <div class="cstat__big">{s.big}</div>
+          <div class="cstat__big" data-count={s.big}>
+            <span>{s.big}</span>{s.suf}
+          </div>
           <div class="cstat__tag">{s.tag}</div>
           <div class="cstat__cn">{s.cn}</div>
         </div>
@@ -93,29 +99,55 @@ const momentsRest = [
   .p__head .section-title-cn { margin-block: var(--space-5) var(--space-6); }
   .p__head .accent { color: var(--orange); }
 
-  /* 深灰 #313131 面板 + 内嵌白色 logo 卡片, 保证任意颜色 logo 都清晰可读 */
+  /* Logo 区域 · 深灰面板 + 上下渐变过渡 */
+  .p__logos-wrap {
+    position: relative;
+    margin-bottom: var(--space-10);
+  }
+  .p__logos-fade {
+    position: absolute;
+    left: 0; right: 0;
+    height: 80px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .p__logos-fade--top {
+    top: 0;
+    background: linear-gradient(to bottom, var(--white) 0%, transparent 100%);
+  }
+  .p__logos-fade--bottom {
+    bottom: 0;
+    background: linear-gradient(to top, var(--white) 0%, transparent 100%);
+  }
   .p__logos {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1px;
-    padding: 1px;
-    margin-bottom: var(--space-10);
-    background: #313131;
+    padding: 80px 1px;
+    background: #e8e8e8;
   }
   .logo {
     aspect-ratio: 5 / 3;
     display: grid; place-items: center;
     padding: var(--space-5);
-    background: var(--white);
-    transition: background 200ms var(--ease);
+    background: #252525;
+    border: 1px solid #333;
+    transition: background 220ms var(--ease), transform 350ms var(--ease), box-shadow 350ms var(--ease), border-color 220ms var(--ease);
   }
-  .logo:hover { background: var(--off-white); }
+  .logo:hover {
+    background: #333;
+    border-color: var(--orange);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.20);
+    z-index: 1;
+    position: relative;
+  }
   .logo img {
     max-width: 80%; max-height: 56px;
     object-fit: contain;
-    transition: transform 220ms var(--ease);
+    transition: transform 300ms var(--ease);
   }
-  .logo:hover img { transform: scale(1.04); }
+  .logo:hover img { transform: scale(1.06); }
   .logo:nth-child(7n) { border-right: 0; }
   .logo:nth-last-child(-n+7) { border-bottom: 0; }
 
@@ -169,6 +201,12 @@ const momentsRest = [
     overflow: hidden;
     background: var(--off-white);
     transition-delay: var(--delay, 0ms);
+    transition: transform 500ms var(--ease), box-shadow 500ms var(--ease);
+    border-radius: 2px;
+  }
+  .mcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
   }
   .mcard img {
     width: 100%;
@@ -176,19 +214,21 @@ const momentsRest = [
     display: block;
     transition: transform 500ms var(--ease);
   }
-  .mcard:hover img { transform: scale(1.02); }
+  .mcard:hover img { transform: scale(1.03); }
 
   @media (max-width: 1200px) {
     .p__logos { grid-template-columns: repeat(5, 1fr); }
   }
   @media (max-width: 900px) {
-    .p__logos { grid-template-columns: repeat(3, 1fr); }
+    .p__logos { grid-template-columns: repeat(3, 1fr); padding-block: 64px 1px; }
+    .p__logos-fade { height: 64px; }
     .cup-stats { grid-template-columns: repeat(2, 1fr); }
     .cup-top { grid-template-columns: 1fr; }
     .cup-rest { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
-    .p__logos { grid-template-columns: repeat(2, 1fr); }
+    .p__logos { grid-template-columns: repeat(2, 1fr); padding-block: 48px 1px; }
+    .p__logos-fade { height: 48px; }
     .logo { padding: var(--space-4); }
     .cup-stats { grid-template-columns: 1fr; gap: var(--space-5); padding-block: var(--space-6); }
     .cstat__big { font-size: 44px; white-space: normal; }

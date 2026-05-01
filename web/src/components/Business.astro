@@ -96,7 +96,17 @@ const timeline = [
     border-block: 1px solid var(--hairline);
     margin-bottom: var(--space-10);
   }
-  .engine { transition-delay: var(--delay, 0ms); }
+  .engine {
+    transition-delay: var(--delay, 0ms);
+    transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
+    padding: var(--space-5);
+    margin: calc(var(--space-5) * -1);
+    border-radius: 6px;
+  }
+  .engine:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.08);
+  }
   .engine__num {
     font-family: var(--font-display);
     font-weight: 900;
@@ -138,9 +148,13 @@ const timeline = [
     border-bottom: 1px solid var(--hairline);
     border-right: 1px solid var(--hairline);
     transition-delay: var(--delay, 0ms);
+    transition: background 250ms var(--ease), transform 350ms var(--ease);
+  }
+  .eco:hover {
+    background: var(--white);
+    transform: translateY(-3px);
   }
   .eco:nth-child(3n) { border-right: 0; }
-  .eco:nth-child(3n+1) { padding-left: 0; }
   .eco__tag {
     font-family: var(--font-display); font-size: var(--fs-eyebrow);
     font-weight: 700; letter-spacing: var(--ls-wide);
